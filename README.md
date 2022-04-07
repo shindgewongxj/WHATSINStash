@@ -1,2 +1,2 @@
-# Stash
+# WHATSINStash
 Personal Rules of Stash
