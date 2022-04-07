@@ -1,5 +1,5 @@
 name: Siri Suggestions
-desc: Enable Siri suggestions in Spotlight. 
+desc: Enable Siri suggestions in Spotlight and Look Up. 
 
 http:
   mitm:
