@@ -1,2 +1,2 @@
 # Stash
-Stash App
+Personal Rules of Stash
