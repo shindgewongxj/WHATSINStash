@@ -1,5 +1,5 @@
 name: Geo Services
-desc: 
+desc: Pass geo-detection.
 
 http:
   mitm:
