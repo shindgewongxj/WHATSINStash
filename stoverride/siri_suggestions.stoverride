@@ -1,0 +1,30 @@
+name: Siri Suggestions
+desc: Enable Siri suggestions in Spotlight and Look Up. 
+
+http:
+  mitm:
+    - "-cdn*.smoot.apple.com"
+    - "-fbs.smoot.apple.com"
+    - "*.smoot.apple.com"
+    - "*.smoot.apple.cn"
+  script:
+    - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/bag\?(.*)
+      name: Siri_Suggestions
+      type: request
+      require-body: false
+      timeout: 5
+    - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/search\?(.*)
+      name: Siri_Suggestions
+      type: request
+      require-body: false
+      timeout: 5
+    - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/card\?(.*)
+      name: Siri_Suggestions
+      type: request
+      require-body: false
+      timeout: 5
+
+script-providers:
+  Siri_Suggestions:
+    url: https://github.com/shindgewongxj/Stash/blob/main/siri_suggestions.js
+    interval: 86400
