@@ -1,2 +1,2 @@
 # WHATSINStash
-Personal Rules of Stash
+Personal Config of Stash
