@@ -1,5 +1,5 @@
 name: ADBlock
-desc: ADBlock Rewrite
+desc: Block Advertisements
 
 http:
   force-http-engine: 
