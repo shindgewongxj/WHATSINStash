@@ -1,5 +1,5 @@
 name: ADBlock
-desc: Block Advertisements
+desc: Block Advertisements.
 
 http:
   force-http-engine: 
