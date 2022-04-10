@@ -1,111 +1,181 @@
 proxies:
 
 proxy-groups:
-- name: PROXY
-  type: select
-  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png
-  proxies:{}
-    
-- name: FINAL
-  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+- name: XMRth
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/auto.png
   type: select
   proxies:
-    - PROXY
-    - DIRECT
-
+  - 'US B 001'
+  - 'US B 002'
+  - 'US B 003'
+  - 'US B 004'
+- name: Bypass
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bypass.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: Direct
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/direct.png
+  type: select
+  proxies:
+  - DIRECT
+- name: Final
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/final.png
+  type: select
+  proxies:
+  - Proxy
+- name: Proxy
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/proxy.png
+  type: select
+  proxies:
+  - XMRth
+- name: Reject
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/reject.png
+  type: select
+  proxies:
+  - REJECT
 - name: Apple
-  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/apple.png
   type: select
   proxies:
-    - PROXY
-    - DIRECT
-
-- name: Telegram
-  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+  - Proxy
+  - DIRECT
+- name: BBC iPlayer
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bbc_iplayer.png
   type: select
   proxies:
-    - PROXY
-    - DIRECT
-  url: http://cp.cloudflare.com/generate_204
-
+  - Proxy
+  - DIRECT
+- name: Bilibili
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bilibili.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: Disney+
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/disney+.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: ESPN+
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/espn+.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
 - name: Google
-  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/google.png
   type: select
   proxies:
-    - PROXY
-    - DIRECT
-
-
-- name: Global Media
-  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+  - Proxy
+  - DIRECT
+- name: HBO
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/hbo.png
   type: select
   proxies:
-    - PROXY
-    - DIRECT
-
-- name: US
-  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+  - Proxy
+  - DIRECT
+- name: Hulu
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/hulu.png
   type: select
   proxies:
-    - XMRth
-    - DIRECT
-
-
+  - Proxy
+  - DIRECT
+- name: iTV
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/itv.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: Meta
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/meta.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: Microsoft
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/microsoft.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: Netflix
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/netflix.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: Paramount
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/paramount.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: Prime Video
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/prime_video.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: Telegram
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/telegram.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+  url: http://cp.cloudflare.com/generate_204
+- name: TikTok
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/tiktok.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
 rule-providers:
-  telegram:
+  direct:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+  reject:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+  applications:
     type: http
     behavior: classical
-    interval: 86400
-    url: https://cdn.jsdelivr.net/gh/fantasticmao/clash-rules@main/telegramcidr.yaml
-    path: ./ruleset/telegram.yaml
-  cncidr:
-    type: http
-    behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
-    path: ./ruleset/cncidr.yaml
-    interval: 86400
-  lancidr:
-    type: http
-    behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
-    path: ./ruleset/lancidr.yaml
-    interval: 86400
-  google:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
-    path: ./ruleset/google.yaml
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt"
+    path: ./ruleset/applications.yaml
     interval: 86400
   apple:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml"
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
     path: ./ruleset/apple.yaml
     interval: 86400
-  global_media:
+  telegramcidr:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia.yaml"
-    path: ./ruleset/global_media.yaml
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
     interval: 86400
-  advertising_domain:
-    behavior: classical
-    interval: 86400
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Domain.yaml
-  advertising:
-    behavior: classical
-    interval: 86400
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising.yaml
-
-
 rules:
-- RULE-SET,advertising,REJECT
-- DOMAIN,advertising_domain,REJECT
-- RULE-SET,apple,Apple
-- RULE-SET,telegram,Telegram
-- RULE-SET,google,Google
-- RULE-SET,cncidr,DIRECT
-- RULE-SET,lancidr,DIRECT,
-- RULE-SET,global_media,Global Media
-- GEOIP,CN,DIRECT
-- MATCH,FINAL
+  - RULE-SET,direct,Direct
+  - RULE-SET,proxy,Proxy
+  - RULE-SET,reject,Reject
+  - RULE-SET,applications,Direct
+  - RULE-SET,apple,Apple
+  - RULE-SET,telegramcidr,Telegram
+  - GEOIP,LAN,Direct
+  - GEOIP,CN,Direct
+  - MATCH,Final
