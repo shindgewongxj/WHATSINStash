@@ -39,8 +39,8 @@ http:
 
 script-providers:
   Siri.request:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Siri.request.js
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/siri_request.js
     interval: 86400
   Siri.response:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Siri.response.js
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/siri_response.js
     interval: 86400
