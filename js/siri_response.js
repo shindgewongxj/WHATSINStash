@@ -1,6 +1,3 @@
-/*
-README:https://github.com/VirgilClyne/iRingo
-*/
 const $ = new Env("Apple Siri v2.0.0-beta");
 const URL = new URLSearch();
 const DataBase = {
