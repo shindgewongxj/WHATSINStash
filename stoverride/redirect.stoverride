@@ -1,5 +1,5 @@
 name: Redirect
-desc: Redirect HTTPS
+desc: Redirect HTTPS.
 
 http:
   mitm:
