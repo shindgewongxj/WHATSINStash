@@ -1,32 +1,103 @@
-proxies:
-
-proxy-groups:
+- name: Auto
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/auto.png
+  type: select
+  proxies:
+  - Africa
+  - America
+  - Asia
+  - Europe
+  - Oceania
+  - DIRECT
 - name: Bypass
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bypass.png
   type: select
   proxies:
-  - Proxy
+  - Africa
+  - America
+  - Asia
+  - Europe
+  - Oceania
+  - DIRECT
+- name: Game
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/game.png
+  type: select
+  proxies:
+  - Africa
+  - America
+  - Asia
+  - Europe
+  - Oceania
+  - DIRECT
+- name: Streaming
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/streaming.png
+  type: select
+  proxies:
+  - Africa
+  - America
+  - Asia
+  - Europe
+  - Oceania
   - DIRECT
 - name: Direct
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/direct.png
   type: select
   proxies:
   - DIRECT
-- name: Final
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/final.png
-  type: select
-  proxies:
-  - Proxy
-- name: Proxy
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/proxy.png
-  type: select
-  proxies:
-  - XMRth
 - name: Reject
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/reject.png
   type: select
   proxies:
   - REJECT
+- name: Final
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/final.png
+  type: select
+  proxies:
+  - Proxy
+- name: Beta
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/lab.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: Africa
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/africa.png
+  type: select
+  proxies:
+  - 'UK'
+- name: America
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/america.png
+  type: select
+  proxies:
+  - 'US 1'
+  - 'US 2'
+  - 'US 3'
+  - 'US 4'
+- name: Asia
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/asia.png
+  type: select
+  proxies:
+  - 'HK'
+- name: Europe
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/europe.png
+  type: select
+  proxies:
+  - 'UK'
+- name: Oceania
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/oceania.png
+  type: select
+  proxies:
+  - 'HK'
+- name: Worldwide
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/worldwide.png
+  type: select
+  proxies:
+  - 'AU'
+  - 'HK'
+  - 'UK'
+  - 'US 1'
+  - 'US 2'
+  - 'US 3'
+  - 'US 4'
 - name: Apple
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/apple.png
   type: select
@@ -37,26 +108,23 @@ proxy-groups:
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bbc_iplayer.png
   type: select
   proxies:
-  - Proxy
-  - DIRECT
+  - Streaming
 - name: Bilibili
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bilibili.png
   type: select
   proxies:
-  - Proxy
+  - Streaming
   - DIRECT
 - name: Disney+
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/disney+.png
   type: select
   proxies:
-  - Proxy
-  - DIRECT
+  - Streaming
 - name: ESPN+
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/espn+.png
   type: select
   proxies:
-  - Proxy
-  - DIRECT
+  - Streaming
 - name: Google
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/google.png
   type: select
@@ -67,20 +135,17 @@ proxy-groups:
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/hbo.png
   type: select
   proxies:
-  - Proxy
-  - DIRECT
+  - Streaming
 - name: Hulu
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/hulu.png
   type: select
   proxies:
-  - Proxy
-  - DIRECT
+  - Streaming
 - name: iTV
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/itv.png
   type: select
   proxies:
-  - Proxy
-  - DIRECT
+  - Streaming
 - name: Meta
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/meta.png
   type: select
@@ -97,16 +162,24 @@ proxy-groups:
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/netflix.png
   type: select
   proxies:
-  - Proxy
-  - DIRECT
+  - Streaming
 - name: Paramount
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/paramount.png
   type: select
   proxies:
-  - Proxy
-  - DIRECT
+  - Streaming
+- name: Peacock
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/peacock.png
+  type: select
+  proxies:
+  - Streaming
 - name: Prime Video
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/prime_video.png
+  type: select
+  proxies:
+  - Streaming
+- name: Steam
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/steam.png
   type: select
   proxies:
   - Proxy
@@ -117,9 +190,20 @@ proxy-groups:
   proxies:
   - Proxy
   - DIRECT
-  url: http://cp.cloudflare.com/generate_204
 - name: TikTok
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/tiktok.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: Twitch
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/twitch.png
+  type: select
+  proxies:
+  - Proxy
+  - DIRECT
+- name: Twitter
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/twitter.png
   type: select
   proxies:
   - Proxy
