@@ -1,5 +1,5 @@
 name: Weather
-desc: Enable Weather AQI.
+desc: Enable Weather AQI of US Source.
 
 http:
   mitm:
