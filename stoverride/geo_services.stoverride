@@ -1,17 +1,17 @@
-name: Geo Services
-desc: Pass geo-detection.
+name: Geography
+desc: Pass geography detection.
 
 http:
   mitm:
     - "gspe1-ssl.ls.apple.com"
   script:
     - match: ^https?:\/\/gspe\d*-ssl\.ls\.apple\.com(\/pep\/gcc)
-      name: Geo_Services
+      name: Geography
       type: request
       require-body: false
       timeout: 10
 
 script-providers:
-  Geo_Services:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/geo_services.js
+  Geography:
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/geography.js
     interval: 86400
