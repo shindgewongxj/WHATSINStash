@@ -1,6 +1,11 @@
-const $ = new Env("Apple Weather v2.3.0");
+/*
+README:https://github.com/VirgilClyne/iRingo
+*/
+
+const $ = new Env("Apple Weather v2.3.1");
 const DataBase = {
-	Settings: {"Weather":{"Mode":"WAQI Public","Location":"Station","Verify":{"Mode":"Token","Content":null},"Scale":"EPA_NowCast.2201"}}
+	"Weather":{"Switch":true,"Mode":"WAQI Public","Location":"Station","Verify":{"Mode":"Token","Content":null},"Scale":"EPA_NowCast.2201"},
+	"Siri":{"Switch":true,"CountryCode":"TW","Domains":["web","itunes","app_store","movies","restaurants","maps"],"Functions":["flightutilities","lookup","mail","messages","news","safari","siri","spotlight","visualintelligence"],"Safari_Smart_History":true}
 };
 const { url } = $request;
 let { body } = $response;
@@ -50,11 +55,11 @@ let { body } = $response;
  * Set Environment Variables
  * @author VirgilClyne
  * @param {String} t - Persistent Store Key
- * @param {String} e - Request URL
- * @param {Object} s - Default DataBase
+ * @param {String} i - Request URL
+ * @param {Object} e - Default DataBase
  * @return {Promise<*>}
  */
-async function setENV(t,e,s){const i=/weather-(.*)\.apple\.com/i.test(e)?"Weather":/smoot\.apple\.com/i.test(e)?"Siri":(/\.apple\.com/i.test(e),"Apple");let n=$.getjson(t,s),p=n?.Settings?.[i]||n?.Apple?.[i]||s.Settings[i];if("undefined"!=typeof $argument){let t=Object.fromEntries($argument.split("&").map((t=>t.split("="))));Object.assign(p,t)}return{Platform:i,Settings:p}}
+async function setENV(t,i,e){const s=/weather-(.*)\.apple\.com/i.test(i)?"Weather":/smoot\.apple\.(com|cn)/i.test(i)?"Siri":(/\.apple\.com/i.test(i),"Apple");let a=$.getjson(t,e),n=a?.[s]||a?.Settings?.[s]||a?.Apple?.[s]||e[s];if("undefined"!=typeof $argument){let t=Object.fromEntries($argument.split("&").map((t=>t.split("="))));Object.assign(n,t)}return n.Switch=JSON.parse(n.Switch),n.Domains=n?.Domains?.split(",")||n?.Domains,n.Functions=n?.Functions?.split(",")||n?.Functions,n?.Safari_Smart_History&&(n.Safari_Smart_History=JSON.parse(n.Safari_Smart_History)),{Platform:s,Settings:n}}
 
 /**
  * Get Origin Parameter
