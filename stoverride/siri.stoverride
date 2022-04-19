@@ -9,22 +9,22 @@ http:
     - "*.smoot.apple.cn"
   script:
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/bag\?(.*)
-      name: Siri_Suggestions
+      name: Siri
       type: request
       require-body: false
       timeout: 5
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/search\?(.*)
-      name: Siri_Suggestions
+      name: Siri
       type: request
       require-body: false
       timeout: 5
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/card\?(.*)
-      name: Siri_Suggestions
+      name: Siri
       type: request
       require-body: false
       timeout: 5
 
 script-providers:
-  Siri_Suggestions:
+  Siri:
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/siri_suggestions.js
     interval: 86400
