@@ -1,5 +1,5 @@
 name: Maps
-desc: Redirct to Apple Maps US. 
+desc: Redirct to Maps US. 
 
 http:
   mitm:
