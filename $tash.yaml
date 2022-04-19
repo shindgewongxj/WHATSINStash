@@ -1,14 +1,6 @@
 proxies:
 
 proxy-groups:
-- name: XMRth
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/auto.png
-  type: select
-  proxies:
-  - 'US B 001'
-  - 'US B 002'
-  - 'US B 003'
-  - 'US B 004'
 - name: Bypass
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bypass.png
   type: select
