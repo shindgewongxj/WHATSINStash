@@ -1,5 +1,5 @@
 name: TV
-desc: Enable Apple TV.
+desc: Enable Apple TV category.
 
 http:
   mitm:
