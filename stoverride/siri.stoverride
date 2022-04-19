@@ -3,10 +3,8 @@ desc: Enable Siri functions.
 
 http:
   mitm:
-    - "-cdn*.smoot.apple.com"
-    - "-fbs.smoot.apple.com"
-    - "*.smoot.apple.com"
-    - "*.smoot.apple.cn"
+    - "api*.smoot.apple.com"
+    - "api*.smoot.apple.cn"
   script:
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/bag\?(.*)
       name: Siri
@@ -23,6 +21,7 @@ http:
       type: request
       require-body: false
       timeout: 5
+
 
 script-providers:
   Siri:
