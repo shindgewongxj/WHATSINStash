@@ -1,57 +1,57 @@
 name: TV
-desc: Enable Apple TV category.
+desc: Enable TV category.
 
 http:
   mitm:
     - "uts-api.itunes.apple.com"
   script:
     - match: https?:\/\/uts-api\.itunes\.apple\.com\/uts\/(v1|v2|v3)\/configurations\?.*
-      name: Apple_TV
+      name: TV
       type: response
       require-body: true
       timeout: 10
     - match: ^https?:\/\/uts-api\.itunes\.apple\.com\/uts\/(v1|v2|v3)\/canvases\/Roots\/(watchNow|tahoma_watchnow|movies|tv|sports|kids)\?.*
-      name: Apple_TV
+      name: TV
       type: request
       require-body: false
       timeout: 10
     - match: ^https?:\/\/uts-api\.itunes\.apple\.com(\/uts\/)(v1|v2|v3)\/shelves\/uts.col.UpNext.*
-      name: Apple_TV
+      name: TV
       type: request
       require-body: false
       timeout: 10
     - match: ^https?:\/\/uts-api\.itunes\.apple\.com(\/uts\/)(v1|v2|v3)\/brands\?.*
-      name: Apple_TV
+      name: TV
       type: request
       require-body: false
       timeout: 10
     - match: ^https?:\/\/uts-api\.itunes\.apple\.com(\/uts\/)(v1|v2|v3)\/playables.*
-      name: Apple_TV
+      name: TV
       type: request
       require-body: false
       timeout: 10
     - match: ^https?:\/\/uts-api\.itunes\.apple\.com(\/uts\/)(v1|v2|v3)\/favorites\?.*
-      name: Apple_TV
+      name: TV
       type: request
       require-body: false
       timeout: 10
     - match: ^https?:\/\/uts-api\.itunes\.apple\.com(\/uts\/)(v1|v2|v3)\/watchlist.*
-      name: Apple_TV
+      name: TV
       type: request
       require-body: false
       timeout: 10
     - match: ^https?:\/\/uts-api\.itunes\.apple\.com\/uts\/(v1|v2|v3)\/favorites\/(add|remove).*
-      name: Apple_TV
+      name: TV
       type: request
       require-body: true
       timeout: 10
     - match: ^https?:\/\/uts-api\.itunes\.apple\.com(\/uts\/)(v1|v2|v3)\/view\/product\/.*
-      name: Apple_TV
+      name: TV
       type: request
       require-body: false
       timeout: 10
 
 script-providers:
-  Apple_TV:
+  TV:
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/tv.js
     interval: 86400
