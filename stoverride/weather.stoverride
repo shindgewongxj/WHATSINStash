@@ -6,18 +6,18 @@ http:
     - "weather-data.apple.com"
   script:
     - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/weather.*(?!dataSets=forecastNextHour)(include=.*air_quality.*|dataSets=.*airQuality.*).*(country=[A-Z]{2})?.*
-      name: Apple_Weather
+      name: Weather
       type: response
       require-body: true
       timeout: 10
     - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/availability\/.*
-      name: Apple_Weather
+      name: Weather
       type: response
       require-body: true
       timeout: 10
 
 
 script-providers:
-  Apple_Weather:
+  Weather:
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather.js
     interval: 86400
