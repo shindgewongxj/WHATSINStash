@@ -1,0 +1,28 @@
+#!name= Weather Beta
+#!desc= Weather Beta.
+
+http:
+  mitm:
+    - "weather-data.apple.com"
+    - "api.waqi.info"
+    - "www.weatherol.cn"
+    - "api.caiyunapp.com"
+  script:
+    - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/availability\/.*
+      name: Apple_Weather_Availability
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/weather\/.*
+      name: Apple_Weather
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers:
+  Apple_Weather_Availability:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Weather.Availability.beta.js
+    interval: 86400
+  Apple_Weather:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Weather.beta.js
+    interval: 86400
