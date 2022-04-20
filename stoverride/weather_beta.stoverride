@@ -1,5 +1,5 @@
-#!name= Weather Beta
-#!desc= Weather Beta.
+name= Weather Beta
+desc= Weather Beta.
 
 http:
   mitm:
