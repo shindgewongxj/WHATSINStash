@@ -1,7 +1,3 @@
-/*
-README:https://github.com/VirgilClyne/iRingo
-*/
-
 const $ = new Env("Apple Weather Availability v3.0.0-beta");
 const DataBase = {
 	"Weather":{"Switch":true,"Mode":"WAQI Public","Location":"Station","Verify":{"Mode":"Token","Content":null},"Scale":"EPA_NowCast.2201"},
