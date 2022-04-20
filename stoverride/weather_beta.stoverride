@@ -21,8 +21,8 @@ http:
 
 script-providers:
   Apple_Weather_Availability:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Weather.Availability.beta.js
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather_availability.js
     interval: 86400
   Apple_Weather:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Weather.beta.js
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather_beta.js
     interval: 86400
