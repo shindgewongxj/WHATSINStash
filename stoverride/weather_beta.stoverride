@@ -1,5 +1,5 @@
 name: Weather Beta
-desc: Weather Beta.
+desc: Weather beta.
 
 http:
   mitm:
