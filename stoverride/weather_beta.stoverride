@@ -23,6 +23,6 @@ script-providers:
   Weather_Availability:
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather_availability.js
     interval: 86400
-  Weather_beta:
+  Weather_Beta:
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather_beta.js
     interval: 86400
