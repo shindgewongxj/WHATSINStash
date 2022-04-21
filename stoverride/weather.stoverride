@@ -1,5 +1,5 @@
 name: Weather
-desc: Enable Weather functions.
+desc: Enable some Weather functions.
 
 http:
   mitm:
@@ -7,7 +7,7 @@ http:
     - "weather-map.apple.com"
   script:
     - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/availability\/.*
-      name: Availability
+      name: WeatherAvailability
       type: response
       require-body: true
       timeout: 10
@@ -17,18 +17,18 @@ http:
       require-body: true
       timeout: 10
     - match: ^https?:\/\/weather-map\.apple\.com\/(v1|v2)\/mapOverlay\/.*(\?.*country=CN.*)
-      name: Map
+      name: WeatherMap
       type: request
       require-body: false
       timeout: 10
 
 script-providers:
-  Availability:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/availability.js
+  WeatherAvailability:
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather_availability.js
     interval: 86400
   Weather:
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather.js
     interval: 86400
-  Map:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/map.js
+  WeatherMap:
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather_map.js
     interval: 86400
