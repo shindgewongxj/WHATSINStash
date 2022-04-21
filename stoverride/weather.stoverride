@@ -1,23 +1,34 @@
 name: Weather
-desc: Use US AQI scale of Weather.
+desc: Enable Weather functions.
 
 http:
   mitm:
     - "weather-data.apple.com"
+    - "weather-map.apple.com"
   script:
-    - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/weather.*(?!dataSets=forecastNextHour)(include=.*air_quality.*|dataSets=.*airQuality.*).*(country=[A-Z]{2})?.*
-      name: Weather
-      type: response
-      require-body: true
-      timeout: 10
     - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/availability\/.*
+      name: Availability
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/weather\/.*
       name: Weather
       type: response
       require-body: true
       timeout: 10
-
+    - match: ^https?:\/\/weather-map\.apple\.com\/(v1|v2)\/mapOverlay\/.*(\?.*country=CN.*)
+      name: Map
+      type: request
+      require-body: false
+      timeout: 10
 
 script-providers:
+  Availability:
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/availability.js
+    interval: 86400
   Weather:
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather.js
+    interval: 86400
+  Map:
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/map.js
     interval: 86400
