@@ -57,6 +57,7 @@ let { body } = $response;
                     // TODO
                     headers = undefined,
                     input = { token: Token, lat: Parameter.lat, lng: Parameter.lng },
+                    paramLang = Parameter.language,
                     // TODO: compare yestarday AQI
                 );
 
