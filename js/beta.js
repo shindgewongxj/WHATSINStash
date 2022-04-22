@@ -61,7 +61,7 @@ let { body } = $response;
                     // TODO: compare yestarday AQI
                 );
 
-                $.log(`🚧 ${$.name}, type: ${JSON.stringify(returnedData)}`, "");
+                // $.log(`🚧 ${$.name}, type: ${returnedData}`, "");
 
                 // Empty for URL
                 var Station = { now: { country: "" } };
