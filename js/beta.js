@@ -321,7 +321,6 @@ async function ColorfulClouds(
     },
     // Colorful Clouds example token
     input = { lat: 0, lng: 0, token: "TAkhjf8d1nlSlspN" },
-    paramLang = "us"
     timestamp = null,
 ) {
     // $.log(`🚧 ${$.name}, input = ${JSON.stringify(input)}`, "");
