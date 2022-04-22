@@ -43,7 +43,7 @@ let { body } = $response;
                 // Although I don't know why not use `===`
             // } else if (Settings.Mode == "WAQI Public") {
                 $.log(`🚧 ${$.name}, 工作模式: 彩云天气私有API`, "");
-                const Token = Settings?.Verify?.Content;
+                const Token = Settings?.AQI?.Auth;
                 // $.log(`🚧 ${$.name}, token = ${Token}`, "");
                 // TODO
                 // const Headers = Settings?.ColorfulClouds?.Headers;
