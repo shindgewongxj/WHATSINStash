@@ -8,7 +8,7 @@
   - Europe
   - Oceania
   - DIRECT
-  url: http://cp.cloudflare.com/generate_204
+  url: http://www.gstatic.com/generate_204
   interval: 300
 - name: Bypass
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bypass.png
@@ -31,6 +31,8 @@
   - Europe
   - Oceania
   - DIRECT
+  url: http://www.gstatic.com/generate_204
+  interval: 300
 - name: Game
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/game.png
   type: select
