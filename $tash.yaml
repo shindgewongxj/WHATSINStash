@@ -1,5 +1,17 @@
 - name: Auto
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/auto.png
+  type: url-test
+  proxies:
+  - Africa
+  - America
+  - Asia
+  - Europe
+  - Oceania
+  - DIRECT
+  url: http://cp.cloudflare.com/generate_204
+  interval: 300
+- name: Bypass
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bypass.png
   type: select
   proxies:
   - Africa
@@ -8,9 +20,10 @@
   - Europe
   - Oceania
   - DIRECT
-- name: Bypass
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bypass.png
-  type: select
+- LoadBalance
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/round_robin.png
+  type: load-balance
+  strategy: consistent-hashing
   proxies:
   - Africa
   - America
