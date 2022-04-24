@@ -53,5 +53,5 @@ http:
 
 script-providers:
   TV:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/js/tv/js
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/js/tv.js
     interval: 86400
