@@ -1,4 +1,4 @@
- name: TV
+name: TV
 desc: Enable TV category.
 
 http:
