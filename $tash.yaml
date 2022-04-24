@@ -103,7 +103,7 @@
   proxies:
   - 'HK'
 - name: Worldwide
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/worldwide.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/world.png
   type: select
   proxies:
   - 'AU'
