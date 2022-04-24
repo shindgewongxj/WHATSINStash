@@ -4,29 +4,29 @@ README:https://github.com/VirgilClyne/iRingo
 
 const $ = new Env("Apple Weather Availability v1.0.0");
 const DataBase = {
-	"Weather":{"Switch":true,"NextHour":{"Switch":true},"AQI":{"Switch":true,"Mode":"WAQI Public","Location":"Station","Auth":null,"Scale":"EPA_NowCast.2201"},"Map":{"AQI":true}},
-	"Siri":{"Switch":true,"CountryCode":"TW","Domains":["web","itunes","app_store","movies","restaurants","maps"],"Functions":["flightutilities","lookup","mail","messages","news","safari","siri","spotlight","visualintelligence"],"Safari_Smart_History":true}
+    "Weather":{"Switch":true,"NextHour":{"Switch":true},"AQI":{"Switch":true,"Mode":"WAQI Public","Location":"Station","Auth":null,"Scale":"EPA_NowCast.2201"},"Map":{"AQI":false}},
+    "Siri":{"Switch":true,"CountryCode":"TW","Domains":["web","itunes","app_store","movies","restaurants","maps"],"Functions":["flightutilities","lookup","mail","messages","news","safari","siri","spotlight","visualintelligence"],"Safari_Smart_History":true}
 };
 const { url } = $request;
 let { status, statusCode, body } = $response;
 
 /***************** Processing *****************/
 !(async () => {
-	const Settings = await setENV("iRingo", "Weather", DataBase);
-	if (Settings.Switch) {
-		$.log(`🎉 ${$.name}, 可用性检查`, "");
-		const availability = ["currentWeather", "forecastDaily", "forecastHourly", "history", "weatherChange", "forecastNextHour", "severeWeather", "airQuality"];
-		let data = "";
-		if (statusCode == 200 || status == 200) {
-			data = JSON.parse(body);
-			data = Array.from(new Set([...data, ...availability]));
-		} else data = availability
-		$.log(`🎉 ${$.name}, 功能列表`, JSON.stringify(data), "");
-		body = JSON.stringify(data);
-	}
+    const Settings = await setENV("iRingo", "Weather", DataBase);
+    if (Settings.Switch) {
+        $.log(`🎉 ${$.name}, 可用性检查`, "");
+        const availability = ["currentWeather", "forecastDaily", "forecastHourly", "history", "weatherChange", "forecastNextHour", "severeWeather", "airQuality"];
+        let data = "";
+        if (statusCode == 200 || status == 200) {
+            data = JSON.parse(body);
+            data = Array.from(new Set([...data, ...availability]));
+        } else data = availability
+        $.log(`🎉 ${$.name}, 功能列表`, JSON.stringify(data), "");
+        body = JSON.stringify(data);
+    }
 })()
-	.catch((e) => $.logErr(e))
-	.finally(() => $.done({ body }))
+    .catch((e) => $.logErr(e))
+    .finally(() => $.done({ body }))
 
 /***************** Async Function *****************/
 /**
@@ -38,16 +38,16 @@ let { status, statusCode, body } = $response;
  * @return {Promise<*>}
  */
 async function setENV(name, platform, database) {
-	$.log(`⚠ ${$.name}, Set Environment Variables`, "");
-	let Settings = await getENV(name, platform, database);
-	/***************** Prase *****************/
-	Settings.Switch = JSON.parse(Settings.Switch) // BoxJs字符串转Boolean
-	Settings.NextHour.Switch = JSON.parse(Settings.NextHour.Switch) // BoxJs字符串转Boolean
-	Settings.AQI.Switch = JSON.parse(Settings.AQI.Switch) // BoxJs字符串转Boolean
-	Settings.Map.AQI = JSON.parse(Settings.Map.AQI) // BoxJs字符串转Boolean
-	$.log(`🎉 ${$.name}, Set Environment Variables`, `Settings: ${typeof Settings}`, `Settings内容: ${JSON.stringify(Settings)}`, "");
-	return Settings
-	async function getENV(t,e,n){let i=$.getjson(t,n),s=i?.[e]||i?.Settings?.[e]||n[e];if("undefined"!=typeof $argument){let t=Object.fromEntries($argument.split("&").map((t=>t.split("="))));Object.assign(s,t)}return s}
+    $.log(`⚠ ${$.name}, Set Environment Variables`, "");
+    let Settings = await getENV(name, platform, database);
+    /***************** Prase *****************/
+    Settings.Switch = JSON.parse(Settings.Switch) // BoxJs字符串转Boolean
+    Settings.NextHour.Switch = JSON.parse(Settings.NextHour.Switch) // BoxJs字符串转Boolean
+    Settings.AQI.Switch = JSON.parse(Settings.AQI.Switch) // BoxJs字符串转Boolean
+    Settings.Map.AQI = JSON.parse(Settings.Map.AQI) // BoxJs字符串转Boolean
+    $.log(`🎉 ${$.name}, Set Environment Variables`, `Settings: ${typeof Settings}`, `Settings内容: ${JSON.stringify(Settings)}`, "");
+    return Settings
+    async function getENV(t,e,n){let i=$.getjson(t,n),r=i?.[e]||i?.Settings?.[e]||n[e];if("undefined"!=typeof $argument){if($argument){let t=Object.fromEntries($argument.split("&").map((t=>t.split("=")))),e={};for(var s in t)f(e,s,t[s]);Object.assign(r,e)}function f(t,e,n){e.split(".").reduce(((t,i,r)=>t[i]=e.split(".").length===++r?n:t[i]||{}),t)}}return r}
 };
 
 /***************** Env *****************/

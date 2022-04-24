@@ -7,7 +7,7 @@ http:
     - "weather-map.apple.com"
   script:
     - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/availability\/.*
-      name: WeatherAvailability
+      name: Availability
       type: response
       require-body: true
       timeout: 10
@@ -15,20 +15,20 @@ http:
       name: Weather
       type: response
       require-body: true
-      timeout: 10
+      timeout: 20
     - match: ^https?:\/\/weather-map\.apple\.com\/(v1|v2)\/mapOverlay\/.*(\?.*country=CN.*)
-      name: WeatherMap
+      name: Map
       type: request
       require-body: false
       timeout: 10
 
 script-providers:
-  WeatherAvailability:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather_availability.js
+  Availability:
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/availability.js
     interval: 86400
   Weather:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/beta.js
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather.js
     interval: 86400
-  WeatherMap:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather_map.js
+  Map:
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/map.js
     interval: 86400

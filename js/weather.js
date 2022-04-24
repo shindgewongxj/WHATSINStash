@@ -2,75 +2,77 @@
 README:https://github.com/VirgilClyne/iRingo
 */
 
-const $ = new Env("Apple Weather AQI v3.0.0");
+const $ = new Env("Apple Weather AQI v3.2.0");
 const URL = new URLSearch();
 const DataBase = {
-	"Weather":{"Switch":true,"NextHour":{"Switch":true},"AQI":{"Switch":true,"Mode":"WAQI Public","Location":"Station","Auth":null,"Scale":"EPA_NowCast.2201"},"Map":{"AQI":true}},
-	"Siri":{"Switch":true,"CountryCode":"TW","Domains":["web","itunes","app_store","movies","restaurants","maps"],"Functions":["flightutilities","lookup","mail","messages","news","safari","siri","spotlight","visualintelligence"],"Safari_Smart_History":true}
+    "Weather":{"Switch":true,"NextHour":{"Switch":true},"AQI":{"Switch":true,"Mode":"WAQI Public","Location":"Station","Auth":null,"Scale":"EPA_NowCast.2201"},"Map":{"AQI":false}},
+    "Siri":{"Switch":true,"CountryCode":"TW","Domains":["web","itunes","app_store","movies","restaurants","maps"],"Functions":["flightutilities","lookup","mail","messages","news","safari","siri","spotlight","visualintelligence"],"Safari_Smart_History":true}
 };
 var { url } = $request;
 var { body } = $response;
 
 /***************** Processing *****************/
 !(async () => {
-	const Settings = await setENV("iRingo", "Weather", DataBase);
-	if (Settings.Switch) {
-		url = URL.parse(url);
-		const Params = await getParams(url.path);
-		let data = JSON.parse(body);
-		const Status = await getStatus(data);
-		// AQI
-		if (Settings.AQI.Switch) {
-			if (url.params?.include?.includes("air_quality") || url.params?.dataSets?.includes("airQuality")) {
-				if (Status == true) {
-					$.log(`🎉 ${$.name}, 需要替换AQI`, "");
-					if (Settings.AQI.Mode == "WAQI Public") {
-						$.log(`🚧 ${$.name}, 工作模式: waqi.info 公共API`, "")
-						var { Station, idx } = await WAQI("Nearest", { api: Params.ver, lat: Params.lat, lng: Params.lng });
-						const Token = await WAQI("Token", { idx: idx });
-						//var NOW = await WAQI("NOW", { token:Token, idx: idx });
-						var AQI = await WAQI("AQI", { token: Token, idx: idx });
-					} else if (Settings.AQI.Mode == "WAQI Private") {
-						$.log(`🚧 ${$.name}, 工作模式: waqi.info 私有API`, "")
-						const Token = Settings.AQI.Auth;
-						if (Settings.AQI.Location == "Station") {
-							$.log(`🚧 ${$.name}, 定位精度: 观测站`, "")
-							var { Station, idx } = await WAQI("Nearest", { api: Params.ver, lat: Params.lat, lng: Params.lng });
-							var AQI = await WAQI("StationFeed", { token: Token, idx: idx });
-						} else if (Settings.AQI.Location == "City") {
-							$.log(`🚧 ${$.name}, 定位精度: 城市`, "")
-							var AQI = await WAQI("CityFeed", { token: Token, lat: Params.lat, lng: Params.lng });
-						}
-					};
-					data = await outputAQI(Params.ver, Station, AQI, data, Settings);
-				} else $.log(`🎉 ${$.name}, 无须替换, 跳过`, "");
-			}
-		};
-		// NextHour
-		if (Settings.NextHour.Switch) {
-			if (url.params?.dataSets?.includes("forecastNextHour")) {
-				if (!data?.forecastNextHour?.metadata?.providerName) {
-					$.log(`🚧 ${$.name}, 没有下一小时降水强度信息, `,
-						`providerName = ${data?.forecastNextHour?.providerName}`, "");
+    const Settings = await setENV("iRingo", "Weather", DataBase);
+    if (Settings.Switch) {
+        url = URL.parse(url);
+        const Params = await getParams(url.path);
+        let data = JSON.parse(body);
+        const Status = await getStatus(data);
+        // AQI
+        if (Settings.AQI.Switch) {
+            if (url.params?.include?.includes("air_quality") || url.params?.dataSets?.includes("airQuality")) {
+                if (Status == true) {
+                    $.log(`🎉 ${$.name}, 需要替换AQI`, "");
+                    if (Settings.AQI.Mode == "WAQI Public") {
+                        $.log(`🚧 ${$.name}, 工作模式: waqi.info 公共API`, "")
+                        var { Station, idx } = await WAQI("Nearest", { api: Params.ver, lat: Params.lat, lng: Params.lng });
+                        const Token = await WAQI("Token", { idx: idx });
+                        //var NOW = await WAQI("NOW", { token:Token, idx: idx });
+                        var AQI = await WAQI("AQI", { token: Token, idx: idx });
+                    } else if (Settings.AQI.Mode == "WAQI Private") {
+                        $.log(`🚧 ${$.name}, 工作模式: waqi.info 私有API`, "")
+                        const Token = Settings.AQI.Auth;
+                        if (Settings.AQI.Location == "Station") {
+                            $.log(`🚧 ${$.name}, 定位精度: 观测站`, "")
+                            var { Station, idx } = await WAQI("Nearest", { api: Params.ver, lat: Params.lat, lng: Params.lng });
+                            var AQI = await WAQI("StationFeed", { token: Token, idx: idx });
+                        } else if (Settings.AQI.Location == "City") {
+                            $.log(`🚧 ${$.name}, 定位精度: 城市`, "")
+                            var AQI = await WAQI("CityFeed", { token: Token, lat: Params.lat, lng: Params.lng });
+                        }
+                    };
+                    data = await outputAQI(Params.ver, Station, AQI, data, Settings);
+                } else $.log(`🎉 ${$.name}, 无须替换, 跳过`, "");
+            }
+        };
+        // NextHour
+        if (Settings.NextHour.Switch) {
+            $.log(`🚧 ${$.name}, `,
+                `forecastNextHour.providerName = ${data?.forecastNextHour?.providerName}`, "");
 
-					let minutelyData;
-					if (!out_of_china(parseFloat(Params.lng), parseFloat(Params.lat))) {
-						minutelyData = await getGridWeatherMinutely(Params.lat, Params.lng);
-					}
+            if (url.params?.dataSets?.includes("forecastNextHour")) {
+                if (!data?.forecastNextHour?.metadata?.providerName) {
+                    let minutelyData;
+                    let providerName;
+                    if (!out_of_china(parseFloat(Params.lng), parseFloat(Params.lat))) {
+                        minutelyData = await getGridWeatherMinutely(Params.lat, Params.lng);
+                        providerName = "气象在线";
+                    }
 
-					if (minutelyData) {
-						data = await outputNextHour(Params.ver, minutelyData, data, Settings);
-					} else {
-						$.log(`🚧 ${$.name}, 没有找到合适的API, 跳过`, "");
-					}
-				} else $.log(`🎉 ${$.name}, 不替换下一小时降水强度信息, 跳过`, "");
-			}
-		};
-		body = JSON.stringify(data);
-	}
+                    if (minutelyData) {
+                        data = await outputNextHour(Params.ver, providerName, minutelyData, data, Settings);
+                    } else {
+                        $.log(`🚧 ${$.name}, 没有找到合适的API, 跳过`, "");
+                    }
+                } else $.log(`🎉 ${$.name}, 不替换下一小时降水强度信息, 跳过`, "");
+            }
+        };
+        body = JSON.stringify(data);
+    }
 })()
-	.catch((e) => $.logErr(e))
-	.finally(() => $.done({ body }))
+    .catch((e) => $.logErr(e))
+    .finally(() => $.done({ body }))
 
 /***************** Async Function *****************/
 /**
@@ -82,16 +84,16 @@ var { body } = $response;
  * @return {Promise<*>}
  */
  async function setENV(name, platform, database) {
-	$.log(`⚠ ${$.name}, Set Environment Variables`, "");
-	let Settings = await getENV(name, platform, database);
-	/***************** Prase *****************/
-	Settings.Switch = JSON.parse(Settings.Switch) // BoxJs字符串转Boolean
-	Settings.NextHour.Switch = JSON.parse(Settings.NextHour.Switch) // BoxJs字符串转Boolean
-	Settings.AQI.Switch = JSON.parse(Settings.AQI.Switch) // BoxJs字符串转Boolean
-	Settings.Map.AQI = JSON.parse(Settings.Map.AQI) // BoxJs字符串转Boolean
-	$.log(`🎉 ${$.name}, Set Environment Variables`, `Settings: ${typeof Settings}`, `Settings内容: ${JSON.stringify(Settings)}`, "");
-	return Settings
-	async function getENV(t,e,n){let i=$.getjson(t,n),s=i?.[e]||i?.Settings?.[e]||n[e];if("undefined"!=typeof $argument){let t=Object.fromEntries($argument.split("&").map((t=>t.split("="))));Object.assign(s,t)}return s}
+    $.log(`⚠ ${$.name}, Set Environment Variables`, "");
+    let Settings = await getENV(name, platform, database);
+    /***************** Prase *****************/
+    Settings.Switch = JSON.parse(Settings.Switch) // BoxJs字符串转Boolean
+    Settings.NextHour.Switch = JSON.parse(Settings.NextHour.Switch) // BoxJs字符串转Boolean
+    Settings.AQI.Switch = JSON.parse(Settings.AQI.Switch) // BoxJs字符串转Boolean
+    Settings.Map.AQI = JSON.parse(Settings.Map.AQI) // BoxJs字符串转Boolean
+    $.log(`🎉 ${$.name}, Set Environment Variables`, `Settings: ${typeof Settings}`, `Settings内容: ${JSON.stringify(Settings)}`, "");
+    return Settings
+    async function getENV(t,e,n){let i=$.getjson(t,n),r=i?.[e]||i?.Settings?.[e]||n[e];if("undefined"!=typeof $argument){if($argument){let t=Object.fromEntries($argument.split("&").map((t=>t.split("=")))),e={};for(var s in t)f(e,s,t[s]);Object.assign(r,e)}function f(t,e,n){e.split(".").reduce(((t,i,r)=>t[i]=e.split(".").length===++r?n:t[i]||{}),t)}}return r}
 };
 
 /**
@@ -101,11 +103,11 @@ var { body } = $response;
  * @return {Promise<*>}
  */
 async function getParams(path) {
-	const Regular = /^(?<ver>v1|v2)\/weather\/(?<language>[\w-_]+)\/(?<lat>-?\d+\.\d+)\/(?<lng>-?\d+\.\d+).*(?<countryCode>country=[A-Z]{2})?.*/i;
-	const Params = path.match(Regular).groups;
-	// TODO: add debug switch (lat, lng)
-	$.log(`🚧 ${$.name}`, `Params: ${JSON.stringify(Params)}`, "");
-	return Params
+    const Regular = /^(?<ver>v1|v2)\/weather\/(?<language>[\w-_]+)\/(?<lat>-?\d+\.\d+)\/(?<lng>-?\d+\.\d+).*(?<countryCode>country=[A-Z]{2})?.*/i;
+    const Params = path.match(Regular).groups;
+    // TODO: add debug switch (lat, lng)
+    $.log(`🚧 ${$.name}`, `Params: ${JSON.stringify(Params)}`, "");
+    return Params
 };
 
 /**
@@ -115,23 +117,9 @@ async function getParams(path) {
  * @return {Promise<*>}
  */
 async function getStatus(data) {
-	const result = ["和风天气", "QWeather"].includes(data.air_quality?.metadata?.provider_name ?? data.airQuality?.metadata?.providerName ?? "QWeather");
-	$.log(`🚧 ${$.name}, providerName = ${data.air_quality?.metadata?.provider_name ?? data.airQuality?.metadata?.providerName}`, '');
-	return (result || false)
-};
-
-/**
- * https://github.com/wandergis/coordtransform/blob/master/index.js#L134
- * 判断是否在国内
- * @param lng
- * @param lat
- * @returns {boolean}
- */
-function out_of_china(lng, lat) {
-  var lat = +lat;
-  var lng = +lng;
-  // 纬度 3.86~53.55, 经度 73.66~135.05 
-  return !(lng > 73.66 && lng < 135.05 && lat > 3.86 && lat < 53.55);
+    const result = ["和风天气", "QWeather"].includes(data.air_quality?.metadata?.provider_name ?? data.airQuality?.metadata?.providerName ?? "QWeather");
+    $.log(`🚧 ${$.name}, providerName = ${data.air_quality?.metadata?.provider_name ?? data.airQuality?.metadata?.providerName}`, '');
+    return (result || false)
 };
 
 /**
@@ -142,392 +130,410 @@ function out_of_china(lng, lat) {
  * @return {Promise<*>}
  */
 async function WAQI(type = "", input = {}) {
-	// TODO: add debug switch (lat, lng)
-	$.log(`⚠ ${$.name}, WAQI`, `input: ${JSON.stringify(input)}`, "");
-	// 构造请求
-	let request = await GetRequest(type, input);
-	// 发送请求
-	let output = await GetData(type, request);
-	// TODO: add debug switch (geo)
-	$.log(`🚧 ${$.name}, WAQI`, `output: ${JSON.stringify(output)}`, "");
-	return output
-	/***************** Fuctions *****************/
-	async function GetRequest(type = "", input = { api: "v2", lat: 0, lng: 0, idx: 0, token: "na" }) {
-		$.log(`⚠ ${$.name}, Get WAQI Request, type: ${type}`, "");
-		let request = {
-			"url": "https://api.waqi.info",
-			"headers": {
-				"Content-Type": "application/x-www-form-urlencoded",
-				"Origin": "https://waqi.info",
-				"User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Mobile/15E148 Safari/604.1",
-				"Referer": "https://waqi.info/"
-			}
-		};
-		if (type == "Nearest") {
-			$.log('获取最近站点');
-			if (input.api == "v1") mapq = "mapq";
-			else if (input.api == "v2") mapq = "mapq2";
-			request.url = `${request.url}/${mapq}/nearest?n=1&geo=1/${input.lat}/${input.lng}`;
-		} else if (type == "Token") {
-			$.log('获取令牌');
-			request.url = `${request.url}/api/token/${input.idx}`
-		} else if (type == "NOW") {
-			$.log('获取即时信息');
-			request.url = `${request.url}/api/feed/@${input.idx}/now.json`
-			request.body = `token=${input.token}&id=${input.idx}`
-		} else if (type == "AQI") {
-			$.log('获取空气质量信息');
-			request.url = `${request.url}/api/feed/@${input.idx}/aqi.json`
-			request.body = `token=${input.token}&id=${input.idx}`
-		} else if (type == "CityFeed") {
-			$.log('获取城市信息');
-			request.url = `${request.url}/feed/geo:${input.lat};${input.lng}/?token=${input.token}`
-		} else if (type == "StationFeed") {
-			$.log('获取站点信息');
-			request.url = `${request.url}/feed/@${input.idx}/?token=${input.token}`
-		}
-		//$.log(`🎉 ${$.name}, Get WAQI Request`, `request: ${JSON.stringify(request)}`, "");
-		return request
-	};
+    // TODO: add debug switch (lat, lng)
+    $.log(`⚠ ${$.name}, WAQI`, `input: ${JSON.stringify(input)}`, "");
+    // 构造请求
+    let request = await GetRequest(type, input);
+    // 发送请求
+    let output = await GetData(type, request);
+    // TODO: add debug switch (geo)
+    //$.log(`🚧 ${$.name}, WAQI`, `output: ${JSON.stringify(output)}`, "");
+    return output
+    /***************** Fuctions *****************/
+    async function GetRequest(type = "", input = { api: "v2", lat: 0, lng: 0, idx: 0, token: "na" }) {
+        $.log(`⚠ ${$.name}, Get WAQI Request, type: ${type}`, "");
+        let request = {
+            "url": "https://api.waqi.info",
+            "headers": {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Origin": "https://waqi.info",
+                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Mobile/15E148 Safari/604.1",
+                "Referer": "https://waqi.info/"
+            }
+        };
+        if (type == "Nearest") {
+            $.log('获取最近站点');
+            if (input.api == "v1") mapq = "mapq";
+            else if (input.api == "v2") mapq = "mapq2";
+            request.url = `${request.url}/${mapq}/nearest?n=1&geo=1/${input.lat}/${input.lng}`;
+        } else if (type == "Token") {
+            $.log('获取令牌');
+            request.url = `${request.url}/api/token/${input.idx}`
+        } else if (type == "NOW") {
+            $.log('获取即时信息');
+            request.url = `${request.url}/api/feed/@${input.idx}/now.json`
+            request.body = `token=${input.token}&id=${input.idx}`
+        } else if (type == "AQI") {
+            $.log('获取空气质量信息');
+            request.url = `${request.url}/api/feed/@${input.idx}/aqi.json`
+            request.body = `token=${input.token}&id=${input.idx}`
+        } else if (type == "CityFeed") {
+            $.log('获取城市信息');
+            request.url = `${request.url}/feed/geo:${input.lat};${input.lng}/?token=${input.token}`
+        } else if (type == "StationFeed") {
+            $.log('获取站点信息');
+            request.url = `${request.url}/feed/@${input.idx}/?token=${input.token}`
+        }
+        //$.log(`🎉 ${$.name}, Get WAQI Request`, `request: ${JSON.stringify(request)}`, "");
+        return request
+    };
 
-	function GetData(type, request) {
-		$.log(`⚠ ${$.name}, Get WAQI Data, type: ${type}`, "");
-		return new Promise(resolve => {
-			if (type == "NOW" || type == "AQI") {
-				$.post(request, (error, response, data) => {
-					try {
-						if (error) throw new Error(error)
-						else if (data) {
-							const _data = JSON.parse(data)
-							// Get Nearest Observation Station AQI Data
-							// https://api.waqi.info/api/feed/@station.uid/now.json
-							// https://api.waqi.info/api/feed/@station.uid/aqi.json
-							if (type == "NOW" || type == "AQI") {
-								if (_data.rxs.status == "ok") {
-									if (_data.rxs.obs.some(o => o.status == 'ok')) {
-										let i = _data.rxs.obs.findIndex(o => o.status == 'ok')
-										let m = _data.rxs.obs.findIndex(o => o.msg)
-										//$.obs = _data.rxs.obs[i].msg;
-										if (i >= 0 && m >= 0) {
-											$.log(`🎉 ${$.name}, GetData:${type}完成`, `i = ${i}, m = ${m}`, '')
-											resolve(_data.rxs.obs[i].msg)
-										} else if (i < 0 || m < 0) {
-											$.log(`❗️ ${$.name}, GetData:${type}失败`, `OBS Get Error`, `i = ${i}, m = ${m}`, `空数据，浏览器访问 https://api.waqi.info/api/feed/@${idx}/aqi.json 查看获取结果`, '')
-											resolve(_data.rxs.obs[i].msg)
-										}
-									} else $.log(`❗️ ${$.name}, GetData:${type}失败`, `OBS Status Error`, `obs.status: ${_data.rxs.obs[0].status}`, `data = ${data}`, '')
-								} else $.log(`❗️ ${$.name}, GetData:${type}失败`, `RXS Status Error`, `status: ${_data.rxs.status}`, `data = ${data}`, '')
-							}
-						} else throw new Error(response);
-					} catch (e) {
-						$.logErr(`❗️${$.name}, GetData:${type}执行失败`, ` request = ${JSON.stringify(request)}`, ` error = ${error || e}`, `response = ${JSON.stringify(response)}`, `data = ${data}`, '')
-					} finally {
-						//$.log(`🚧 ${$.name}, GetData:${type}调试信息`, ` request = ${JSON.stringify(request)}`, `data = ${data}`, '')
-						resolve()
-					}
-				})
-			} else {
-				$.get(request, (error, response, data) => {
-					try {
-						if (error) throw new Error(error)
-						else if (data) {
-							const _data = JSON.parse(data)
-							// Search Nearest Observation Station
-							// https://api.waqi.info/mapq/nearest/?n=1&geo=1/lat/lng
-							// https://api.waqi.info/mapq2/nearest?n=1&geo=1/lat/lng
-							if (type == "Nearest") {
-								// 空值合并运算符
-								var station = _data?.data?.stations?.[0] ?? _data?.d?.[0] ?? null;
-								var idx = station?.idx ?? station?.x ?? null;
-								var name = station?.name ?? station?.u ?? station?.nna ?? station?.nlo ?? null;
-								var aqi = station?.aqi ?? station?.v ?? null;
-								var distance = station?.distance ?? station?.d ?? null;
-								// var country = station?.cca2 ?? station?.country ?? null;
-								// TODO: add debug switch (distance)
-								$.log(`🎉 ${$.name}, GetData:${type}完成`, `idx: ${idx}`, `观测站: ${name}`, `AQI: ${aqi}`, '')
-								resolve({ station, idx })
-							}
-							// Get Nearest Observation Station Token
-							// https://api.waqi.info/api/token/station.uid
-							else if (type == "Token") {
-								var token = _data.rxs?.obs[0]?.msg?.token ?? "na"
-								$.log(`🎉 ${$.name}, GetData:${type}完成`, `token = ${token}`, '')
-								resolve(token)
-							}
-							// Geolocalized Feed
-							// https://aqicn.org/json-api/doc/#api-Geolocalized_Feed-GetGeolocFeed
-							// https://api.waqi.info/feed/geo::lat;:lng/?token=:token
-							else if (type == "CityFeed") {
-								var city = (_data.status == 'ok') ? _data?.data : null;
-								$.log(`🎉 ${$.name}, GetData:${type}完成`, `idx: ${city?.idx}`, `观测站: ${city?.city?.name}`, `AQI: ${city?.aqi}`, '')
-								resolve(city)
-							}
-							// Station Feed
-							// https://api.waqi.info/feed/@station.uid/?token=:token
-							else if (type == "StationFeed") {
-								var station = (_data.status == 'ok') ? _data?.data : null;
-								$.log(`🎉 ${$.name}, GetData:${type}完成`, `idx: ${station?.idx}`, `观测站: ${station?.city?.name}`, `AQI: ${station?.aqi}`, '')
-								resolve(station)
-							}
-						} else throw new Error(response);
-					} catch (e) {
-						$.logErr(`❗️${$.name}, GetData:${type}执行失败`, ` request = ${JSON.stringify(request)}`, ` error = ${error || e}`, `response = ${JSON.stringify(response)}`, `data = ${data}`, '')
-					} finally {
-						//$.log(`🚧 ${$.name}, GetData:${type}调试信息`, ` request = ${JSON.stringify(request)}`, `data = ${data}`, '')
-						resolve()
-					}
-				})
-			};
-		});
-	};
+    function GetData(type, request) {
+        $.log(`⚠ ${$.name}, Get WAQI Data, type: ${type}`, "");
+        return new Promise(resolve => {
+            if (type == "NOW" || type == "AQI") {
+                $.post(request, (error, response, data) => {
+                    try {
+                        if (error) throw new Error(error)
+                        else if (data) {
+                            const _data = JSON.parse(data)
+                            // Get Nearest Observation Station AQI Data
+                            // https://api.waqi.info/api/feed/@station.uid/now.json
+                            // https://api.waqi.info/api/feed/@station.uid/aqi.json
+                            if (type == "NOW" || type == "AQI") {
+                                if (_data.rxs.status == "ok") {
+                                    if (_data.rxs.obs.some(o => o.status == 'ok')) {
+                                        let i = _data.rxs.obs.findIndex(o => o.status == 'ok')
+                                        let m = _data.rxs.obs.findIndex(o => o.msg)
+                                        //$.obs = _data.rxs.obs[i].msg;
+                                        if (i >= 0 && m >= 0) {
+                                            $.log(`🎉 ${$.name}, GetData:${type}完成`, `i = ${i}, m = ${m}`, '')
+                                            resolve(_data.rxs.obs[i].msg)
+                                        } else if (i < 0 || m < 0) {
+                                            $.log(`❗️ ${$.name}, GetData:${type}失败`, `OBS Get Error`, `i = ${i}, m = ${m}`, `空数据，浏览器访问 https://api.waqi.info/api/feed/@${idx}/aqi.json 查看获取结果`, '')
+                                            resolve(_data.rxs.obs[i].msg)
+                                        }
+                                    } else $.log(`❗️ ${$.name}, GetData:${type}失败`, `OBS Status Error`, `obs.status: ${_data.rxs.obs[0].status}`, `data = ${data}`, '')
+                                } else $.log(`❗️ ${$.name}, GetData:${type}失败`, `RXS Status Error`, `status: ${_data.rxs.status}`, `data = ${data}`, '')
+                            }
+                        } else throw new Error(response);
+                    } catch (e) {
+                        $.logErr(`❗️${$.name}, GetData:${type}执行失败`, ` request = ${JSON.stringify(request)}`, ` error = ${error || e}`, `response = ${JSON.stringify(response)}`, `data = ${data}`, '')
+                    } finally {
+                        //$.log(`🚧 ${$.name}, GetData:${type}调试信息`, ` request = ${JSON.stringify(request)}`, `data = ${data}`, '')
+                        resolve()
+                    }
+                })
+            } else {
+                $.get(request, (error, response, data) => {
+                    try {
+                        if (error) throw new Error(error)
+                        else if (data) {
+                            const _data = JSON.parse(data)
+                            // Search Nearest Observation Station
+                            // https://api.waqi.info/mapq/nearest/?n=1&geo=1/lat/lng
+                            // https://api.waqi.info/mapq2/nearest?n=1&geo=1/lat/lng
+                            if (type == "Nearest") {
+                                // 空值合并运算符
+                                var station = _data?.data?.stations?.[0] ?? _data?.d?.[0] ?? null;
+                                var idx = station?.idx ?? station?.x ?? null;
+                                var name = station?.name ?? station?.u ?? station?.nna ?? station?.nlo ?? null;
+                                var aqi = station?.aqi ?? station?.v ?? null;
+                                var distance = station?.distance ?? station?.d ?? null;
+                                // var country = station?.cca2 ?? station?.country ?? null;
+                                // TODO: add debug switch (distance)
+                                $.log(`🎉 ${$.name}, GetData:${type}完成`, `idx: ${idx}`, `观测站: ${name}`, `AQI: ${aqi}`, '')
+                                resolve({ station, idx })
+                            }
+                            // Get Nearest Observation Station Token
+                            // https://api.waqi.info/api/token/station.uid
+                            else if (type == "Token") {
+                                var token = _data.rxs?.obs[0]?.msg?.token ?? "na"
+                                $.log(`🎉 ${$.name}, GetData:${type}完成`, `token = ${token}`, '')
+                                resolve(token)
+                            }
+                            // Geolocalized Feed
+                            // https://aqicn.org/json-api/doc/#api-Geolocalized_Feed-GetGeolocFeed
+                            // https://api.waqi.info/feed/geo::lat;:lng/?token=:token
+                            else if (type == "CityFeed") {
+                                var city = (_data.status == 'ok') ? _data?.data : null;
+                                $.log(`🎉 ${$.name}, GetData:${type}完成`, `idx: ${city?.idx}`, `观测站: ${city?.city?.name}`, `AQI: ${city?.aqi}`, '')
+                                resolve(city)
+                            }
+                            // Station Feed
+                            // https://api.waqi.info/feed/@station.uid/?token=:token
+                            else if (type == "StationFeed") {
+                                var station = (_data.status == 'ok') ? _data?.data : null;
+                                $.log(`🎉 ${$.name}, GetData:${type}完成`, `idx: ${station?.idx}`, `观测站: ${station?.city?.name}`, `AQI: ${station?.aqi}`, '')
+                                resolve(station)
+                            }
+                        } else throw new Error(response);
+                    } catch (e) {
+                        $.logErr(`❗️${$.name}, GetData:${type}执行失败`, ` request = ${JSON.stringify(request)}`, ` error = ${error || e}`, `response = ${JSON.stringify(response)}`, `data = ${data}`, '')
+                    } finally {
+                        //$.log(`🚧 ${$.name}, GetData:${type}调试信息`, ` request = ${JSON.stringify(request)}`, `data = ${data}`, '')
+                        resolve()
+                    }
+                })
+            };
+        });
+    };
 };
 
 /**
- * get Grid Weather Minutely
+ * Get minutely data from "气象在线"
  * @author WordlessEcho
  * @param {Number} lat - latitude
  * @param {Number} lng - longitude
- * @return {Promise<*>}
+ * @return {Promise<*>} minutely data
  */
 function getGridWeatherMinutely(lat, lng) {
-	const request = {
-		"url": `https://www.weatherol.cn/api/minute/getPrecipitation?type=forecast&ll=${lng},${lat}`
-	};
+    // this API could be considered as unconfigurable ColorfulClouds API
+    const request = {
+        "url": `https://www.weatherol.cn/api/minute/getPrecipitation?type=forecast&ll=${lng},${lat}`
+    };
 
-	return new Promise((resolve) => {
-		$.get(request, (error, response, data) => {
-			try {
-				const _data = JSON.parse(data)
+    return new Promise((resolve) => {
+        $.get(request, (error, response, data) => {
+            try {
+                const _data = JSON.parse(data)
 
-				if (error) {
-					throw new Error(error);
-				}
+                if (error) {
+                    throw new Error(error);
+                }
 
-				if (_data.status == "ok") {
-					resolve(_data);
-				}
-			} catch (e) {
-				$.log(`❗️ ${$.name}, getGridWeatherMinutely执行失败! `,
-					`error = ${JSON.stringify(error || e)}, `,
-					`response = ${JSON.stringify(response)}, `,
-					`data = ${JSON.stringify(data)}`, '');
-			} finally {
-					//$.log(`⚠️ ${$.name}, getGridWeatherMinutely, `, `data = ${data}`, '');
-					$.log(`🎉 ${$.name}, getGridWeatherMinutely执行完成！`, '');
-			}
-		});
-	});
+                if (_data.status === "ok") {
+                    resolve(_data);
+                } else {
+                    throw new Error(`API returned the status: ${_data?.status}`);
+                }
+            } catch (e) {
+                $.log(`❗️ ${$.name}, getGridWeatherMinutely执行失败！`,
+                    `error = ${JSON.stringify(error || e)}, `,
+                    `response = ${JSON.stringify(response)}, `,
+                    `data = ${JSON.stringify(data)}`, '');
+            } finally {
+                $.log(`🎉 ${$.name}, getGridWeatherMinutely执行完成`, '');
+            }
+        });
+    });
 };
 
-// 
 /**
  * Output Air Quality Data
  * @author VirgilClyne
- * @param {String} api - API Version
- * @param {Object} now - minutelyData
- * @param {Object} obs - weather
- * @param {Object} weather - weather
- * @param {Object} Settings - Settings
+ * @param {String} apiVersion - Apple Weather API Version
+ * @param {Object} now - now weather data from Third-Party
+ * @param {Object} obs - observation station data from Third-Party
+ * @param {Object} weather - weather data from Apple
+ * @param {Object} Settings - Settings config in Box.js
  * @return {Promise<*>}
  */
-async function outputAQI(api, now, obs, weather, Settings) {
-	$.log(`⚠️ ${$.name}, ${outputAQI.name}检测`, `AQI data ${api}`, '');
-	const AQIname = (api == "v1") ? "air_quality"
-		: (api == "v2") ? "airQuality"
-			: "airQuality";
-	const unit = (api == "v1") ? "μg\/m3"
-		: (api == "v2") ? "microgramsPerM3"
-			: "microgramsPerM3";
-	//创建对象
-	if (!weather[`${AQIname}`]) {
-		$.log(`⚠️ ${$.name}, 没有空气质量数据, 创建`, '');
-		weather[`${AQIname}`] = {
-			"isSignificant": true, // 重要/置顶
-			"pollutants": {},
-			"metadata": {},
-			"name": "AirQuality",
-		};
-		if (api == "v1") {
-			weather[`${AQIname}`].metadata.version = 1;
-			weather[`${AQIname}`].metadata.data_source = 0; //来自XX读数 0:监测站 1:模型
-		}
-		else if (api == "v2") {
-			weather[`${AQIname}`].metadata.units = "m";
-			weather[`${AQIname}`].metadata.version = 2;
-			weather[`${AQIname}`].sourceType = "station"; //station:监测站 modeled:模型
-		}
-	};
-	// 注入数据
-	//条件运算符 & 可选链操作符
-	weather[`${AQIname}`].source = obs?.city?.name ?? now?.name ?? now?.u ?? now?.nna ?? now?.nlo;
-	weather[`${AQIname}`].learnMoreURL = obs?.city?.url + `/${now?.country ?? now?.cca2}/m`.toLowerCase();
-	weather[`${AQIname}`].primaryPollutant = switchPollutantsType(obs?.dominentpol ?? now?.pol);
-	weather[`${AQIname}`].pollutants.CO = { "name": "CO", "amount": obs?.iaqi?.co?.v || -1, "unit": unit };
-	weather[`${AQIname}`].pollutants.NO = { "name": "NO", "amount": obs?.iaqi?.no?.v || -1, "unit": unit };
-	weather[`${AQIname}`].pollutants.NO2 = { "name": "NO2", "amount": obs?.iaqi?.no2?.v || -1, "unit": unit };
-	weather[`${AQIname}`].pollutants.SO2 = { "name": "SO2", "amount": obs?.iaqi?.so2?.v || -1, "unit": unit };
-	weather[`${AQIname}`].pollutants.OZONE = { "name": "OZONE", "amount": obs?.iaqi?.o3?.v || -1, "unit": unit };
-	weather[`${AQIname}`].pollutants.NOX = { "name": "NOX", "amount": obs?.iaqi?.nox?.v || -1, "unit": unit };
-	weather[`${AQIname}`].pollutants["PM2.5"] = { "name": "PM2.5", "amount": obs?.iaqi?.pm25?.v || -1, "unit": unit };
-	weather[`${AQIname}`].pollutants.PM10 = { "name": "PM10", "amount": obs?.iaqi?.pm10?.v || -1, "unit": unit };
-	weather[`${AQIname}`].metadata.longitude = obs?.city?.geo?.[0] ?? now?.geo?.[0];
-	weather[`${AQIname}`].metadata.latitude = obs?.city?.geo?.[1] ?? now?.geo?.[1];
-	weather[`${AQIname}`].metadata.language = weather?.[`${AQIname}`]?.metadata?.language ?? weather?.currentWeather?.metadata?.language ?? weather?.current_observations?.metadata?.language;
-	if (api == "v1") {
-		weather.air_quality.airQualityIndex = obs?.aqi ?? now?.aqi ?? now?.v;
-		weather.air_quality.airQualityScale = Settings?.AQI?.Scale || "EPA_NowCast.2201";
-		weather.air_quality.airQualityCategoryIndex = classifyAirQualityLevel(obs?.aqi ?? now?.aqi ?? now?.v);
-		weather.air_quality.metadata.reported_time = convertTime(new Date(obs?.time?.v ?? now?.t), 'remain', api);
-		//weather.air_quality.metadata.provider_name = obs?.attributions?.[obs.attributions.length - 1]?.name;
-		weather.air_quality.metadata.provider_name = obs?.attributions?.[0]?.name;
-		weather.air_quality.metadata.expire_time = convertTime(new Date(obs?.time?.v ?? now?.t), 'add-1h-floor', api);
-		weather.air_quality.metadata.provider_logo = "https:\/\/waqi.info\/images\/logo.png";
-		weather.air_quality.metadata.read_time = convertTime(new Date(), 'remain', api);
-	} else if (api == "v2") {
-		weather.airQuality.index = obs?.aqi ?? now?.aqi ?? now?.v;
-		weather.airQuality.scale = Settings?.AQI?.Scale || "EPA_NowCast.2201";
-		weather.airQuality.categoryIndex = classifyAirQualityLevel(obs?.aqi ?? now?.aqi ?? now?.v);
-		weather.airQuality.metadata.providerLogo = "https:\/\/waqi.info\/images\/logo.png";
-		//weather.airQuality.metadata.providerName = obs?.attributions?.[obs.attributions.length - 1]?.name;
-		weather.airQuality.metadata.providerName = obs?.attributions?.[0]?.name;
-		weather.airQuality.metadata.expireTime = convertTime(new Date(obs?.time?.iso ?? now?.utime), 'add-1h-floor', api);
-		weather.airQuality.metadata.reportedTime = convertTime(new Date(obs?.time?.iso ?? now?.utime), 'remain', api);
-		weather.airQuality.metadata.readTime = convertTime(new Date(), 'remain', api);
-	}
-	$.log(`🎉 ${$.name}, ${outputAQI.name}完成`, '');
-	return weather
+async function outputAQI(apiVersion, now, obs, weather, Settings) {
+    $.log(`⚠️ ${$.name}, ${outputAQI.name}检测`, `AQI data ${apiVersion}`, '');
+    const AQIname = (apiVersion == "v1") ? "air_quality"
+        : (apiVersion == "v2") ? "airQuality"
+            : "airQuality";
+    const unit = (apiVersion == "v1") ? "μg\/m3"
+        : (apiVersion == "v2") ? "microgramsPerM3"
+            : "microgramsPerM3";
+    //创建对象
+    if (!weather[AQIname]) {
+        $.log(`⚠️ ${$.name}, 没有空气质量数据, 创建`, '');
+        weather[AQIname] = {
+            "name": "AirQuality",
+            "isSignificant": true, // 重要/置顶
+            "pollutants": {},
+            "previousDayComparison": "unknown", // 昨日同期对比
+            "metadata": {},
+        };
+    };
+    // 固定数据
+    weather[AQIname].primaryPollutant = switchPollutantsType(obs?.dominentpol ?? now?.pol ?? "unknown");
+    weather[AQIname].metadata.longitude = obs?.city?.geo?.[0] ?? now?.geo?.[0] ?? weather?.currentWeather?.metadata?.longitude ?? weather?.current_observations?.metadata?.longitude;
+    weather[AQIname].metadata.latitude = obs?.city?.geo?.[1] ?? now?.geo?.[1] ?? weather?.currentWeather?.metadata?.latitude ?? weather?.current_observations?.metadata?.latitude;
+    weather[AQIname].metadata.language = weather?.[AQIname]?.metadata?.language ?? weather?.currentWeather?.metadata?.language ?? weather?.current_observations?.metadata?.language;
+    weather[AQIname].source = obs?.city?.name ?? now?.name ?? now?.u ?? now?.nna ?? now?.nlo ?? "WAQI.info";
+    weather[AQIname].learnMoreURL = obs?.city?.url ? `${obs?.city?.url}/${now?.country ?? now?.cca2 ?? weather[AQIname].metadata.language}/m`.toLowerCase() : "https://aqicn.org/";
+    if (apiVersion == "v1") {
+        weather[AQIname].airQualityScale = Settings?.AQI?.Scale || "EPA_NowCast.2201";
+        weather[AQIname].metadata.version = 1;
+        weather[AQIname].metadata.data_source = 0; //来自XX读数 0:监测站 1:模型
+        weather[AQIname].metadata.provider_logo = "https:\/\/waqi.info\/images\/logo.png";
+    }
+    else if (apiVersion == "v2") {
+        weather[AQIname].scale = Settings?.AQI?.Scale || "EPA_NowCast.2201";
+        weather[AQIname].metadata.units = "m";
+        weather[AQIname].metadata.version = 2;
+        weather[AQIname].sourceType = "station"; //station:监测站 modeled:模型
+        weather[AQIname].metadata.providerLogo = "https:\/\/waqi.info\/images\/logo.png";
+    }
+    // 注入数据
+    if (now || obs) {
+        //条件运算符 & 可选链操作符
+        if (apiVersion == "v1") {
+            weather[AQIname].airQualityIndex = obs?.aqi ?? now?.aqi ?? now?.v;
+            weather[AQIname].airQualityCategoryIndex = classifyAirQualityLevel(obs?.aqi ?? now?.aqi ?? now?.v);
+            weather[AQIname].metadata.reported_time = convertTime(new Date(obs?.time?.v ?? now?.t), 'remain', apiVersion);
+            //weather[AQIname].metadata.provider_name = obs?.attributions?.[obs.attributions.length - 1]?.name;
+            weather[AQIname].metadata.provider_name = obs?.attributions?.[0]?.name ?? "WAQI.info";
+            weather[AQIname].metadata.expire_time = convertTime(new Date(obs?.time?.v ?? now?.t), 'add-1h-floor', apiVersion);
+            weather[AQIname].metadata.read_time = convertTime(new Date(), 'remain', apiVersion);
+        } else if (apiVersion == "v2") {
+            weather[AQIname].index = obs?.aqi ?? now?.aqi ?? now?.v;
+            weather[AQIname].categoryIndex = classifyAirQualityLevel(obs?.aqi ?? now?.aqi ?? now?.v);
+            //weather[AQIname].metadata.providerName = obs?.attributions?.[obs.attributions.length - 1]?.name;
+            weather[AQIname].metadata.providerName = obs?.attributions?.[0]?.name ?? "WAQI.info";
+            weather[AQIname].metadata.expireTime = convertTime(new Date(obs?.time?.iso ?? now?.utime), 'add-1h-floor', apiVersion);
+            weather[AQIname].metadata.reportedTime = convertTime(new Date(obs?.time?.iso ?? now?.utime), 'remain', apiVersion);
+            weather[AQIname].metadata.readTime = convertTime(new Date(), 'remain', apiVersion);
+        }
+        //weather[AQIname].pollutants.CO = { "name": "CO", "amount": obs?.iaqi?.co?.v || -1, "unit": unit };
+        //weather[AQIname].pollutants.NO = { "name": "NO", "amount": obs?.iaqi?.no?.v || -1, "unit": unit };
+        //weather[AQIname].pollutants.NO2 = { "name": "NO2", "amount": obs?.iaqi?.no2?.v || -1, "unit": unit };
+        //weather[AQIname].pollutants.SO2 = { "name": "SO2", "amount": obs?.iaqi?.so2?.v || -1, "unit": unit };
+        //weather[AQIname].pollutants.OZONE = { "name": "OZONE", "amount": obs?.iaqi?.o3?.v || -1, "unit": unit };
+        //weather[AQIname].pollutants.NOX = { "name": "NOX", "amount": obs?.iaqi?.nox?.v || -1, "unit": unit };
+        //weather[AQIname].pollutants["PM2.5"] = { "name": "PM2.5", "amount": obs?.iaqi?.pm25?.v || -1, "unit": unit };
+        //weather[AQIname].pollutants.PM10 = { "name": "PM10", "amount": obs?.iaqi?.pm10?.v || -1, "unit": unit };
+    } else weather[AQIname].metadata.temporarilyUnavailable = true;
+    $.log(`🎉 ${$.name}, ${outputAQI.name}完成`, '');
+    return weather
 };
 
 /**
  * output forecast NextHour Data
  * @author WordlessEcho
- * @param {String} api - API Version
- * @param {Object} minutelyData - minutelyData
- * @param {Object} weather - weather
- * @param {Object} Settings - Settings
+ * @param {String} api - Apple API Version
+ * @param {Object} minutelyData - minutely data from API
+ * @param {Object} weather - weather data from Apple
+ * @param {Object} Settings - Settings config in Box.js
  * @return {Promise<*>}
  */
-async function outputNextHour(api, minutelyData, weather, Settings) {
-	const minutely = minutelyData?.result?.minutely;
-	const addMinutes = (date, minutes) => (new Date()).setTime(date.getTime() + (1000 * 60 * minutes));
+ async function outputNextHour(api, providerName, minutelyData, weather, Settings) {
+    // iOS weather can only display data in an hour
+    const DISPLAYABLE_MINUTES = 60;
 
-	const zeroSecondTime = (new Date(minutelyData?.server_time * 1000)).setSeconds(0);
-	const nextMinuteWithoutSecond = addMinutes(new Date(zeroSecondTime), 1);
-	const startTimeIos = convertTime(new Date(nextMinuteWithoutSecond), 'remain', api);
+    const minutely = minutelyData?.result?.minutely;
+    const addMinutes = (date, minutes) => (new Date()).setTime(date.getTime() + (1000 * 60 * minutes));
 
-	const SUMMARY_CONDITION_TYPES = { CLEAR: "clear", RAIN: "rain", SNOW: "snow" };
+    const zeroSecondTime = (new Date(minutelyData?.server_time * 1000)).setSeconds(0);
+    const nextMinuteWithoutSecond = addMinutes(new Date(zeroSecondTime), 1);
+    // use next minute and clean seconds as next hour forecast as start time
+    const startTimeIos = convertTime(new Date(nextMinuteWithoutSecond), 'remain', api);
 
-	// https://docs.caiyunapp.com/docs/tables/skycon/
-	const getWeatherType = hourly => {
-		// enough for us, add more in future?
-		const CAIYUN_SKYCON_KEYWORDS = { CLEAR: "CLEAR", RAIN: "RAIN", SNOW: "SNOW" };
+    const SUMMARY_CONDITION_TYPES = { CLEAR: "clear", RAIN: "rain", SNOW: "snow" };
 
-		if (hourly?.skycon?.find(
-			hourlySkycon => hourlySkycon?.value?.includes(CAIYUN_SKYCON_KEYWORDS.RAIN)
-		)) {
-			return SUMMARY_CONDITION_TYPES.RAIN;
-		} else if (hourly?.skycon?.find(
-			hourlySkycon => hourlySkycon?.value?.includes(CAIYUN_SKYCON_KEYWORDS.SNOW)
-		)) {
-			return SUMMARY_CONDITION_TYPES.SNOW;
-		} else {
-			// although getWeatherType() is designed for find out rain or snow
-			return SUMMARY_CONDITION_TYPES.CLEAR;
-		}
-	}
+    // https://docs.caiyunapp.com/docs/tables/skycon/
+    const getWeatherType = hourly => {
+        // enough for us, add more in future?
+        const CAIYUN_SKYCON_KEYWORDS = { CLEAR: "CLEAR", RAIN: "RAIN", SNOW: "SNOW" };
 
-	const PRECIPITATION_DECIMALS_LENGTH = 10000;
-	const PRECIPITATION_LEVEL = {
-		NO_RAIN_OR_SNOW: 0,
-		LIGHT_RAIN_OR_SNOW: 1,
-		MODERATE_RAIN_OR_SNOW: 2,
-		HEAVY_RAIN_OR_SNOW: 3,
-		STORM_RAIN_OR_SNOW: 4,
-	};
-	const RADAR_PRECIPITATION_RANGE = {
-		noRainOrSnow: { lower: 0, upper: 0.031 },
-		lightRainOrSnow: { lower: 0.031, upper: 0.25 },
-		moderateRainOrSnow: { lower: 0.25, upper: 0.35 },
-		heavyRainOrSnow: { lower: 0.35, upper: 0.48 },
-		stormRainOrSnow: { lower: 0.48, upper: Number.MAX_VALUE },
-	};
-	const PRECIP_INTENSITY_PERCEIVED_DIVIDER = {
-		beginning: 0, levelBottom: 1, levelMiddle: 2, levelTop: 3,
-	};
+        if (hourly?.skycon?.find(
+            hourlySkycon => hourlySkycon?.value?.includes(CAIYUN_SKYCON_KEYWORDS.RAIN)
+        )) {
+            return SUMMARY_CONDITION_TYPES.RAIN;
+        } else if (hourly?.skycon?.find(
+            hourlySkycon => hourlySkycon?.value?.includes(CAIYUN_SKYCON_KEYWORDS.SNOW)
+        )) {
+            return SUMMARY_CONDITION_TYPES.SNOW;
+        } else {
+            // although getWeatherType() is designed for find out rain or snow
+            return SUMMARY_CONDITION_TYPES.CLEAR;
+        }
+    }
 
-	const radarToPrecipitationLevel = value => {
-		const {
-			noRainOrSnow,
-			lightRainOrSnow,
-			moderateRainOrSnow,
-			heavyRainOrSnow,
-			_stormRainOrSnow,
-		} = RADAR_PRECIPITATION_RANGE;
+    // 4 decimals in API
+    const PRECIPITATION_DECIMALS_LENGTH = 10000;
+    const PRECIPITATION_LEVEL = {
+        NO_RAIN_OR_SNOW: 0,
+        LIGHT_RAIN_OR_SNOW: 1,
+        MODERATE_RAIN_OR_SNOW: 2,
+        HEAVY_RAIN_OR_SNOW: 3,
+        STORM_RAIN_OR_SNOW: 4,
+    };
+    // https://docs.caiyunapp.com/docs/tables/precip
+    const RADAR_PRECIPITATION_RANGE = {
+        noRainOrSnow: { lower: 0, upper: 0.031 },
+        lightRainOrSnow: { lower: 0.031, upper: 0.25 },
+        moderateRainOrSnow: { lower: 0.25, upper: 0.35 },
+        heavyRainOrSnow: { lower: 0.35, upper: 0.48 },
+        stormRainOrSnow: { lower: 0.48, upper: Number.MAX_VALUE },
+    };
+    // the graph of Apple weather is divided into three parts
+    const PRECIP_INTENSITY_PERCEIVED_DIVIDER = {
+        beginning: 0, levelBottom: 1, levelMiddle: 2, levelTop: 3,
+    };
 
-		if (value < noRainOrSnow.upper) {
-			if (value < noRainOrSnow.lower) {
-				$.log(`⚠️ ${$.name}, 降水强度不应为负值`, `minutely = ${JSON.stringify(minutely)}`, '');
-			}
+    const radarToPrecipitationLevel = value => {
+        const {
+            noRainOrSnow,
+            lightRainOrSnow,
+            moderateRainOrSnow,
+            heavyRainOrSnow,
+            _stormRainOrSnow,
+        } = RADAR_PRECIPITATION_RANGE;
 
-			return PRECIPITATION_LEVEL.NO_RAIN_OR_SNOW;
-		} else if (value < lightRainOrSnow.upper) {
-			return PRECIPITATION_LEVEL.LIGHT_RAIN_OR_SNOW;
-		} else if (value < moderateRainOrSnow.upper) {
-			return PRECIPITATION_LEVEL.MODERATE_RAIN_OR_SNOW;
-		} else if (value < heavyRainOrSnow.upper) {
-			return PRECIPITATION_LEVEL.HEAVY_RAIN_OR_SNOW;
-		} else {
-			return PRECIPITATION_LEVEL.STORM_RAIN_OR_SNOW;
-		}
-	};
+        if (value < noRainOrSnow.upper) {
+            if (value < noRainOrSnow.lower) {
+                $.log(`⚠️ ${$.name}, 降水强度不应为负值`, `minutely = ${JSON.stringify(minutely)}`, '');
+            }
 
-	const radarToApplePrecipitation = value => {
-		const {
-			noRainOrSnow,
-			lightRainOrSnow,
-			moderateRainOrSnow,
-			heavyRainOrSnow,
-			_stormRainOrSnow
-		} = RADAR_PRECIPITATION_RANGE;
+            return PRECIPITATION_LEVEL.NO_RAIN_OR_SNOW;
+        } else if (value < lightRainOrSnow.upper) {
+            return PRECIPITATION_LEVEL.LIGHT_RAIN_OR_SNOW;
+        } else if (value < moderateRainOrSnow.upper) {
+            return PRECIPITATION_LEVEL.MODERATE_RAIN_OR_SNOW;
+        } else if (value < heavyRainOrSnow.upper) {
+            return PRECIPITATION_LEVEL.HEAVY_RAIN_OR_SNOW;
+        } else {
+            return PRECIPITATION_LEVEL.STORM_RAIN_OR_SNOW;
+        }
+    };
 
-		switch (radarToPrecipitationLevel(value)) {
-			case PRECIPITATION_LEVEL.NO_RAIN_OR_SNOW:
-				return PRECIP_INTENSITY_PERCEIVED_DIVIDER.beginning;
-			case PRECIPITATION_LEVEL.LIGHT_RAIN_OR_SNOW:
-			return (
-				// multiple 10000 for precision of calculation
-				// base of previous levels + percentage of the value in its level
-				PRECIP_INTENSITY_PERCEIVED_DIVIDER.beginning +
-				(((value - noRainOrSnow.upper) * PRECIPITATION_DECIMALS_LENGTH) /
-					((lightRainOrSnow.upper - lightRainOrSnow.lower) * PRECIPITATION_DECIMALS_LENGTH))
-				);
-			case PRECIPITATION_LEVEL.MODERATE_RAIN_OR_SNOW:
-				return (
-					PRECIP_INTENSITY_PERCEIVED_DIVIDER.levelBottom +
-					(((value - lightRainOrSnow.upper) * PRECIPITATION_DECIMALS_LENGTH) /
-					((moderateRainOrSnow.upper - moderateRainOrSnow.lower) * PRECIPITATION_DECIMALS_LENGTH))
-				);
-			case PRECIPITATION_LEVEL.HEAVY_RAIN_OR_SNOW:
-				return (
-					PRECIP_INTENSITY_PERCEIVED_DIVIDER.levelMiddle +
-					(((value - moderateRainOrSnow.upper) * PRECIPITATION_DECIMALS_LENGTH) /
-					((heavyRainOrSnow.upper - heavyRainOrSnow.lower) * PRECIPITATION_DECIMALS_LENGTH))
-				);
-			case PRECIPITATION_LEVEL.STORM_RAIN_OR_SNOW:
-			// impossible
-			default:
-				return PRECIP_INTENSITY_PERCEIVED_DIVIDER.levelTop;
-		}
-	};
+    // mapping the standard preciptation level to 3 level standard of Apple
+    const radarToApplePrecipitation = value => {
+        const {
+            noRainOrSnow,
+            lightRainOrSnow,
+            moderateRainOrSnow,
+            heavyRainOrSnow,
+            _stormRainOrSnow
+        } = RADAR_PRECIPITATION_RANGE;
 
-	if (minutelyData?.status !== "ok" || minutely?.status !== "ok") {
-		$.log(`❗️ ${$.name}, 分钟级降水信息获取失败, `, `minutely = ${JSON.stringify(minutelyData)}`, '');
-		return weather;
-	}
+        switch (radarToPrecipitationLevel(value)) {
+            case PRECIPITATION_LEVEL.NO_RAIN_OR_SNOW:
+                return PRECIP_INTENSITY_PERCEIVED_DIVIDER.beginning;
+            case PRECIPITATION_LEVEL.LIGHT_RAIN_OR_SNOW:
+            return (
+                // multiple 10000 for precision of calculation
+                // base of previous levels + percentage of the value in its level
+                PRECIP_INTENSITY_PERCEIVED_DIVIDER.beginning +
+                // from the lower of range to value
+                (((value - noRainOrSnow.upper) * PRECIPITATION_DECIMALS_LENGTH) /
+                // sum of range
+                    ((lightRainOrSnow.upper - lightRainOrSnow.lower) * PRECIPITATION_DECIMALS_LENGTH))
+                // then divided them and multiple Apple level range
+                // because Apple divided graph into 3 parts, value limitation is 3
+                // we omit the "multiple one"
+                );
+            case PRECIPITATION_LEVEL.MODERATE_RAIN_OR_SNOW:
+                return (
+                    PRECIP_INTENSITY_PERCEIVED_DIVIDER.levelBottom +
+                    (((value - lightRainOrSnow.upper) * PRECIPITATION_DECIMALS_LENGTH) /
+                    ((moderateRainOrSnow.upper - moderateRainOrSnow.lower) * PRECIPITATION_DECIMALS_LENGTH))
+                );
+            case PRECIPITATION_LEVEL.HEAVY_RAIN_OR_SNOW:
+                return (
+                    PRECIP_INTENSITY_PERCEIVED_DIVIDER.levelMiddle +
+                    (((value - moderateRainOrSnow.upper) * PRECIPITATION_DECIMALS_LENGTH) /
+                    ((heavyRainOrSnow.upper - heavyRainOrSnow.lower) * PRECIPITATION_DECIMALS_LENGTH))
+                );
+            case PRECIPITATION_LEVEL.STORM_RAIN_OR_SNOW:
+            // impossible
+            default:
+                return PRECIP_INTENSITY_PERCEIVED_DIVIDER.levelTop;
+        }
+    };
 
-	$.log(`⚠️ ${$.name}, Detect`, `forecastNextHour data ${api}`, '');
+    if (minutelyData?.status !== "ok" || minutely?.status !== "ok") {
+        $.log(`❗️ ${$.name}, 分钟级降水信息获取失败, `, `minutely = ${JSON.stringify(minutelyData)}`, '');
+        return weather;
+    }
+
+    $.log(`⚠️ ${$.name}, ${outputNextHour.name}检测, `, `forecastNextHour data ${api}`, '');
   if (!weather.forecastNextHour) {
-    $.log(`⚠️ ${$.name}, non-existent forecastNextHour data`, `creating`, '');
+    $.log(`⚠️ ${$.name}, 没有下一小时降水强度数据，正在创建`, '');
     weather.forecastNextHour = {
       "name": "NextHourForecast",
       "metadata": {},
@@ -538,280 +544,427 @@ async function outputNextHour(api, minutelyData, weather, Settings) {
     }
   }
 
-	// TODO: split API logic from this function
-	weather.forecastNextHour.metadata.expireTime = convertTime(new Date(minutelyData?.server_time * 1000), 'add-1h-floor', api);
-	// this API doesn't support language switch
-	// replace `zh_CN` to `zh-CN`
-	weather.forecastNextHour.metadata.language = minutelyData?.lang.replace('_', '-');
-	weather.forecastNextHour.metadata.longitude = minutelyData?.location[1];
-	weather.forecastNextHour.metadata.latitude = minutelyData?.location[0];
-	weather.forecastNextHour.metadata.providerName = "气象在线";
-	weather.forecastNextHour.metadata.readTime = convertTime(new Date(), 'remain', api);
-	// actually we use radar data directly
-	// it looks like Apple doesn't care this data
-	// weather.forecastNextHour.metadata.units = "m";
-	weather.forecastNextHour.metadata.units = "radar";
-	weather.forecastNextHour.metadata.version = 2;
+    // TODO: split API logic from this function
+    weather.forecastNextHour.metadata.expireTime = convertTime(new Date(minutelyData?.server_time * 1000), 'add-1h-floor', api);
+    // this API doesn't support language switch
+    // replace `zh_CN` to `zh-CN`
+    weather.forecastNextHour.metadata.language = minutelyData?.lang?.replace('_', '-') ?? "en-US";
+    weather.forecastNextHour.metadata.longitude = minutelyData?.location[1];
+    weather.forecastNextHour.metadata.latitude = minutelyData?.location[0];
+    weather.forecastNextHour.metadata.providerName = providerName;
+    weather.forecastNextHour.metadata.readTime = convertTime(new Date(), 'remain', api);
+    // actually we use radar data directly
+    // it looks like Apple doesn't care this data
+    // weather.forecastNextHour.metadata.units = "m";
+    weather.forecastNextHour.metadata.units = "radar";
+    weather.forecastNextHour.metadata.version = 2;
 
-	weather.forecastNextHour.startTime = startTimeIos;
+    weather.forecastNextHour.startTime = startTimeIos;
 
-	const startTimeDate = new Date(startTimeIos);
-	minutely.precipitation_2h.forEach((value, index) => {
-		const nextMinuteTime = addMinutes(startTimeDate, index);
+    const startTimeDate = new Date(startTimeIos);
+    minutely.precipitation_2h.forEach((value, index) => {
+        const nextMinuteTime = addMinutes(startTimeDate, index);
 
-		weather.forecastNextHour.minutes.push({
-			"startTime": convertTime(new Date(nextMinuteTime), 'remain', api),
-			// we only have per half hour probability data
-			// `index / 30` => use one probability for 30 minutes
-			// `* 100` => convert to percentages
-			"precipChance": value > 0 ? parseInt(minutely.probability[parseInt(index / 30)] * 100) : 0,
-			// it looks like Apple doesn't care precipIntensity
-			"precipIntensity": value,
-			"precipIntensityPerceived": radarToApplePrecipitation(value),
-		});
-	});
+        weather.forecastNextHour.minutes.push({
+            "startTime": convertTime(new Date(nextMinuteTime), 'remain', api),
+            // we only have per half hour probability data
+            // `index / 30` => use one probability for 30 minutes
+            // `* 100` => convert to percentages
+            "precipChance": value > 0 ? parseInt(minutely.probability[parseInt(index / 30)] * 100) : 0,
+            // it looks like Apple doesn't care precipIntensity
+            "precipIntensity": value,
+            "precipIntensityPerceived": radarToApplePrecipitation(value),
+        });
+    });
 
-	const getSummary = minutes => {
-		// $.log(`🚧 ${$.name}, 开始设置summary`, '');
-		const DISPLAYABLE_MINUTES = 60;
+    const getConditions = (minutelyData, minutes) => {
+        // $.log(`🚧 ${$.name}, 开始设置conditions`, '');
+        // TODO: when to add possible
+        const ADD_POSSIBLE_UPPER = 0;
+        const POSSIBILITY = { POSSIBLE: "possible" };
+        const WEATHER_STATUS = {
+            CLEAR: "clear",
+            // precipIntensityPerceived < 1
+            DRIZZLE: "drizzle",
+            RAIN: "rain",
+            // precipIntensityPerceived > 2
+            HEAVY_RAIN: "heavy-rain-to-rain",
+            // TODO: untested, check if it is `snow`
+            SNOW: "snow",
+            HEAVY_SNOW: "heavy-snow-to-snow",
+        };
+        const TIME_STATUS = {
+            CONSTANT: "constant",
+            START: "start",
+            STOP: "stop"
+        };
 
-		// initalize data
-		const weatherType = getWeatherType(minutelyData?.result?.hourly);
-		$.log(`🚧 ${$.name}, weatherType = ${weatherType}`, '');
-		const summaries = [];
-		let lastIndex = 0;
-		// little trick for origin data
-		let isRainOrSnow = minutes[0].precipIntensity > 0;
-		let summary = {
-			startTime: minutes[0].startTime,
-			// I guess data from weatherType is not always reliable
-			condition: isRainOrSnow ? weatherType : SUMMARY_CONDITION_TYPES.CLEAR,
-		};
+        const toToken = (weatherAndPossiblity, timeStatus) => {
+            const { possibility, weatherStatus } = weatherAndPossiblity;
 
-		for (let i = 0; i < minutes.length; i++) {
-			// Apple weather could only display one hour data
-			// drop useless data to avoid display empty graph
-			if (i > DISPLAYABLE_MINUTES && lastIndex === 0 && !isRainOrSnow) {
-				summaries.push(summary);
-				return summaries;
-			}
+            const tokenLeft = possibility ? `${possibility}-${weatherStatus}` : `${weatherStatus}`;
+            const tokenRight = timeStatus.join('-');
 
-			const { startTime, precipIntensity } = minutes[i];
-			if (isRainOrSnow) {
-				if (
-					// end of rain
-					radarToPrecipitationLevel(precipIntensity) === PRECIPITATION_LEVEL.NO_RAIN_OR_SNOW ||
-					// we always need precipChance and precipIntensity data
-					i + 1 === minutes.length
-				) {
-					const range = minutes.slice(lastIndex, i + 1);
+            return timeStatus.length > 0 ? `${tokenLeft}.${tokenRight}` : `${tokenLeft}`;
+        }
 
-					// we reach the data end but cannot find the end of rain
-					if (radarToPrecipitationLevel(precipIntensity) === PRECIPITATION_LEVEL.NO_RAIN_OR_SNOW) {
-						summary.endTime = startTime;
-					}
-					summary.precipChance = Math.max(...range.map(value => value.precipChance));
-					// it looks like Apple doesn't care precipIntensity
-					summary.precipIntensity = Math.max(...range.map(value => value.precipIntensity));
+        const toWeatherStatus = (precipitation, weatherType) => {
+            // although weatherType is not reliable
+            // if (weatherType === SUMMARY_CONDITION_TYPES.CLEAR) {
+            //     return WEATHER_STATUS.CLEAR;
+            // }
 
-					summaries.push(summary);
+            const level = radarToPrecipitationLevel(precipitation);
 
-					isRainOrSnow = !isRainOrSnow;
-					lastIndex = i;
-					summary = {
-						startTime: startTime,
-						condition: SUMMARY_CONDITION_TYPES.CLEAR,
-					};
-				}
-			} else {
-				if (radarToPrecipitationLevel(precipIntensity) > PRECIPITATION_LEVEL.NO_RAIN_OR_SNOW) {
-					summary.endTime = startTime;
+            switch (level) {
+                case PRECIPITATION_LEVEL.LIGHT_RAIN_OR_SNOW:
+                    // is there a `drizzle snow`?
+                    // https://en.wikipedia.org/wiki/Snow_flurry
+                    return WEATHER_STATUS.DRIZZLE;
+                case PRECIPITATION_LEVEL.MODERATE_RAIN_OR_SNOW:
+                    // fallback to rain if weatherType is rain
+                    return weatherType === SUMMARY_CONDITION_TYPES.SNOW ?
+                        WEATHER_STATUS.SNOW :
+                        WEATHER_STATUS.RAIN;
+                case PRECIPITATION_LEVEL.HEAVY_RAIN_OR_SNOW:
+                case PRECIPITATION_LEVEL.STORM_RAIN_OR_SNOW:
+                    return weatherType === SUMMARY_CONDITION_TYPES.SNOW ?
+                        WEATHER_STATUS.HEAVY_SNOW :
+                        WEATHER_STATUS.HEAVY_RAIN;
+                case PRECIPITATION_LEVEL.NO_RAIN_OR_SNOW:
+                default:
+                    return WEATHER_STATUS.CLEAR;
+            }
+        };
 
-					summaries.push(summary);
+        const needPossible = precipChance => precipChance < ADD_POSSIBLE_UPPER;
 
-					isRainOrSnow = !isRainOrSnow;
-					lastIndex = i;
-					summary = {
-						startTime: startTime,
-						condition: weatherType,
-					};
-				}
-			}
-		}
+        const weatherType = getWeatherType(minutelyData?.result?.hourly);
+        const forecast_keypoint = minutelyData?.result?.forecast_keypoint;
+        const description = minutelyData?.result?.minutely?.description;
+        const conditions = [];
 
-		// $.log(`🚧 ${$.name}, result: summaries = ${JSON.stringify(summaries)}`, '');
-		return summaries;
-	};
+        // initialize data
+        const weatherAndPossiblity = {
+            possibility: needPossible(minutes[0].precipChance) ? POSSIBILITY.POSSIBLE : null,
+            // little trick for origin data
+            weatherStatus: toWeatherStatus(minutes[0].precipIntensity, weatherType),
+        };
+        let timeStatus = [];
+        let condition = { startTime: minutes[0].startTime };
 
-	const summaries = getSummary(weather.forecastNextHour.minutes);
-	weather.forecastNextHour.summary = weather.forecastNextHour.summary.concat(summaries);
+        for (let i = 0; i < minutes.length; i++) {
+            // Apple weather could only display one hour data
+            // drop useless data to avoid display empty graph or rain nearly stop after one hour
+            if (i + 1 >= DISPLAYABLE_MINUTES) {
+                if (weatherAndPossiblity.weatherStatus !== WEATHER_STATUS.CLEAR) {
+                    timeStatus = [TIME_STATUS.CONSTANT];
+                }
 
-	// THIS FUNCTION WILL BE REWRITE SOON!
-	const getConditions = (minutelyData, summary) => {
-		// $.log(`🚧 ${$.name}, 开始设置conditions`, '');
-		// TODO
-		const POSSIBILITY = { POSSIBLE: "possible" };
-		const CONDITION_LEVEL = { HEAVY: "heavy" };
-		const WEATHER_STATUS = {
-			CLEAR: "clear",
-			// precipIntensityPerceived < 1
-			DRIZZLE: "drizzle",
-			RAIN: "rain",
-			// precipIntensityPerceived > 2
-			HEAVY: "heavy-rain-to-rain",
-			// TODO: check if it is `snow`
-			SNOW: "snow",
-		};
-		const TIME_STATUS = {
-			CONSTANT: "constant",
-			START: "start",
-			STOP: "stop"
-		};
-		const forecast_keypoint = minutelyData?.result?.forecast_keypoint;
-		const description = minutelyData?.result?.minutely?.description;
-		const conditions = [];
+                condition.token = toToken(weatherAndPossiblity, timeStatus);
+                condition.longTemplate = forecast_keypoint ?? description;
+                condition.shortTemplate = description;
+                condition.parameters = {};
 
-		const toToken = (weatherAndPossiblity, timeStatus) => {
-			const tokenLeft = weatherAndPossiblity.join('-');
-			const tokenRight = timeStatus.join('-');
+                conditions.push(condition);
+                $.log(`🚧 ${$.name}, conditions = ${JSON.stringify(conditions)}`, '');
+                return conditions;
+            }
 
-			return `${tokenLeft}.${tokenRight}`;
-		}
+            // this loop will handle previous condition and create the condition for next condition
+            const { startTime, precipIntensity } = minutes[i];
+            if (weatherAndPossiblity.weatherStatus !== toWeatherStatus(precipIntensity, weatherType)) {
+                switch (toWeatherStatus(precipIntensity, weatherType)) {
+                    case WEATHER_STATUS.CLEAR:
+                        condition.endTime = startTime;
 
-		summary.forEach((value, index) => {
-			// $.log(`🚧 ${$.name}, summary.condition = ${value.condition}`, '');
-			const { startTime, endTime, condition, precipChance, precipIntensity } = value;
-			const weatherType = getWeatherType(minutelyData?.result?.hourly);
+                        timeStatus.push(TIME_STATUS.STOP);
+                        condition.token = toToken(weatherAndPossiblity, timeStatus);
+                        condition.longTemplate = forecast_keypoint ?? description;
+                        condition.shortTemplate = description;
+                        condition.parameters = {};
 
-			switch (condition) {
-				case SUMMARY_CONDITION_TYPES.CLEAR:
-					break;
-				case SUMMARY_CONDITION_TYPES.RAIN:
-				case SUMMARY_CONDITION_TYPES.SNOW:
-				default:
-					const lastSummary = summary[index - 1];
-					const weatherAndPossiblity = [];
-					const timeStatus = [];
-					const conditionToAdd = {};
+                        // done for the previous condition
+                        conditions.push(condition);
 
-					conditionToAdd.startTime = startTime;
-					if (endTime) {
-						conditionToAdd.endTime = endTime;
+                        // reset the condition
+                        weatherAndPossiblity.possibility =
+                            needPossible(minutes[0].precipChance) ? POSSIBILITY.POSSIBLE : null;
+                        weatherAndPossiblity.weatherStatus = toWeatherStatus(precipIntensity, weatherType);
+                        timeStatus = [];
+                        condition = { startTime };
+                        break;
+                    case WEATHER_STATUS.HEAVY_RAIN:
+                    case WEATHER_STATUS.HEAVY_SNOW:
+                        if (
+                            weatherAndPossiblity.weatherStatus === WEATHER_STATUS.RAIN ||
+                            weatherAndPossiblity.weatherStatus === WEATHER_STATUS.SNOW ||
+                            // TODO: untested, heavy rain to heavy snow OR heavy snow to heavy rain?
+                            weatherAndPossiblity.weatherStatus === WEATHER_STATUS.HEAVY_RAIN ||
+                            weatherAndPossiblity.weatherStatus === WEATHER_STATUS.HEAVY_SNOW
+                        ) {
+                            timeStatus = [TIME_STATUS.CONSTANT];
+                        } else if (weatherAndPossiblity.weatherStatus === WEATHER_STATUS.CLEAR) {
+                            // but how...?
+                            // change clear to heavy-rain-to-rain.start or heavy-snow-to-snow.start
+                            weatherAndPossiblity.weatherStatus = toWeatherStatus(precipIntensity, weatherType);
+                            timeStatus.push(TIME_STATUS.START);
+                        } else {
+                            // for drizzle or something else?
+                            timeStatus.push(TIME_STATUS.STOP);
+                        }
+    
+                        condition.token = toToken(weatherAndPossiblity, timeStatus);
+                        condition.longTemplate = forecast_keypoint ?? description;
+                        condition.shortTemplate = description;
+                        condition.parameters = {
+                            // maybe useless
+                            "firstAt": startTime,
+                        };
+    
+                        conditions.push(condition);
 
-						// TODO: rain in an hour?
-						if (lastSummary) {
-							timeStatus.push(TIME_STATUS.START);
-						}
+                        weatherAndPossiblity.possibility =
+                            needPossible(minutes[0].precipChance) ? POSSIBILITY.POSSIBLE : null;
+                        weatherAndPossiblity.weatherStatus = toWeatherStatus(precipIntensity, weatherType);
+                        timeStatus = [TIME_STATUS.START];
+                        condition = { startTime };
+                        break;
+                    case WEATHER_STATUS.DRIZZLE:
+                        // unfortunately we cannot distinguish the drizzle without helping of API
+                        // should we consider light rain as drizzle?
 
-						timeStatus.push(TIME_STATUS.STOP);
-					} else {
-						timeStatus.push(TIME_STATUS.CONSTANT);
-					}
+                        // begin of an rain
+                        // if (weatherAndPossiblity.weatherStatus === WEATHER_STATUS.CLEAR) {
+                        //     condition.endTime = startTime;
 
-					// TODO: heavy rain
-					// TODO: we know less about the token
-					weatherAndPossiblity.push(condition);
-					conditionToAdd.token = toToken(weatherAndPossiblity, timeStatus);
-					conditionToAdd.longTemplate = forecast_keypoint ?? description;
-					conditionToAdd.shortTemplate = description;
-					// TODO: fill parameters
-					conditionToAdd.parameters = {};
+                        //     // change clear to drizzle.start-stop
+                        //     weatherAndPossiblity.weatherStatus = WEATHER_STATUS.DRIZZLE;
+                        //     timeStatus.push(TIME_STATUS.START);
+                        //     timeStatus.push(TIME_STATUS.STOP);
 
-					if (index !== 0 && lastSummary.condition === SUMMARY_CONDITION_TYPES.CLEAR) {
-						const lastCondition = {};
+                        //     condition.token = toToken(weatherAndPossiblity, timeStatus);
+                        //     condition.longTemplate = forecast_keypoint ?? description;
+                        //     condition.shortTemplate = description;
+                        //     condition.parameters = {
+                        //         // maybe useless
+                        //         "firstAt": startTime,
+                        //     };
+    
+                        //     conditions.push(condition);
+                        // }
 
-						lastCondition.startTime = lastSummary.startTime;
-						lastCondition.endTime = lastSummary.endTime;
+                        // weatherAndPossiblity.weatherStatus = toWeatherStatus(precipIntensity, weatherType);
+                        // timeStatus = [TIME_STATUS.START];
+                        // condition = { startTime };
+                        // break;
+                    case WEATHER_STATUS.RAIN:
+                    case WEATHER_STATUS.SNOW:
+                    default:
+                        // if (weatherAndPossiblity.weatherStatus === WEATHER_STATUS.DRIZZLE) {}
+                        condition.endTime = startTime;
 
-						// TODO: drizzle has different token
-						lastCondition.token = toToken(weatherAndPossiblity, [TIME_STATUS.START]);
-						lastCondition.longTemplate = forecast_keypoint ?? description;
-						lastCondition.shortTemplate = description;
-						// TODO: fill parameters
-						lastCondition.parameters = {};
+                        if (weatherAndPossiblity.weatherStatus === WEATHER_STATUS.CLEAR) {
+                            // change clear to rain.start or snow.start
+                            weatherAndPossiblity.weatherStatus = toWeatherStatus(precipIntensity, weatherType);
+                            timeStatus.push(TIME_STATUS.START);
+                        } else if (
+                            weatherAndPossiblity.weatherStatus === WEATHER_STATUS.HEAVY_RAIN ||
+                            weatherAndPossiblity.weatherStatus === WEATHER_STATUS.HEAVY_SNOW ||
+                            // TODO: untested rain to snow OR snow to rain?
+                            weatherAndPossiblity.weatherStatus === WEATHER_STATUS.RAIN ||
+                            weatherAndPossiblity.weatherStatus === WEATHER_STATUS.SNOW
+                        ) {
+                            timeStatus = [TIME_STATUS.CONSTANT];
+                        } else {
+                            // for drizzle or something else?
+                            timeStatus.push(TIME_STATUS.STOP);
+                        }
 
-						conditions.push(lastCondition);
-					}
-					
-					conditions.push(conditionToAdd);
-					break;
-			}
-		});
+                        condition.token = toToken(weatherAndPossiblity, timeStatus);
+                        condition.longTemplate = forecast_keypoint ?? description;
+                        condition.shortTemplate = description;
+                        condition.parameters = {
+                            // maybe useless
+                            "firstAt": startTime,
+                        };
 
-		if (conditions.length === 0) {
-			// means that clear next hour
-			// user may never see those data
-			conditions.push({
-				"startTime": summary[0].startTime,
-				"token": "clear",
-				"longTemplate":
-					minutelyData?.result?.forecast_keypoint ?? minutelyData?.result?.minutely?.description,
-				"shortTemplate":
-					minutelyData?.result?.minutely?.description,
-				"parameters": {},
-			});
-		}
+                        conditions.push(condition);
 
-		// $.log(`🚧 ${$.name}, result: conditions = ${JSON.stringify(conditions)}`, '');
-		return conditions;
-	};
+                        weatherAndPossiblity.possibility =
+                            needPossible(minutes[0].precipChance) ? POSSIBILITY.POSSIBLE : null;
+                        weatherAndPossiblity.weatherStatus = toWeatherStatus(precipIntensity, weatherType);
+                        timeStatus = [TIME_STATUS.START];
+                        condition = { startTime };
+                        break;
+                }
+            }
+        }
 
-	const conditions = getConditions(minutelyData, weather.forecastNextHour.summary);
-	weather.forecastNextHour.condition = weather.forecastNextHour.condition.concat(conditions);
+        $.log(`🚧 ${$.name}, conditions = ${JSON.stringify(conditions)}`, '');
+        return conditions;
+    };
 
-	$.log(`🚧 ${$.name}, forecastNextHour = ${JSON.stringify(weather.forecastNextHour)}`, '');
-	$.log(`🎉 ${$.name}, 下一小时降水强度替换完成`, '');
-	return weather;
+    const conditions = getConditions(minutelyData, weather.forecastNextHour.minutes);
+    weather.forecastNextHour.condition = weather.forecastNextHour.condition.concat(conditions);
+
+    const getSummary = minutes => {
+        // $.log(`🚧 ${$.name}, 开始设置summary`, '');
+        const weatherType = getWeatherType(minutelyData?.result?.hourly);
+        $.log(`🚧 ${$.name}, weatherType = ${weatherType}`, '');
+
+        const summaries = [];
+
+        // initialize data
+        let lastIndex = 0;
+        // little trick for origin data
+        let isRainOrSnow = minutes[0].precipIntensity > 0;
+        let summary = {
+            startTime: minutes[0].startTime,
+            // I guess data from weatherType is not always reliable
+            condition: isRainOrSnow ? weatherType : SUMMARY_CONDITION_TYPES.CLEAR,
+        };
+
+        for (let i = 0; i < minutes.length; i++) {
+            // clear in an hour
+            // Apple weather could only display one hour data
+            // drop useless data to avoid display empty graph
+            if (i + 1 >= DISPLAYABLE_MINUTES && lastIndex === 0 && !isRainOrSnow) {
+                summaries.push(summary);
+                $.log(`🚧 ${$.name}, summaries = ${JSON.stringify(summaries)}`, '');
+                return summaries;
+            }
+
+            // this loop will handle previous condition and create the condition for next condition
+            const { startTime, precipIntensity } = minutes[i];
+            if (isRainOrSnow) {
+                if (
+                    // end of rain
+                    radarToPrecipitationLevel(precipIntensity) === PRECIPITATION_LEVEL.NO_RAIN_OR_SNOW ||
+                    // constant of rain
+                    // we always need precipChance and precipIntensity data
+                    i + 1 === minutes.length
+                ) {
+                    // for find the max value of precipChance and precipIntensity
+                    const range = minutes.slice(lastIndex, i + 1);
+
+                    // we reach the data end but cannot find the end of rain
+                    if (radarToPrecipitationLevel(precipIntensity) === PRECIPITATION_LEVEL.NO_RAIN_OR_SNOW) {
+                        summary.endTime = startTime;
+                    }
+                    summary.precipChance = Math.max(...range.map(value => value.precipChance));
+                    // it looks like Apple doesn't care precipIntensity
+                    summary.precipIntensity = Math.max(...range.map(value => value.precipIntensity));
+
+                    summaries.push(summary);
+
+                    // reset summary
+                    isRainOrSnow = !isRainOrSnow;
+                    lastIndex = i;
+                    summary = {
+                        startTime: startTime,
+                        condition: SUMMARY_CONDITION_TYPES.CLEAR,
+                    };
+                }
+            } else {
+                if (radarToPrecipitationLevel(precipIntensity) > PRECIPITATION_LEVEL.NO_RAIN_OR_SNOW) {
+                    summary.endTime = startTime;
+
+                    summaries.push(summary);
+
+                    isRainOrSnow = !isRainOrSnow;
+                    lastIndex = i;
+                    summary = {
+                        startTime: startTime,
+                        condition: weatherType,
+                    };
+                }
+            }
+        }
+
+        $.log(`🚧 ${$.name}, summaries = ${JSON.stringify(summaries)}`, '');
+        return summaries;
+    };
+
+    const summaries = getSummary(weather.forecastNextHour.minutes);
+    weather.forecastNextHour.summary = weather.forecastNextHour.summary.concat(summaries);
+
+    // $.log(`🚧 ${$.name}, forecastNextHour = ${JSON.stringify(weather.forecastNextHour)}`, '');
+    $.log(`🎉 ${$.name}, 下一小时降水强度替换完成`, '');
+    return weather;
 };
 
 /***************** Fuctions *****************/
-// Function 1
-// Switch Pollutants Type
-// https://github.com/Hackl0us/SS-Rule-Snippet/blob/master/Scripts/Surge/weather_aqi_us/iOS15_Weather_AQI_US.js
+/**
+ * https://github.com/wandergis/coordtransform/blob/master/index.js#L134
+ * 判断是否在国内
+ * @param {Number} lat - latitude
+ * @param {Number} lng - longitude
+ * @returns {boolean}
+ */
+function out_of_china(lng, lat) {
+    var lat = +lat;
+    var lng = +lng;
+    // 纬度 3.86~53.55, 经度 73.66~135.05
+    return !(lng > 73.66 && lng < 135.05 && lat > 3.86 && lat < 53.55);
+};
+
+/**
+ * Switch Pollutants Type
+ * https://github.com/Hackl0us/SS-Rule-Snippet/blob/master/Scripts/Surge/weather_aqi_us/iOS15_Weather_AQI_US.js
+ * @param {String} pollutant - pollutant
+ * @returns {String}
+ */
 function switchPollutantsType(pollutant) {
-	const pollutant_map = { "co": "CO", "no": "NO", "no2": "NO2", "so2": "SO2", "o3": "OZONE", "nox": "NOX", "pm25": "PM2.5", "pm10": "PM10" };
-	return pollutant_map?.[pollutant] ?? "OTHER";
+    const pollutant_map = { "co": "CO", "no": "NO", "no2": "NO2", "so2": "SO2", "o3": "OZONE", "nox": "NOX", "pm25": "PM2.5", "pm10": "PM10" };
+    return pollutant_map?.[pollutant] ?? "OTHER";
 };
 
-// Function 2
-// Convert Time Format
-// https://github.com/Hackl0us/SS-Rule-Snippet/blob/master/Scripts/Surge/weather_aqi_us/iOS15_Weather_AQI_US.js
-function convertTime(time, action, api) {
-	switch (action) {
-		case 'remain':
-			time.setMilliseconds(0);
-			break;
-		case 'add-1h-floor':
-			time.setHours(time.getHours() + 1);
-			time.setMinutes(0, 0, 0);
-			break;
-		default:
-			$.log(`⚠️ ${$.name}, Time Converter, Error`, `time: ${time}`, '');
-	}
-	if (api == "v1") {
-		let timeString = time.getTime() / 1000;
-		return timeString;
-	}
-	if (api == "v2") {
-		let timeString = time.toISOString().split('.')[0] + 'Z';
-		return timeString;
-	}
+/**
+ * Convert Time Format
+ * https://github.com/Hackl0us/SS-Rule-Snippet/blob/master/Scripts/Surge/weather_aqi_us/iOS15_Weather_AQI_US.js
+ * @param {Time} time - time
+ * @param {String} action - action
+ * @param {String} apiVersion - apiVersion - Apple Weather API Version
+ * @returns {String}
+ */
+function convertTime(time, action, apiVersion) {
+    switch (action) {
+        case 'remain':
+            time.setMilliseconds(0);
+            break;
+        case 'add-1h-floor':
+            time.setHours(time.getHours() + 1);
+            time.setMinutes(0, 0, 0);
+            break;
+        default:
+            $.log(`⚠️ ${$.name}, Time Converter, Error`, `time: ${time}`, '');
+    }
+    if (apiVersion == "v1") {
+        let timeString = time.getTime() / 1000;
+        return timeString;
+    }
+    if (apiVersion == "v2") {
+        let timeString = time.toISOString().split('.')[0] + 'Z';
+        return timeString;
+    }
 };
 
-// Function 3
-// Calculate Air Quality Level
-// https://github.com/Hackl0us/SS-Rule-Snippet/blob/master/Scripts/Surge/weather_aqi_us/iOS15_Weather_AQI_US.js
+/**
+ * Calculate Air Quality Level
+ * https://github.com/Hackl0us/SS-Rule-Snippet/blob/master/Scripts/Surge/weather_aqi_us/iOS15_Weather_AQI_US.js
+ * @param {Number} aqiIndex - aqiIndex
+ * @returns {Number}
+ */
 function classifyAirQualityLevel(aqiIndex) {
-	if (aqiIndex >= 0 && aqiIndex <= 50) return 1;
-	else if (aqiIndex >= 51 && aqiIndex <= 100) return 2;
-	else if (aqiIndex >= 101 && aqiIndex <= 150) return 3;
-	else if (aqiIndex >= 151 && aqiIndex <= 200) return 4;
-	else if (aqiIndex >= 201 && aqiIndex <= 300) return 5;
-	else if (aqiIndex >= 301 && aqiIndex <= 500) return 6;
-	else {
-		$.log(`⚠️ ${$.name}, classifyAirQualityLevel, Error`, `aqiIndex: ${aqiIndex}`, '');
-		return 6;
-	}
+    if (!aqiIndex) return -1;
+    else if (aqiIndex >= 0 && aqiIndex <= 50) return 1;
+    else if (aqiIndex >= 51 && aqiIndex <= 100) return 2;
+    else if (aqiIndex >= 101 && aqiIndex <= 150) return 3;
+    else if (aqiIndex >= 151 && aqiIndex <= 200) return 4;
+    else if (aqiIndex >= 201 && aqiIndex <= 300) return 5;
+    else if (aqiIndex >= 301 && aqiIndex <= 500) return 6;
+    else return 6;
 };
 
 /***************** Env *****************/
