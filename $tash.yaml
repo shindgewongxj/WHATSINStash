@@ -20,7 +20,7 @@
   - Europe
   - Oceania
   - DIRECT
-- LoadBalance
+- name: Load Balance
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/round_robin.png
   type: load-balance
   strategy: consistent-hashing
