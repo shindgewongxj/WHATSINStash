@@ -24,11 +24,11 @@ http:
 
 script-providers:
   Availability:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather/availability.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.Availability.js
     interval: 86400
   Weather:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/beta.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.js
     interval: 86400
   Map:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/weather/map.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.Map.js
     interval: 86400
