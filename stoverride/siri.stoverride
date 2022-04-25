@@ -25,5 +25,5 @@ http:
 
 script-providers:
   Siri:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/siri.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/archive/Siri_Suggestions.js
     interval: 86400
