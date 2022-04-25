@@ -53,5 +53,5 @@ http:
 
 script-providers:
   TV:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/js/tv.js
+    url: https://raw.githubusercontent.com/shindgewongxj/iRingo/main/js/Apple_TV_EN.js
     interval: 86400
