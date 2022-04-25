@@ -1,4 +1,4 @@
-name: Siri
+name: Siri Beta
 desc: Enable Siri functions.
 
 http:
@@ -7,40 +7,40 @@ http:
     - "api*.smoot.apple.cn"
   script:
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/bag\?(.*)
-      name: Siri.request
+      name: SiriRequest
       type: request
       require-body: false
       timeout: 5
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/bag\?(.*)
-      name: Siri.response
+      name: SiriResponse
       type: response
       require-body: true
       timeout: 10
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/search\?(.*)
-      name: Siri.request
+      name: SiriRequest
       type: request
       require-body: false
       timeout: 5
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/search\?(.*)
-      name: Siri.response
+      name: SiriResponse
       type: response
       require-body: true
       timeout: 10
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/card\?(.*)
-      name: Siri.request
+      name: SiriRequest
       type: request
       require-body: false
       timeout: 5
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/card\?(.*)
-      name: Siri.response
+      name: SiriResponse
       type: request
       require-body: true
       timeout: 10
 
 script-providers:
-  Siri.request:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Siri.request.js
+  SiriRequest:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Siri.request.beta.js
     interval: 86400
-  Siri.response:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Siri.response.js
+  SiriResponse:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Siri.response.beta.js
     interval: 86400
