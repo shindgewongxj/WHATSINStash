@@ -24,11 +24,11 @@ http:
 
 script-providers:
   WeatherAvailability:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.Availability.beta.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.Availability.js
     interval: 86400
   Weather:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.beta.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.js
     interval: 86400
   WeatherMap:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.Map.beta.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.Map.js
     interval: 86400
