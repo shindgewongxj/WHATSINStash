@@ -1,4 +1,4 @@
-name: Geography
+name: Geography Services
 desc: Pass geography detection.
 
 http:
