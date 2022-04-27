@@ -1,4 +1,4 @@
-name: Weather
+name: Weather Stable
 desc: Enable some Weather functions.
 
 http:
