@@ -1,0 +1,22 @@
+name: Weather
+desc: Enable some Weather functions.
+
+http:
+  mitm:
+    - "weather-data.apple.com"
+  script:
+    - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/weather.*(?!dataSets=forecastNextHour)(include=.*air_quality.*|dataSets=.*airQuality.*).*(country=[A-Z]{2})?.*
+      name: Weather
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/availability\/.*
+      name: Weather
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers:
+  Weather:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/archive/Apple_Weather.js
+    interval: 86400
