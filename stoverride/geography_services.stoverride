@@ -13,5 +13,5 @@ http:
 
 script-providers:
   GeographyServices:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Geo_Services.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Geo_Services_US.js
     interval: 86400
