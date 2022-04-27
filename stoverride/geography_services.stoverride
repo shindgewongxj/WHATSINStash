@@ -6,12 +6,12 @@ http:
     - "gspe1-ssl.ls.apple.com"
   script:
     - match: ^https?:\/\/gspe\d*-ssl\.ls\.apple\.com(\/pep\/gcc)
-      name: Geography
+      name: GeographyServices
       type: request
       require-body: false
       timeout: 10
 
 script-providers:
-  Geography:
+  GeographyServices:
     url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Geo_Services.js
     interval: 86400
