@@ -1,13 +1,6 @@
 name: News
 desc: Lift News region restrictions.
 
-rules:
-DOMAIN-SUFFIX,gateway.icloud.com
-DOMAIN-SUFFIX,news-edge.apple.com
-DOMAIN-SUFFIX,news-events.apple.com
-DOMAIN-SUFFIX,apple.comscoreresearch.com
-URL-REGEX,^https?:\/\/news-assets\.apple\.com\/.*(audio-narrative).*
-
 http:
   mitm:
     - "news-client.apple.com"
@@ -20,12 +13,12 @@ http:
       name: News
       type: request
       require-body: true
-      timeout: 5
+      timeout: 20
     - match: ^https?:\/\/news-(client-search)\.apple\.com\/(v1\/search\?).*
       name: News
       type: request
       require-body: false
-      timeout: 5
+      timeout: 10
 
 script-providers:
   News:
