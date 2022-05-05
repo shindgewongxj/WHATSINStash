@@ -1,5 +1,5 @@
 name: News
-desc: News region restrictions.
+desc: Lift News region restrictions.
 
 http:
   mitm:
