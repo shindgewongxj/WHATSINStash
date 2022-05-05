@@ -1,7 +1,7 @@
 name: News
 desc: Lift News region restrictions.
 
-rules:
+rule:
 DOMAIN-SUFFIX,gateway.icloud.com,Proxy
 DOMAIN-SUFFIX,news-edge.apple.com,Proxy
 DOMAIN-SUFFIX,news-events.apple.com,Proxy
