@@ -19,7 +19,7 @@ http:
       name: News
       type: request
       require-body: true
-      timeout: 20
+      timeout: 10
     - match: ^https?:\/\/news-(client-search)\.apple\.com\/(v1\/search\?).*
       name: News
       type: request
