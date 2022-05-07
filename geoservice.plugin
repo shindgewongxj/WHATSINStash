@@ -1,0 +1,9 @@
+#!name=Geo Service
+#!desc=Response Geo Service to United States.
+
+[Script]
+# Response Geo Services to US
+http-request ^https?:\/\/gspe\d*-ssl\.ls\.apple\.com(/pep/gcc) script-path=https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Geo_Services.js, tag=Geo Service
+
+[MITM]
+hostname = gspe1-ssl.ls.apple.com
