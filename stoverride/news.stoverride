@@ -1,5 +1,5 @@
 name: News
-desc: Lift News region restrictions
+desc: Lift News region restriction.
 
 rules:
   - DOMAIN-SUFFIX,news-edge.apple.com,Proxy
