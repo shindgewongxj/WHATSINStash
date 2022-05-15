@@ -1,11 +1,12 @@
 name: News
-desc: Lift News region restrictions.
+desc: Lift News region restrictions
 
 rules:
   - DOMAIN-SUFFIX,news-edge.apple.com,Proxy
   - DOMAIN-SUFFIX,news-events.apple.com,Proxy
   - DOMAIN-SUFFIX,apple.comscoreresearch.com,Proxy
   - URL-REGEX,^https?:\/\/news-assets\.apple\.com\/.*(audio-narrative).*,Proxy
+  - URL-REGEX,api*.smoot.apple.com,Proxy
   
 http:
   mitm:
