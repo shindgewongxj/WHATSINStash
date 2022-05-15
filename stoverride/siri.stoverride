@@ -7,40 +7,40 @@ http:
     - "api*.smoot.apple.cn"
   script:
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/bag\?(.*)
-      name: SiriRequest
+      name: Siri Request
       type: request
       require-body: false
       timeout: 5
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/bag\?(.*)
-      name: SiriResponse
+      name: Siri Response
       type: response
       require-body: true
       timeout: 10
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/search\?(.*)
-      name: SiriRequest
+      name: Siri Request
       type: request
       require-body: false
       timeout: 5
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/search\?(.*)
-      name: SiriResponse
+      name: Siri Response
       type: response
       require-body: true
       timeout: 10
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/card\?(.*)
-      name: SiriRequest
+      name: Siri Request
       type: request
       require-body: false
       timeout: 5
     - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/card\?(.*)
-      name: SiriResponse
+      name: Siri Response
       type: request
       require-body: true
       timeout: 10
 
 script-providers:
-  SiriRequest:
+  Siri Request:
     url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Siri.request.js
     interval: 86400
-  SiriResponse:
+  Siri Response:
     url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Siri.response.js
     interval: 86400
