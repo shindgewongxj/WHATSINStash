@@ -1,4 +1,4 @@
-name: Location Services
+name: Location
 desc: Coming soon.
 
 http:
@@ -6,12 +6,12 @@ http:
     - "gspe1-ssl.ls.apple.com"
   script:
     - match: ^https?:\/\/gspe1-ssl\.ls\.apple\.com\/pep\/gcc
-      name: LocationServices
+      name: Location Services
       type: request
       require-body: false
       timeout: 10
 
 script-providers:
-  LocationServices:
+  Location Services:
     url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Location.js
     interval: 86400
