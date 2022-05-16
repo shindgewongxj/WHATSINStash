@@ -1,0 +1,13 @@
+#!name= Weather
+#!desc= Enable some Weather functions.
+
+[Rewrite]
+^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/weather\/.* header-del If-None-Match
+
+[Script]
+http-response ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/availability\/.* script-path=https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.Availability.js, requires-body=1, tag=Weather Availability
+http-response ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/weather\/.* script-path=https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.js, requires-body=1, timeout=20, tag=Weather
+http-request ^https?:\/\/weather-map\.apple\.com\/(v1|v2)\/mapOverlay\/.*(\?.*country=CN.*) script-path=https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.Map.js, requires-body=0, tag=Weather Map
+
+[MITM]
+hostname = weather-data.apple.com, weather-map.apple.com
