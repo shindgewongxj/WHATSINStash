@@ -1,229 +1,82 @@
-- name: Auto
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/auto.png
-  type: url-test
-  proxies:
-  - Africa
-  - America
-  - Asia
-  - Europe
-  - Oceania
-  - DIRECT
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-- name: Bypass
+proxy-providers:
+  Hong Kong:
+    url:
+    interval: 86400
+    filter: (?i)(港|HK|Hong)
+  Taiwan:
+    url:
+    interval: 86400
+    filter: (?i)(台|TW|Tai)
+  Japan:
+    url:
+    interval: 86400
+    filter: (?i)(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan)
+  South Korea:
+    url:
+    interval: 86400
+    filter: (?i)(KR|Korea|KOR|首尔|韩|韓)
+  United States:
+    url:
+    interval: 86400
+    filter: (?i)(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
+  Singapore:
+    url:
+    interval: 86400
+    filter: (?i)(新加坡|坡|狮城|SG|Singapore)
+proxy-groups:
+- name: Proxy
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bypass.png
   type: select
   proxies:
-  - Africa
-  - America
-  - Asia
-  - Europe
-  - Oceania
-  - DIRECT
-- name: Load Balance
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/round_robin.png
-  type: load-balance
-  strategy: consistent-hashing
-  proxies:
-  - Africa
-  - America
-  - Asia
-  - Europe
-  - Oceania
-  - DIRECT
+  - Auto
+  - Available
+  - Load Balance
+  use:
+  - Hong Kong
+  - Japan
+  - Singapore
+  - South Korea
+  - Taiwan
+  - United States
+- name: Auto
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/auto.png
+  type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 300
-- name: Game
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/game.png
-  type: select
-  proxies:
-  - Africa
-  - America
-  - Asia
-  - Europe
-  - Oceania
-  - DIRECT
-- name: Streaming
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/streaming.png
-  type: select
-  proxies:
-  - Africa
-  - America
-  - Asia
-  - Europe
-  - Oceania
-  - DIRECT
-- name: Direct
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/direct.png
-  type: select
-  proxies:
-  - DIRECT
-- name: Reject
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/reject.png
-  type: select
-  proxies:
-  - REJECT
-- name: Final
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/final.png
-  type: select
-  proxies:
-  - Proxy
-- name: Beta
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/lab.png
-  type: select
-  proxies:
-  - Proxy
-  - DIRECT
-- name: Africa
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/africa.png
-  type: select
-  proxies:
-  - 'UK'
-- name: America
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/america.png
-  type: select
-  proxies:
-  - 'US 1'
-  - 'US 2'
-  - 'US 3'
-  - 'US 4'
-- name: Asia
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/asia.png
-  type: select
-  proxies:
-  - 'HK'
-- name: Europe
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/europe.png
-  type: select
-  proxies:
-  - 'UK'
-- name: Oceania
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/oceania.png
-  type: select
-  proxies:
-  - 'HK'
-- name: Worldwide
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/world.png
-  type: select
-  proxies:
-  - 'AU'
-  - 'HK'
-  - 'UK'
-  - 'US 1'
-  - 'US 2'
-  - 'US 3'
-  - 'US 4'
-- name: Apple
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/apple.png
-  type: select
-  proxies:
-  - Proxy
-  - DIRECT
-- name: BBC iPlayer
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bbc_iplayer.png
-  type: select
-  proxies:
-  - Streaming
-- name: Bilibili
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bilibili.png
-  type: select
-  proxies:
-  - Streaming
-  - DIRECT
-- name: Disney+
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/disney+.png
-  type: select
-  proxies:
-  - Streaming
-- name: ESPN+
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/espn+.png
-  type: select
-  proxies:
-  - Streaming
-- name: Google
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/google.png
-  type: select
-  proxies:
-  - Proxy
-  - DIRECT
-- name: HBO
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/hbo.png
-  type: select
-  proxies:
-  - Streaming
-- name: Hulu
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/hulu.png
-  type: select
-  proxies:
-  - Streaming
-- name: iTV
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/itv.png
-  type: select
-  proxies:
-  - Streaming
-- name: Meta
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/meta.png
-  type: select
-  proxies:
-  - Proxy
-  - DIRECT
-- name: Microsoft
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/microsoft.png
-  type: select
-  proxies:
-  - Proxy
-  - DIRECT
-- name: Netflix
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/netflix.png
-  type: select
-  proxies:
-  - Streaming
-- name: Paramount
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/paramount.png
-  type: select
-  proxies:
-  - Streaming
-- name: Peacock
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/peacock.png
-  type: select
-  proxies:
-  - Streaming
-- name: Prime Video
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/prime_video.png
-  type: select
-  proxies:
-  - Streaming
-- name: Steam
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/steam.png
-  type: select
-  proxies:
-  - Proxy
-  - DIRECT
-- name: Telegram
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/telegram.png
-  type: select
-  proxies:
-  - Proxy
-  - DIRECT
-- name: TikTok
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/tiktok.png
-  type: select
-  proxies:
-  - Proxy
-  - DIRECT
-- name: Twitch
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/twitch.png
-  type: select
-  proxies:
-  - Proxy
-  - DIRECT
-- name: Twitter
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/twitter.png
-  type: select
-  proxies:
-  - Proxy
-  - DIRECT
+  use:
+  - Hong Kong
+  - Japan
+  - Singapore
+  - South Korea
+  - Taiwan
+  - United States
+- name: Available
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/available.png
+  type: fallback
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  use:
+  - United States
+  - Singapore
+  - Hong Kong
+  - Taiwan
+  - Japan
+  - South Korea
+- name: Load Balance
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/roundrobin.png
+  type: load-balance
+  strategy: consistent-hashing
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  use:
+  - Hong Kong
+  - Japan
+  - Singapore
+  - South Korea
+  - Taiwan
+  - United States
 rules:
-  - GEOIP,LAN,Direct
-  - GEOIP,CN,Direct
-  - MATCH,Final
+- DOMAIN-KEYWORD,weibo,Proxy
+- URL-REGEX,api*.smoot.apple.com,Proxy
+- GEOIP,CN,DIRECT
+- MATCH,Proxy
