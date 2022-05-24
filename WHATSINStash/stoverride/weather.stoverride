@@ -2,6 +2,8 @@ name: Weather
 desc: Enable some Weather functions.
 
 http:
+  header-rewrite:
+    - ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/weather\/.* request-del If-None-Match
   mitm:
     - "weather-data.apple.com"
     - "weather-map.apple.com"
@@ -21,6 +23,7 @@ http:
       type: request
       require-body: false
       timeout: 10
+      argument:
 
 script-providers:
   Weather Availability:
