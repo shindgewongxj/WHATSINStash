@@ -5,13 +5,26 @@ http:
   mitm:
     - "gspe1-ssl.ls.apple.com"
   script:
+    - match: ^https?:\/\/configuration\.ls\.apple\.com\/config\/defaults(\?.*)?$
+      name: Location Request
+      type: request
+      require-body: false
+      timeout: 10
+    - match: ^https?:\/\/configuration\.ls\.apple\.com\/config\/defaults(\?.*)?$
+      name: Location Response
+      type: response
+      require-body: true
+      timeout: 10
     - match: ^https?:\/\/gspe1-ssl\.ls\.apple\.com\/pep\/gcc
-      name: Location Services
+      name: Location Request
       type: request
       require-body: false
       timeout: 10
 
 script-providers:
-  Location Services:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Location.js
+  Location Request:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Location.request.js
+    interval: 86400
+  Location Response:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Location.response.js
     interval: 86400
