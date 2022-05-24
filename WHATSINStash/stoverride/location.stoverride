@@ -1,5 +1,5 @@
 name: Location
-desc: Coming soon.
+desc: Edit location services configs.
 
 http:
   mitm:
