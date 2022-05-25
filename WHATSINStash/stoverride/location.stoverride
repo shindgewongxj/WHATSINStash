@@ -1,5 +1,5 @@
 name: Location
-desc: Edit location services configs.
+desc: Enhance some location services.
 
 http:
   mitm:
@@ -16,9 +16,9 @@ http:
       require-body: true
       timeout: 10
     - match: ^https?:\/\/gspe1-ssl\.ls\.apple\.com\/pep\/gcc
-      name: Location Request
-      type: request
-      require-body: false
+      name: Location Response
+      type: response
+      require-body: true
       timeout: 10
 
 script-providers:
