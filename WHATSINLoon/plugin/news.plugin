@@ -1,6 +1,5 @@
 #!name= News
 #!desc= Lift News region restriction.
-# 该插件需要匹配代理策略组
 
 [Rule]
 # > Apple News
