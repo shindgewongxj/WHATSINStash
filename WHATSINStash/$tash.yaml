@@ -2,27 +2,27 @@ proxy-providers:
   Hong Kong:
     url:
     interval: 86400
-    filter: (?i)(港|HK|Hong)
+    filter: (?i)(Hong Kong|HK|Hong|港)
   Taiwan:
     url:
     interval: 86400
-    filter: (?i)(台|TW|Tai)
+    filter: (?i)(Taiwan|TW|Tai|台)
   Japan:
     url:
     interval: 86400
-    filter: (?i)(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan)
+    filter: (?i)(Japan|JP|日本|川日|东京|大阪|泉日|埼玉|沪日|深日)
   South Korea:
     url:
     interval: 86400
-    filter: (?i)(KR|Korea|KOR|首尔|韩|韓)
+    filter: (?i)(South Korea|KR|Korea|KOR|首尔|韩|韓)
   United States:
     url:
     interval: 86400
-    filter: (?i)(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
+    filter: (?i)(United States|US|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥)
   Singapore:
     url:
     interval: 86400
-    filter: (?i)(新加坡|坡|狮城|SG|Singapore)
+    filter: (?i)(Singapore|SG|新加坡|坡|狮城)
 proxy-groups:
 - name: Proxy
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bypass.png
@@ -76,7 +76,5 @@ proxy-groups:
   - Taiwan
   - United States
 rules:
-- DOMAIN-KEYWORD,weibo,Proxy
-- URL-REGEX,api*.smoot.apple.com,Proxy
 - GEOIP,CN,DIRECT
 - MATCH,Proxy
