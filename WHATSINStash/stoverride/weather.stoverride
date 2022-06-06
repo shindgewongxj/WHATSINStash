@@ -1,5 +1,5 @@
 name: Weather
-desc: Enable some Weather functions.
+desc: Enhance Weather functions.
 
 http:
   header-rewrite:
