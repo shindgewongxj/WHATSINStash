@@ -1,5 +1,5 @@
 name: Siri
-desc: Enable some Siri functions.
+desc: Enhance Siri functions.
 
 http:
   mitm:
