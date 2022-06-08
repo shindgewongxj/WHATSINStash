@@ -56,12 +56,12 @@ http:
       require-body: false
       timeout: 10
     - match: ^https?:\/\/gspe12-ssl\.ls\.apple\.com\/traffic(\?.*)?$
-      name: Location Request
+      name: Maps Request
       type: request
       require-body: false
       timeout: 10
     - match: ^https?:\/\/gspe12-cn-ssl\.ls\.apple\.com\/traffic(\?.*)?$
-      name: Location Request
+      name: Maps Request
       type: request
       require-body: false
       timeout: 10
