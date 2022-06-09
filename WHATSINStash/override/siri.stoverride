@@ -1,5 +1,5 @@
 name: Siri
-desc: Regional Enhancements.
+desc: Unlock some regional features of Siri.
 
 http:
   mitm:

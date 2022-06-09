@@ -1,5 +1,5 @@
 name: News
-desc: Regional Enhancements.
+desc: Unlock some regional features of News.
 
 rules:
   - DOMAIN-SUFFIX,news-edge.apple.com,Proxy

@@ -1,5 +1,5 @@
 name: TV
-desc: Regional Enhancements.
+desc: Unlock some regional features of TV.
 
 http:
   mitm:
