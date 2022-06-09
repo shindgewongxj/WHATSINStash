@@ -1,10 +1,6 @@
-#!name=Siri
-#!desc=Enable some Siri functions.
+#!name= Siri
+#!desc= Unlock some regional features of Siri.
 #!openUrl=http://boxjs.com/#/app/iRingo.Siri
-#!author=VirgilClyne
-#!homepage=https://github.com/VirgilClyne
-#!manual=https://github.com/VirgilClyne/iRingo#siri与搜索
-#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Siri.png
 
 [Script]
 # Bag (iOS/macOS)
