@@ -1,5 +1,5 @@
 #!name= Siri
-#!desc= Enable some Siri functions.
+#!desc= Unlock some regional features of Siri.
 
 [Rule]
 # > Look Up (Only for Wikipedia@macOS, TUN Mode enabled required)

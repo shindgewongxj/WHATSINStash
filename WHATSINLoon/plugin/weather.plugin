@@ -1,5 +1,5 @@
 #!name= Weather
-#!desc= Enable some Weather functions.
+#!desc= Unlock some regional features of Weather.
 
 [Rule]
 DOMAIN-SUFFIX,waqi.info
