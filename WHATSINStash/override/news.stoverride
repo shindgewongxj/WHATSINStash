@@ -6,7 +6,6 @@ rules:
   - DOMAIN-SUFFIX,news-events.apple.com,Proxy
   - DOMAIN-SUFFIX,apple.comscoreresearch.com,Proxy
   - URL-REGEX,^https?:\/\/news-assets\.apple\.com\/.*(audio-narrative).*,Proxy
-  - URL-REGEX,api*.smoot.apple.com,Proxy
   
 http:
   mitm:
@@ -16,18 +15,18 @@ http:
     - "news-events.apple.com"
     - "newsletter-edge.apple.com"
   script:
-    - match: ^https?:\/\/news-(edge|events)\.apple\.com(\/v1\/configs|\/analyticseventsv2\/async).*
-      name: News
+    - match: ^https?:\/\/news-(edge|events)\.apple\.com\/(v1\/configs|analyticseventsv2\/async)(\?.*)?
+      name: News Request
       type: request
       require-body: true
       timeout: 10
-    - match: ^https?:\/\/news-(client-search)\.apple\.com\/(v1\/search\?).*
-      name: News
+    - match: ^https?:\/\/news-client-search\.apple\.com\/v1\/search(\?.*)?
+      name: News Request
       type: request
       require-body: false
       timeout: 10
 
 script-providers:
-  News:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Apple_News.js
+  News Request:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/News.request.js
     interval: 86400
