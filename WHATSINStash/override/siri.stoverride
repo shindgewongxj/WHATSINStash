@@ -1,42 +1,47 @@
 name: Siri
 desc: Unlock some regional features of Siri.
 
+rules:
+  - DOMAIN-SUFFIX,lookup-api.apple.com,Proxy
+  - DOMAIN-SUFFIX,lookup-api.apple.com.edgekey.net,Proxy
+  - DOMAIN-SUFFIX,e16991.b.akamaiedge.net,Proxy
+  
 http:
   mitm:
     - "api*.smoot.apple.com"
     - "api*.smoot.apple.cn"
   script:
-    - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/bag\?(.*)
+    - match: ^https?:\/\/api(.*)\.smoot\.apple\.(com|cn)\/bag(\?.*)?
       name: Siri Request
       type: request
       require-body: false
       timeout: 5
       argument:
-    - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/bag\?(.*)
+    - match: ^https?:\/\/api(.*)\.smoot\.apple\.(com|cn)\/bag\?.*)?
       name: Siri Response
       type: response
       require-body: true
       timeout: 10
       argument:
-    - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/search\?(.*)
+    - match: ^https?:\/\/api(.*)\.smoot\.apple\.(com|cn)\/search\?.*)?
       name: Siri Request
       type: request
       require-body: false
       timeout: 5
       argument:
-    - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/search\?(.*)
+    - match: ^https?:\/\/api(.*)\.smoot\.apple\.(com|cn)\/search\?.*)?
       name: Siri Response
       type: response
       require-body: true
       timeout: 10
       argument:
-    - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/card\?(.*)
+    - match: ^https?:\/\/api(.*)\.smoot\.apple\.(com|cn)\/card\?.*)?
       name: Siri Request
       type: request
       require-body: false
       timeout: 5
       argument:
-    - match: ^https?:\/\/api.*\.smoot\.apple\.(com|cn)\/card\?(.*)
+    - match: ^https?:\/\/api(.*)\.smoot\.apple\.(com|cn)\/card\?.*)?
       name: Siri Response
       type: request
       require-body: true
