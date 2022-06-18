@@ -15,10 +15,10 @@ proxy-providers:
     url:
     interval: 86400
     filter: (?i)(🇨🇴|Colombia|CO|哥)
-  French:
+  France:
     url:
     interval: 86400
-    filter: (?i)(🇫🇷|French|FR|法)
+    filter: (?i)(🇫🇷|France|FR|法)
   Hong Kong:
     url:
     interval: 86400
@@ -75,7 +75,8 @@ proxy-groups:
   - Australia
   - Brazil
   - Canada
-  - French
+  - Colombia
+  - France
   - Hong Kong
   - India
   - Japan
@@ -95,7 +96,8 @@ proxy-groups:
   - Australia
   - Brazil
   - Canada
-  - French
+  - Colombia
+  - France
   - Hong Kong
   - India
   - Japan
@@ -115,7 +117,8 @@ proxy-groups:
   - Australia
   - Brazil
   - Canada
-  - French
+  - Colombia
+  - France
   - Hong Kong
   - India
   - Japan
@@ -136,7 +139,8 @@ proxy-groups:
   - Australia
   - Brazil
   - Canada
-  - French
+  - Colombia
+  - France
   - Hong Kong
   - India
   - Japan
