@@ -76,7 +76,7 @@ proxy-providers:
     interval: 86400
     filter: (?i)(🇻🇳|Viet Nam|VN|越)
 proxy-groups:
-- name: Proxy
+- name: $tash
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/bypass.png
   type: select
   proxies:
@@ -177,4 +177,4 @@ proxy-groups:
   - Viet Nam
 rules:
 - GEOIP,CN,DIRECT
-- MATCH,Proxy
+- MATCH,$tash
