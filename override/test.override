@@ -1,5 +1,0 @@
-name: Test
-desc: Stoverride playground.
-
-rules:
-  - DOMAIN-SUFFIX,bing.com,PROXY
