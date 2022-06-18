@@ -11,6 +11,10 @@ proxy-providers:
     url:
     interval: 86400
     filter: (?i)(🇨🇦|Canada|CA|加)
+  Colombia:
+    url:
+    interval: 86400
+    filter: (?i)(🇨🇴|Colombia|CO|哥)
   French:
     url:
     interval: 86400
