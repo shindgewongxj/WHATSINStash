@@ -1,3 +1,0 @@
-# WHATSINStash
-
-![](./$tash.png)

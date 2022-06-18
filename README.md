@@ -1,5 +1,6 @@
-# WHATSINProxy 
+# WHATSINStash
 
+![](./icon/$tash.png)
 
 ## Thanks to 
 
@@ -9,5 +10,3 @@
 ## Powered by 
 
 - [Stash](https://stash.ws)
-- [Surge](https://nssurge.com)
-- [Loon](http://nsloon.com)
