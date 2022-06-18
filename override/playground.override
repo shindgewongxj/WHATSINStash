@@ -1,0 +1,6 @@
+name: #1
+desc: Stoverride test.
+
+
+rules:
+  - DOMAIN-SUFFIX,bing.com,PROXY
