@@ -1,3 +1,7 @@
+mode: rule
+log-level: info
+subscribe-url:
+
 proxy-providers:
   Australia:
     url:
