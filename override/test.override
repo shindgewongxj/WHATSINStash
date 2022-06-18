@@ -1,5 +1,5 @@
 name: Test
-desc: Stoverride test.
+desc: Stoverride playground.
 
 rules:
   - DOMAIN-SUFFIX,news-edge.apple.com,PROXY
