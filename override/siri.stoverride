@@ -2,9 +2,9 @@ name: Siri
 desc: Unlock some regional features of Siri.
 
 rules:
-  - DOMAIN-SUFFIX,lookup-api.apple.com,Proxy
-  - DOMAIN-SUFFIX,lookup-api.apple.com.edgekey.net,Proxy
-  - DOMAIN-SUFFIX,e16991.b.akamaiedge.net,Proxy
+  - DOMAIN-SUFFIX,lookup-api.apple.com,$tash
+  - DOMAIN-SUFFIX,lookup-api.apple.com.edgekey.net,$tash
+  - DOMAIN-SUFFIX,e16991.b.akamaiedge.net,$tash
   
 http:
   mitm:
