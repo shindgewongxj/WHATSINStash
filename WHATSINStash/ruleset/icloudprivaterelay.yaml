@@ -1,8 +1,0 @@
-payload:
-# > iCloud Private Relay
-  - DOMAIN,mask-api.icloud.com
-  - DOMAIN,mask-api.fe.apple-dns.net
-  - DOMAIN,mask.icloud.com
-  - DOMAIN,mask.apple-dns.net
-  - DOMAIN,mask-h2.icloud.com
-  - DOMAIN,mask-t.apple-dns.net
