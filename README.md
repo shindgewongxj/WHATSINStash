@@ -1,6 +1,6 @@
 # WHATSINStash
 
-![](./icon/$tash.png = 250x)
+<img src="https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/%24tash.png" width="100" height="100">
 
 ## Thanks to 
 
