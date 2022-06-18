@@ -1,6 +1,6 @@
 # WHATSINStash
 
-![](./icon/$tash.png){width = 250}
+![](./icon/$tash.png | width = 500)
 
 ## Thanks to 
 
