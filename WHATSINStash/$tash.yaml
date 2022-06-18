@@ -23,10 +23,22 @@ proxy-providers:
     url:
     interval: 86400
     filter: (?i)(🇭🇰|Hong Kong|HK|港)
+  Iceland:
+    url:
+    interval: 86400
+    filter: (?i)(🇮🇸|Iceland|IS|冰)
   India:
     url:
     interval: 86400
     filter: (?i)(🇮🇳|India|IN|印)
+  Indonesia:
+    url:
+    interval: 86400
+    filter:(?i)(🇮🇩|Indonesia|ID|尼)
+  Malaysia:
+    url:
+    interval: 86400
+    filter:(?i)(🇲🇾|Malaysia|MY|来)
   Japan:
     url:
     interval: 86400
