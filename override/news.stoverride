@@ -5,7 +5,7 @@ rules:
   - DOMAIN-SUFFIX,news-edge.apple.com,$tash
   - DOMAIN-SUFFIX,news-events.apple.com,$tash
   - DOMAIN-SUFFIX,apple.comscoreresearch.com,$tash
-  - URL-REGEX,^https?:\/\/news-assets\.apple\.com\/.*(audio-narrative|podcast\/audio).*,$tash
+  - URL-REGEX,^https?:\/\/news-assets\.apple\.com\/(audio-narrative|podcast\/audio)\/.*,$tash
   
 http:
   mitm:
