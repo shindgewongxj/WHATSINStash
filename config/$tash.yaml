@@ -39,10 +39,6 @@ proxy-providers:
     url: *suburl
     interval: 86400
     filter:(?i)(🇮🇩|Indonesia|ID|尼)
-  Malaysia:
-    url: *suburl
-    interval: 86400
-    filter:(?i)(🇲🇾|Malaysia|MY|来)
   Japan:
     url: *suburl
     interval: 86400
@@ -51,6 +47,10 @@ proxy-providers:
     url: *suburl
     interval: 86400
     filter: (?i)(🇰🇷|Korea|KR|韩)
+  Malaysia:
+    url: *suburl
+    interval: 86400
+    filter:(?i)(🇲🇾|Malaysia|MY|来)
   Singapore:
     url: *suburl
     interval: 86400
