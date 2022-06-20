@@ -1,82 +1,82 @@
 mode: rule
 log-level: info
-subscribe-url:
+subscribe-url: &suburl http://example.com
 
 proxy-providers:
   Australia:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇦🇺|Australia|AU|澳)
   Brazil:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇧🇷|Brazil|BR|巴)
   Canada:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇨🇦|Canada|CA|加)
   Colombia:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇨🇴|Colombia|CO|哥)
   France:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇫🇷|France|FR|法)
   Hong Kong:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇭🇰|Hong Kong|HK|港)
   Iceland:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇮🇸|Iceland|IS|冰)
   India:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇮🇳|India|IN|印)
   Indonesia:
-    url:
+    url: *suburl
     interval: 86400
     filter:(?i)(🇮🇩|Indonesia|ID|尼)
   Malaysia:
-    url:
+    url: *suburl
     interval: 86400
     filter:(?i)(🇲🇾|Malaysia|MY|来)
   Japan:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇯🇵|Japan|JP|日)
   Korea:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇰🇷|Korea|KR|韩)
   Singapore:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇸🇬|Singapore|SG|坡)
   Taiwan:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇹🇼|Taiwan|TW|台)
   Thailand:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇹🇭|Thailand|TH|泰)
   United Arab Emirates:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇦🇪|United Arab Emirates|AE|伯)
   United Kingdom:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇬🇧|United Kingdom|GB|英)
   United States:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇺🇸|United States|US|美)
   Viet Nam:
-    url:
+    url: *suburl
     interval: 86400
     filter: (?i)(🇻🇳|Viet Nam|VN|越)
 proxy-groups:
