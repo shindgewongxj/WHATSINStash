@@ -19,6 +19,10 @@ proxy-providers:
     url: *suburl
     interval: 86400
     filter: (?i)(🇨🇴|Colombia|CO|哥)
+  Germany:
+    url: *suburl
+    interval: 86400
+    filter: (?i)(🇩🇪|Germany|DE|德)
   France:
     url: *suburl
     interval: 86400
@@ -38,7 +42,7 @@ proxy-providers:
   Indonesia:
     url: *suburl
     interval: 86400
-    filter:(?i)(🇮🇩|Indonesia|ID|尼)
+    filter: (?i)(🇮🇩|Indonesia|ID|尼)
   Japan:
     url: *suburl
     interval: 86400
@@ -50,7 +54,7 @@ proxy-providers:
   Malaysia:
     url: *suburl
     interval: 86400
-    filter:(?i)(🇲🇾|Malaysia|MY|来)
+    filter: (?i)(🇲🇾|Malaysia|MY|来)
   Singapore:
     url: *suburl
     interval: 86400
