@@ -1,0 +1,15 @@
+name: IP Geoloaction
+desc: Display Geolocation as a tile.
+
+tiles:
+  - name: IP Geolocation
+    interval: 1800
+    title: 'IP Geolocation'
+    content: 'Unknown'
+    icon: 'network'
+    backgroundColor: '#663399'
+
+script-providers:
+    IP Geolocation:
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/javascript/ipgeolocation.js
+    interval: 86400
