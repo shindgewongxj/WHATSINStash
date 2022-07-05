@@ -1,6 +1,37 @@
-name: Playground
-desc: Stoverride test.
+name: Weather
+desc: Unlock some regional features of Weather.
 
+http:
+  header-rewrite:
+    - ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/weather\/.* request-del If-None-Match
+  mitm:
+    - "weather-data.apple.com"
+    - "weather-map.apple.com"
+  script:
+    - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/availability\/.*
+      name: Weather Availability
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2)\/weather\/.*
+      name: Weather
+      type: response
+      require-body: true
+      timeout: 20
+    - match: ^https?:\/\/weather-map\.apple\.com\/(v1|v2)\/mapOverlay\/.*(\?.*country=CN.*)
+      name: Weather Map
+      type: request
+      require-body: false
+      timeout: 10
+      argument:
 
-rules:
-  - DOMAIN-SUFFIX,bing.com,PROXY
+script-providers:
+  Weather Availability:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.Availability.js
+    interval: 86400
+  Weather:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Weather.beta.js
+    interval: 86400
+  Weather Map:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Weather.Map.js
+    interval: 86400
