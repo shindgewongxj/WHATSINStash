@@ -1,5 +1,5 @@
-name: Weather
-desc: Unlock some regional features of Weather.
+name: Playground
+desc: Override Ladb.
 
 http:
   header-rewrite:
