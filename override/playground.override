@@ -1,5 +1,5 @@
 name: Playground
-desc: Override Ladb.
+desc: Override Lab.
 
 http:
   header-rewrite:
