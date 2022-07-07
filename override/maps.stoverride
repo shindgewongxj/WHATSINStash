@@ -78,8 +78,8 @@ http:
 
 script-providers:
   Maps Request:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Location.request.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Location.request.beta.js
     interval: 86400
   Maps Response:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Location.response.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Location.response.beta.js
     interval: 86400
