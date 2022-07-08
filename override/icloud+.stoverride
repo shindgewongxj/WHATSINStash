@@ -27,8 +27,8 @@ http:
       
 script-providers:
   Private Relay Request:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Private_Relay.request.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Private_Relay.request.beta.js
     interval: 86400
   Private Relay Response:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Private_Relay.response.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Private_Relay.response.beta.js
     interval: 86400
