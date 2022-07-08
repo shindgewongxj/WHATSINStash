@@ -1,0 +1,34 @@
+name: iCloud+
+desc: Unlock some regional features of iCloud+.
+
+
+http:
+  mitm:
+    - "%APPEND% mask-api.icloud.com"
+    - "mask-api.fe.apple-dns.net"
+    - "mask.icloud.com, mask.apple-dns.net"
+    - "-mask-h2.icloud.com"
+    - "-mask-t.apple-dns.net"
+    - "p*-acsegateway.icloud.com"
+    - "p*-acsegateway.icloud.com.cn"
+  script:
+    - match: ^https?:\/\/p(\d+)-acsegateway\.icloud\.com(\.cn)?\/(v2|v3)\/(accounts|devices)\/(.+)\/subscriptions\/features
+      name: Private Relay Request
+      type: request
+      require-body: false
+      timeout: 10
+      argument:
+    - match: ^https?:\/\/p(\d+)-acsegateway\.icloud\.com(\.cn)?\/(v2|v3)\/(accounts|devices)\/(.+)\/subscriptions\/features
+      name: Private Relay Response
+      type: response
+      require-body: true
+      timeout: 10
+      argument:
+      
+script-providers:
+  Private Relay Request:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Private_Relay.request.js
+    interval: 86400
+  Private Relay Response:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Private_Relay.response.js
+    interval: 86400
