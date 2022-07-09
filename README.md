@@ -6,6 +6,8 @@
 
 - [VirgilClyne](https://github.com/VirgilClyne)
 - [WordlessEcho](https://github.com/WordlessEcho)
+- [chavyleung](https://github.com/chavyleung)
+- [Peng-YM](https://github.com/Peng-YM)
 
 ## Powered by 
 
