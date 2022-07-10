@@ -11,10 +11,10 @@ dns:
   fake-ip-range: 198.18.0.1/16
   nameserver:
     - https://i.passcloud.xyz/dns-query
+    - https://dns.adguard.com/dns-query
   fallback:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
-    - https://dns.adguard.com/dns-query
   fallback-filter:
     geoip: true
     geolp-code: CN
