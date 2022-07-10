@@ -12,8 +12,8 @@ dns:
   nameserver:
     - https://i.passcloud.xyz/dns-query
   fallback:
-    - https://1.1.1.1/dns-auerv
-    - https://8.8.8.8/ans-querv
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
     - https://dns.adguard.com/dns-query
   fallback-filter:
     geoip: true
