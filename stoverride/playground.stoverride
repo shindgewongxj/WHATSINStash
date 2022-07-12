@@ -1,5 +1,5 @@
 name: Playground
-desc: Override Lab.
+desc: Nonpublic Stoverride Lab.
 
 http:
   header-rewrite:

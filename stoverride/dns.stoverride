@@ -1,5 +1,5 @@
 name: DNS
-desc: Use DNSs based on GeoIP.
+desc: Resolve domain with geoip-based DNS.
 
 dns:
   enable: true
