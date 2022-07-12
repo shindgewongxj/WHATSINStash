@@ -1,67 +1,35 @@
-mode: rule
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
 log-level: info
-subscribe-url: suburl
+mode: rule
+ipv6: true
+profile:
+  store-selected: false
+  store-fake-ip: true
+
+subscribe-url: #suburl
 
 proxy-providers:
-  Air:
+  Sub-Store:
     type: http
-    url: *suburl
+    url: #suburl
     interval: 86400
-    path: ./configuration/air.yaml
-    
-  Pro:
-    type: http
-    url: *suburl
-    interval: 86400
-    path: ./configuration/pro.yaml
-    
-  Max:
-    type: http
-    url: *suburl
-    interval: 86400
-    path: ./configuration/max.yaml
-    
-  Ultra:
-    type: http
-    url: *suburl
-    interval: 86400
-    path: ./configuration/ultra.yaml
+    path: ./configuration/substore.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
 
+    
 proxy-groups:
 - name: $tash
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/$tash.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/%24tash.png
   type: select
-  proxies:
-  - Air
-  - Pro
-  - Max
-  - Ultra
+  use:
+  - Sub-Store
   
-- name: Air
-  icon: iconurl
-  type: select
-  use:
-    - Air
-    
-- name: Pro
-  icon: iconurl
-  type: select
-  use:
-    - Pro
-    
-- name: Max
-  icon: iconurl
-  type: select
-  use:
-    - Max
-    
-- name: Ultra
-  icon: iconurl
-  type: select
-  use:
-    - Ultra
   
-
 rules:
 - GEOIP,CN,DIRECT
 - MATCH,$tash
