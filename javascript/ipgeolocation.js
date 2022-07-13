@@ -8,8 +8,8 @@ $httpClient.get(url, function (error, response, data) {
   let isp = jsonData.isp
   let ip = jsonData.query
   body = {
-    title: `${country}`,
-    content: `${city}, ${state}\n${isp}`,
+    title: 'IP Geolocation',
+    content: `${city}, ${state}, ${country}\n${isp}`,
   backgroundColor: "#663399",
   icon: "network",
   }
