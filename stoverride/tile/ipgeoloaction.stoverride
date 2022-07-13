@@ -5,7 +5,7 @@ tiles:
   - name: IP Geolocation
     interval: 1800
     title: 'Country'
-    content: 'State\n City\n ISP'
+    content: 'City, State\n ISP'
     icon: 'network'
     backgroundColor: '#663399'
 

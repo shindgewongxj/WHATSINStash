@@ -9,7 +9,7 @@ $httpClient.get(url, function (error, response, data) {
   let ip = jsonData.query
   body = {
     title: `${country}`,
-    content: `${city},${state}\n${isp}`,
+    content: `${city}, ${state}\n${isp}`,
   backgroundColor: "#663399",
   icon: "network",
   }
