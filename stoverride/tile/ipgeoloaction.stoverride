@@ -11,5 +11,5 @@ tiles:
 
 script-providers:
     IP Geolocation:
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/javascript/ipgeolocation.js
-    interval: 86400
+      url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/javascript/ipgeolocation.js
+      interval: 86400
