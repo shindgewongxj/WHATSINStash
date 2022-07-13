@@ -4,8 +4,8 @@ desc: Display Geolocation as a tile.
 tiles:
   - name: IP Geolocation
     interval: 1800
-    title: 'IP Geolocation'
-    content: 'City, State, Country\n ISP'
+    title: 'Country'
+    content: 'City\nState\nISP'
     icon: 'network'
     backgroundColor: '#663399'
 
