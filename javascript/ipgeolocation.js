@@ -6,9 +6,10 @@ $httpClient.get(url, function (error, response, data) {
   let state = jsonData.regionName
   let city = jsonData.city
   let isp = jsonData.isp
+  let ip = jsonData.query
   body = {
     title: `${country}`,
-    content: `${state}\n${city}\n${isp}\n`,
+    content: `${city},${state}\n${isp}`,
   backgroundColor: "#663399",
   icon: "network",
   }
