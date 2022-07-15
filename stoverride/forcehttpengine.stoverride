@@ -1,0 +1,6 @@
+name: Force Http Engine
+desc: Force http engine to work when tunnel mode on.
+
+http:
+  force-http-engine:
+    - '*'

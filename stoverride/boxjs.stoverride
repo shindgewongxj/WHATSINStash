@@ -1,10 +1,7 @@
 name: BoxJs
-desc: http://boxjs.com
+desc: An SPA appliction used for scripts utils.
 
 http:
-  force-http-engine:
-    - "boxjs.com:80"
-    - "boxjs.net:80"
   mitm:
     - "boxjs.com"
     - "boxjs.net"
