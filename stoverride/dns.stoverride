@@ -3,6 +3,7 @@ desc: Resolve domain with geoip-based DNS.
 
 dns:
   enable: true
+  ipv6: true
   listen: 0.0.0.0:53
   default-nameserver:
     - 8.8.8.8
