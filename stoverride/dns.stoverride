@@ -10,7 +10,8 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   nameserver:
-    - https://a.passcloud.xyz/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   fallback:
     - https://dns.adguard.com/dns-query
     - https://dns.google/dns-query
