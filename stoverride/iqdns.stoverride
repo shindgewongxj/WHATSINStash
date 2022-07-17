@@ -6,17 +6,14 @@ dns:
   ipv6: true
   listen: 0.0.0.0:53
   default-nameserver:
+    - 114.114.114.114
     - 8.8.8.8
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+    - https://a.passcloud.xyz/dns-query
   fallback:
-    - https://dns.adguard.com/dns-query
     - https://dns.google/dns-query
-    - https://doh.opendns.com/dns-query
-    - https://dns.quad9.net/dns-query
     - https://cloudflare-dns.com/dns-query
   fallback-filter:
     geoip: true
