@@ -1,5 +1,5 @@
-name: DNS
-desc: Resolve domain with geoip-based DNS.
+name: iQDNS
+desc: Resolve domains with iQDNS.
 
 dns:
   enable: true
@@ -13,8 +13,7 @@ dns:
   nameserver:
     - https://a.passcloud.xyz/dns-query
   fallback:
-    - https://dns.google/dns-query
-    - https://cloudflare-dns.com/dns-query
+    - https://worldwide.passcloud.xyz/dns-query
   fallback-filter:
     geoip: true
     geolp-code: CN
