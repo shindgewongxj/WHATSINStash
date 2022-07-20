@@ -15,7 +15,7 @@ dns:
   nameserver:
     - https://a.passcloud.xyz/dns-query
     - https://worldwide.passcloud.xyz/dns-query
-#    - https://doh.pub/dns-query
+    - https://doh.pub/dns-query
 #    - https://dns.alidns.com/dns-query
 #    - https://doh.opendns.com/dns-query
 #    - https://dns.quad9.net/dns-query
