@@ -11,7 +11,7 @@ http:
     - "tiles.waqi.info"
     - "www.weatherol.cn"
     - "api.caiyunapp.com"
-    script:
+  script:
     - match: ^https?:\/\/weather-data\.apple\.com\/(v1|v2|v3)\/availability\/.*
       name: Weather Availability Request
       type: request
