@@ -11,15 +11,17 @@ profile:
 subscribe-url: #suburl
 
 proxy-providers:
-  Sub-Store:
+  nodes:
     type: http
     url: #suburl
     interval: 86400
     path: ./configuration/substore.yaml
+    filter: .*
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
+      lazy: true
+      url: http://cp.cloudflare.com/generate_204
 
     
 proxy-groups:
@@ -27,7 +29,7 @@ proxy-groups:
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/%24tash.png
   type: select
   use:
-  - Sub-Store
+  - nodes
   
   
 rules:
