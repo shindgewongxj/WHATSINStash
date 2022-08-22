@@ -6,7 +6,8 @@ dns:
   ipv6: true
   listen: 0.0.0.0:53
   default-nameserver:
-    - 8.8.8.8
+    - 223.5.5.5
+    - 119.29.29.29
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   use-hosts: true
@@ -14,17 +15,11 @@ dns:
 #    - example.com
   nameserver:
     - https://a.passcloud.xyz/dns-query
-    - https://worldwide.passcloud.xyz/dns-query
 #    - https://doh.pub/dns-query
 #    - https://dns.alidns.com/dns-query
-#    - https://doh.opendns.com/dns-query
-#    - https://dns.quad9.net/dns-query
-    - https://dns.google/dns-query
-    - https://cloudflare-dns.com/dns-query
 #  fallback:
 #    - https://doh.opendns.com/dns-query
 #    - https://dns.quad9.net/dns-query
-#    - https://worldwide.passcloud.xyz/dns-query
 #    - https://dns.google/dns-query
 #    - https://cloudflare-dns.com/dns-query
 #  fallback-filter:
