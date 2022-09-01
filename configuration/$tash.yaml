@@ -31,6 +31,13 @@ proxy-groups:
   use:
   - nodes
   
+- name: Apple
+  icon:
+  type: select
+  proxies:
+  - $tash
+  - DIRECT
+  
   
 rules:
 - GEOIP,CN,DIRECT
