@@ -1,6 +1,6 @@
 # WHATSINStash
 
-<img src="https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/%24tash.png" width="100" height="100">
+![](https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/whatsintash.png)  
 
 ## Thanks to 
 
