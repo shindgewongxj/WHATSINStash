@@ -1,6 +1,6 @@
 # WHATSINStash
 
-![](https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/whatsintash.png)  
+![](https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/whatsinstash.png)  
 
 ## Thanks to 
 
