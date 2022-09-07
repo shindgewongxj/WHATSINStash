@@ -1,6 +1,10 @@
 # WHATSINStash
 
-![](https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/whatsinstash.png)  
+![](https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/whatsinstash.png) 
+
+## Tips  
+
+- Overrides include rules may need be used with configuration `$tash.yaml`.  
 
 ## Thanks to 
 
