@@ -8,36 +8,49 @@ profile:
   store-selected: false
   store-fake-ip: true
 
-subscribe-url: #suburl
+subscribe-url: <suburl>
 
-proxy-providers:
-  nodes:
-    type: http
-    url: #suburl
-    interval: 86400
-    path: ./configuration/substore.yaml
-    filter: .*
-    health-check:
-      enable: true
-      interval: 600
-      lazy: true
-      url: http://cp.cloudflare.com/generate_204
-
-    
 proxy-groups:
 - name: $tash
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/%24tash.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/network.png
   type: select
-  use:
-  - nodes
+  url: http://captive.apple.com
+  interval: 600
+  lazy: true
+  use-url: <suburl>
   
-- name: Apple
-  icon:
+- name: Select
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/select.png
   type: select
-  proxies:
-  - $tash
-  - DIRECT
+  url: http://captive.apple.com
+  interval: 600
+  lazy: true
+  use-url: <suburl>
   
+- name: Auto
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/urltest.png
+  type: url-test
+  url: http://captive.apple.com
+  interval: 600
+  lazy: true
+  use-url: <suburl>
+  
+- name: Fallback
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/fallback.png
+  type: fallback
+  url: http://captive.apple.com
+  interval: 600
+  lazy: true
+  use-url: <suburl>
+  
+- name: Load Balance
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/loadbalance.png
+  type: load-balance
+  strategy: consistent-hashing  # round-robin
+  url: http://captive.apple.com
+  interval: 600
+  lazy: true
+  use-url: <suburl>
   
 rules:
 - GEOIP,CN,DIRECT
