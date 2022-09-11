@@ -14,7 +14,7 @@ dns:
 #  fake-ip-filter:
 #    - example.com
   nameserver:
-    - https://a.passcloud.xyz/dns-query
+    - quic://a.passcloud.xyz:853
 #    - https://doh.pub/dns-query
 #    - https://dns.alidns.com/dns-query
 #  fallback:
