@@ -17,7 +17,11 @@ proxy-groups:
   url: http://captive.apple.com
   interval: 600
   lazy: true
-  use-url: <suburl>
+  proxies:
+    - Select
+    - Auto
+    - Load Balance
+    - Fallback
   
 - name: Select
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/select.png
@@ -25,7 +29,8 @@ proxy-groups:
   url: http://captive.apple.com
   interval: 600
   lazy: true
-  use-url: <suburl>
+  use-url:
+    - <suburl>
   
 - name: Auto
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/urltest.png
@@ -33,7 +38,8 @@ proxy-groups:
   url: http://captive.apple.com
   interval: 600
   lazy: true
-  use-url: <suburl>
+  use-url:
+    - <suburl>
   
 - name: Fallback
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/fallback.png
@@ -41,7 +47,8 @@ proxy-groups:
   url: http://captive.apple.com
   interval: 600
   lazy: true
-  use-url: <suburl>
+  use-url:
+    - <suburl>
   
 - name: Load Balance
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/loadbalance.png
@@ -50,7 +57,8 @@ proxy-groups:
   url: http://captive.apple.com
   interval: 600
   lazy: true
-  use-url: <suburl>
+  use-url:
+    - <suburl>
   
 rules:
 - GEOIP,CN,DIRECT
