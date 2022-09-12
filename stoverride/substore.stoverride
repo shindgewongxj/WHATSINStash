@@ -1,6 +1,9 @@
 name: Sub-Store
 desc: Advanced Subscription Manager.
 
+rules:
+- DOMAIN-SUFFIX,vercel.app,$tash
+
 http:
   mitm:
     - sub.store
