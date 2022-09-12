@@ -10,8 +10,8 @@ $httpClient.get(url, function (error, response, data) {
   body = {
     title: `${country}`,
     content: `${state}\n${city}\n${isp}`,
-  backgroundColor: "#663399",
-  icon: "network",
+  backgroundColor: "#737373",
+  icon: "location",
   }
   $done(body);
 });
