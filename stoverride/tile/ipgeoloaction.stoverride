@@ -3,11 +3,11 @@ desc: Display Geolocation as a tile.
 
 tiles:
   - name: IP Geolocation
-    interval: 1800
+    interval: 600
     title: 'Country'
     content: 'City\nState\nISP'
-    icon: 'network'
-    backgroundColor: '#663399'
+    icon: 'location'
+    backgroundColor: '#737373'
 
 script-providers:
     IP Geolocation:
