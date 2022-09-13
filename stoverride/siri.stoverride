@@ -5,6 +5,11 @@ rules:
   - DOMAIN-SUFFIX,lookup-api.apple.com,$tash
   - DOMAIN-SUFFIX,lookup-api.apple.com.edgekey.net,$tash
   - DOMAIN-SUFFIX,e16991.b.akamaiedge.net,$tash
+  - PROCESS-NAME,LookupViewService,$tash
+  - PROCESS-NAME,/System/Library/PrivateFrameworks/Lookup.framework/Versions/A/XPCServices/LookupViewService.xpc/Contents/MacOS/LookupViewService,$tash
+  - DOMAIN,lookup-api.apple.com,$tash
+  - DOMAIN,lookup-api.apple.com.edgekey.net,$tash
+  - DOMAIN,e16991.b.akamaiedge.net,$tash
   
 http:
   mitm:

@@ -2,6 +2,7 @@ name: iCloud
 desc: Unlock some regional features of iCloud.
 
 rule:
+  - DOMAIN-SUFFIX,gateway.icloud.com,$tash
   - DOMAIN,mask-api.icloud.com,$tash
   - DOMAIN,mask-api.fe.apple-dns.net,$tash
   - AND,((PROTOCOL,UDP),(DEST-PORT,443),(USER-AGENT,Transparent%20network%20proxy%20for%20Apple%20system%20services*)),DIRECT
