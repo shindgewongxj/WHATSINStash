@@ -1,6 +1,6 @@
 let url = "http://ip-api.com/json"
 
-$httpClient.get(url, function (error, response, data) {
+$httpClient.get(url, function(error, response, data) {
     let jsonData = JSON.parse(data)
     let country = jsonData.country
     let state = jsonData.regionName
