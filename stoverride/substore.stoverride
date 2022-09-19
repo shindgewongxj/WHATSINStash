@@ -6,21 +6,21 @@ http:
     - sub.store
   script:
     - match: ^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info)))
-      name: Sub-Store 1
+      name: Sub-Store Core
       type: request
       require-body: true
       timeout: 120
     - match: ^https?:\/\/sub\.store
-      name: Sub-Store 0
+      name: Sub-Store Simple
       type: request
       require-body: true
       timeout: 120
 
 script-providers:
-  Sub-Store 0:
+  Sub-Store Simple:
     url: https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js
     interval: 86400
 
-  Sub-Store 1:
+  Sub-Store Core:
     url: https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js
     interval: 86400
