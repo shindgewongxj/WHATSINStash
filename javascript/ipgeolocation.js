@@ -1,4 +1,4 @@
-$httpClient.get("http://ip-api.com/json", function (error, response, data) {
+$httpClient.get("http://ip-api.com/json", function(error, response, data) {
   let jsonData = JSON.parse(data)
   let country = jsonData.country
   let state = jsonData.regionName
