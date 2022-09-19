@@ -8,10 +8,10 @@ $httpClient.get(url, function (error, response, data) {
   let isp = jsonData.isp
   let ip = jsonData.query
   body = {
-    backgroundColor: "#737373",
-    icon: "location",
     title: `${country}`,
     content: `${state}\n${city}\n${isp}`,
+    backgroundColor: "#737373",
+    icon: "location",
   }
   $done(body);
 });
