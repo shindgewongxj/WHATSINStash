@@ -1,4 +1,4 @@
-name: IP Geoloaction
+name: IP Geoloaction Tile
 desc: Display Geolocation as a tile.
 
 tiles:
