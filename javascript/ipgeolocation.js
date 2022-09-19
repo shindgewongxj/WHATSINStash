@@ -12,6 +12,5 @@ $httpClient.get(url, function (error, response, data) {
     content: `${state}\n${city}\n${isp}`,
     backgroundColor: "#737373",
     icon: "location",
-  }
-  $done(body);
+  }$done(body);
 });
