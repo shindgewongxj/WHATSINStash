@@ -6,9 +6,9 @@ $httpClient.get("http://ip-api.com/json", function(error, response, data) {
   let isp = jsonData.isp
   let ip = jsonData.query
   body = {
-    title: `${country}`,
-    content: `${state}\n${city}\n${isp}`,
     backgroundColor: "#737373",
     icon: "location",
+    title: `${country}`,
+    content: `${state}\n${city}\n${isp}`,
   }$done(body);
 });
