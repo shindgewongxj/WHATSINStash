@@ -1,6 +1,4 @@
-let url = "http://ip-api.com/json"
-
-$httpClient.get(url, function (error, response, data) {
+$httpClient.get("http://ip-api.com/json", function(error, response, data) {
   let jsonData = JSON.parse(data)
   let country = jsonData.country
   let state = jsonData.regionName
@@ -12,6 +10,5 @@ $httpClient.get(url, function (error, response, data) {
     content: `${state}\n${city}\n${isp}`,
     backgroundColor: "#737373",
     icon: "location",
-  }
-  $done(body);
+  }$done(body);
 });
