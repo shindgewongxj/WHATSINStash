@@ -3,7 +3,3 @@ desc: Mock IP location in social medias of China Mainland.
 
 rules:
 - DOMAIN,api.weibo.cn,$tash
-- DOMAIN,api.bilibili.com,$tash
-- DOMAIN,app.bilibili.com,$tash
-- DOMAIN,grpc.biliapi.net,$tash
-- DOMAIN,passport.bilibili.com,$tash
