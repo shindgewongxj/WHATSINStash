@@ -83,6 +83,20 @@ proxy-groups:
   use-url:
     - <suburl>
     
+- name: Gaming
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/game.png
+  type: select
+  url: http://captive.apple.com
+  interval: 600
+  proxies:
+    - $tash
+    - Select
+    - Auto
+    - Load Balance
+    - Fallback
+  use-url:
+    - <suburl>
+    
 - name: Shopping
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/shopping.png
   type: select
@@ -96,6 +110,14 @@ proxy-groups:
     - Fallback
   use-url:
     - <suburl>
+    
+- name: Shield
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/shield.png
+  type: select
+  url: http://captive.apple.com
+  interval: 600
+  proxies:
+    - REJECT
     
 - name: Match
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/global.png
