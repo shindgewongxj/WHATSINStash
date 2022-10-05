@@ -5,7 +5,7 @@
 English|[中文](https://github.com/shindgewongxj/WHATSINStash/raw/main/README_zh.md)  
 
 ## Tips  
-
+- What you need to do is only replacing `<sub-url>` with your subscription url  
 - Configuration `$tash.yaml` is some kind a simple one for noobs or lazies like me  
 - All overrides are for `$tash.yaml`  
 - Rules in overrides only take effect while proxy group matched  
