@@ -8,7 +8,7 @@ profile:
   store-selected: false
   store-fake-ip: true
 
-subscribe-url: <suburl>
+subscribe-url: <suburl> # Here's a network service provider recommended. https://s.godyax.work/#/register?code=apc0YX7Y
 
 proxy-groups:
 - name: $tash
@@ -16,7 +16,6 @@ proxy-groups:
   type: select
   url: http://captive.apple.com
   interval: 600
-  lazy: true
   proxies:
     - Select
     - Auto
@@ -28,7 +27,6 @@ proxy-groups:
   type: select
   url: http://captive.apple.com
   interval: 600
-  lazy: true
   use-url:
     - <suburl>
   
@@ -37,7 +35,6 @@ proxy-groups:
   type: url-test
   url: http://captive.apple.com
   interval: 600
-  lazy: true
   use-url:
     - <suburl>
   
@@ -46,7 +43,6 @@ proxy-groups:
   type: fallback
   url: http://captive.apple.com
   interval: 600
-  lazy: true
   use-url:
     - <suburl>
   
@@ -56,7 +52,62 @@ proxy-groups:
   strategy: consistent-hashing  # round-robin
   url: http://captive.apple.com
   interval: 600
-  lazy: true
+  use-url:
+    - <suburl>
+    
+- name: Social Media
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/socialmedia.png
+  type: select
+  url: http://captive.apple.com
+  interval: 600
+  proxies:
+    - $tash
+    - Select
+    - Auto
+    - Load Balance
+    - Fallback
+  use-url:
+    - <suburl>
+    
+- name: Streaming
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/streaming.png
+  type: select
+  url: http://captive.apple.com
+  interval: 600
+  proxies:
+    - $tash
+    - Select
+    - Auto
+    - Load Balance
+    - Fallback
+  use-url:
+    - <suburl>
+    
+- name: Shopping
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/shopping.png
+  type: select
+  url: http://captive.apple.com
+  interval: 600
+  proxies:
+    - $tash
+    - Select
+    - Auto
+    - Load Balance
+    - Fallback
+  use-url:
+    - <suburl>
+    
+- name: Match
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/global.png
+  type: select
+  url: http://captive.apple.com
+  interval: 600
+  proxies:
+    - $tash
+    - Select
+    - Auto
+    - Load Balance
+    - Fallback
   use-url:
     - <suburl>
   
