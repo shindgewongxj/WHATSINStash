@@ -7,7 +7,7 @@ tiles:
     backgroundColor: '#737373'
     icon: 'location'
     title: 'Country'
-    content: `City\nState\nISP`
+    content: 'Refresh to show the infomation.'
 
 script-providers:
     IP Geolocation:
