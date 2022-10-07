@@ -1,4 +1,4 @@
-name: IP Geoloaction Tile
+name: IP Geoloaction
 desc: Display Geolocation as a tile.
 
 tiles:
@@ -6,7 +6,7 @@ tiles:
     interval: 600
     backgroundColor: '#737373'
     icon: 'location'
-    title: 'Country'
+    title: 'IP Geolocation'
     content: 'Refresh to show the infomation.'
 
 script-providers:
