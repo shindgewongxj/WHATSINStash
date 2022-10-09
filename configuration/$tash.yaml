@@ -8,13 +8,18 @@ profile:
   store-selected: false
   store-fake-ip: true
 
-subscribe-url: <suburl> # Here's a network service provider recommended. https://s.godyax.work/#/register?code=apc0YX7Y
+subscribe-url: &suburl <suburl> # https://s.godyax.work/#/register?code=apc0YX7Y, a network service provider recommended.
 
 proxy-groups:
 - name: $tash
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/network.png
   type: select
-  url: http://captive.apple.com
+  url: &pingurl http://captive.apple.com
+  # Apple: http://captive.apple.com
+  # Google: http://www.gstatic.com/generate_204
+  # Microsoft: http://www.msftconnecttest.com/connecttest.txt
+  # Cloudflare:http://cp.cloudflare.com
+  # V2EX:http://www.v2ex.com/generate_204
   interval: 600
   proxies:
     - Select
@@ -25,40 +30,40 @@ proxy-groups:
 - name: Select
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/select.png
   type: select
-  url: http://captive.apple.com
+  url: *pingurl
   interval: 600
   use-url:
-    - <suburl>
+    - *suburl
   
 - name: Auto
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/urltest.png
   type: url-test
-  url: http://captive.apple.com
+  url: *pingurl
   interval: 600
   use-url:
-    - <suburl>
+    - *suburl
   
 - name: Fallback
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/fallback.png
   type: fallback
-  url: http://captive.apple.com
+  url: *pingurl
   interval: 600
   use-url:
-    - <suburl>
+    - *suburl
   
 - name: Load Balance
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/loadbalance.png
   type: load-balance
   strategy: consistent-hashing  # round-robin
-  url: http://captive.apple.com
+  url: *pingurl
   interval: 600
   use-url:
-    - <suburl>
+    - *suburl
     
 - name: Social Media
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/socialmedia.png
   type: select
-  url: http://captive.apple.com
+  url: *pingurl
   interval: 600
   proxies:
     - $tash
@@ -72,7 +77,7 @@ proxy-groups:
 - name: Streaming
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/streaming.png
   type: select
-  url: http://captive.apple.com
+  url: *pingurl
   interval: 600
   proxies:
     - $tash
@@ -81,12 +86,12 @@ proxy-groups:
     - Load Balance
     - Fallback
   use-url:
-    - <suburl>
+    - *suburl
     
 - name: Gaming
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/game.png
   type: select
-  url: http://captive.apple.com
+  url: *pingurl
   interval: 600
   proxies:
     - $tash
@@ -95,12 +100,12 @@ proxy-groups:
     - Load Balance
     - Fallback
   use-url:
-    - <suburl>
+    - *suburl
     
 - name: Shopping
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/shopping.png
   type: select
-  url: http://captive.apple.com
+  url: *pingurl
   interval: 600
   proxies:
     - $tash
@@ -109,12 +114,12 @@ proxy-groups:
     - Load Balance
     - Fallback
   use-url:
-    - <suburl>
+    - *suburl
     
 - name: Shield
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/shield.png
   type: select
-  url: http://captive.apple.com
+  url: *pingurl
   interval: 600
   proxies:
     - REJECT
@@ -122,7 +127,7 @@ proxy-groups:
 - name: Match
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/global.png
   type: select
-  url: http://captive.apple.com
+  url: *pingurl
   interval: 600
   proxies:
     - $tash
@@ -131,7 +136,7 @@ proxy-groups:
     - Load Balance
     - Fallback
   use-url:
-    - <suburl>
+    - *suburl
   
 rules:
 - GEOIP,CN,DIRECT
