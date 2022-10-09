@@ -2,7 +2,7 @@
 
 ![](https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/whatsinstash.png)  
 
-[English](https://github.com/shindgewongxj/WHATSINStash/raw/main/README_zh.md)|中文  
+[English](https://github.com/shindgewongxj/WHATSINStash/raw/main/README_zh.md) | 中文  
 
 ## 提示  
 

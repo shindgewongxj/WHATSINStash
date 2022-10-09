@@ -2,7 +2,7 @@
 
 ![](https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/whatsinstash.png)  
 
-English|[中文](https://github.com/shindgewongxj/WHATSINStash/raw/main/README_zh.md)  
+English | [中文](https://github.com/shindgewongxj/WHATSINStash/raw/main/README_zh.md)  
 
 ## Tips  
 - What you need to do is only replacing `<sub-url>` with your subscription url  
