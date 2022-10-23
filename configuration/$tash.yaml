@@ -14,7 +14,7 @@ proxy-groups:
 - name: $tash
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/network.png
   type: select
-  url: &pingurl http://captive.apple.com
+  url: &pingurl http://www.gstatic.com/generate_204
   # Apple: http://captive.apple.com
   # Google: http://www.gstatic.com/generate_204
   # Microsoft: http://www.msftconnecttest.com/connecttest.txt
