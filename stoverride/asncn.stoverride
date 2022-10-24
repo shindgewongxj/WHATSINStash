@@ -1,5 +1,6 @@
 name: ASN CN
 desc: IP-ASN rules.
+
 rules:
 - IP-ASN,4134,DIRECT,no-resolve
 - IP-ASN,4538,DIRECT,no-resolve
