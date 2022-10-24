@@ -1,0 +1,5 @@
+payload:
+  - DOMAIN,api.weibo.cn
+  - DOMAIN-SUFFIX,biliapi.net
+  - DOMAIN-SUFFIX,biliapi.com
+  - DOMAIN-SUFFIX,bilibili.com
