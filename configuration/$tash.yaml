@@ -141,7 +141,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/apple.yaml
     interval: 86400
     
-  Apple:
+  Game:
     behavior: classical
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/game.yaml
     interval: 86400
