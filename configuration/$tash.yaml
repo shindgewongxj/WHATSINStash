@@ -1,18 +1,16 @@
 log-level: info
 mode: rule
 ipv6: true
+
 allow-lan: true
 mixed-port: 7890
 bind-address: '*'
-
 
 profile:
   store-selected: false
   store-fake-ip: true
 
-
 subscribe-url: &suburl <suburl> # https://s.godyax.work/#/register?code=apc0YX7Y, a network service provider recommended.
-
 
 proxy-groups:
 - name: $tash
@@ -30,7 +28,6 @@ proxy-groups:
     - Auto
     - Load Balance
     - Fallback
-  
 - name: Select
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/select.png
   type: select
@@ -38,7 +35,6 @@ proxy-groups:
   interval: 600
   use-url:
     - *suburl
-  
 - name: Auto
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/urltest.png
   type: url-test
@@ -46,7 +42,6 @@ proxy-groups:
   interval: 600
   use-url:
     - *suburl
-  
 - name: Fallback
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/fallback.png
   type: fallback
@@ -54,7 +49,6 @@ proxy-groups:
   interval: 600
   use-url:
     - *suburl
-  
 - name: Load Balance
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/loadbalance.png
   type: load-balance
@@ -63,7 +57,6 @@ proxy-groups:
   interval: 600
   use-url:
     - *suburl
-    
 - name: Social Media
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/gamecenter.png
   type: select
@@ -77,7 +70,6 @@ proxy-groups:
     - Fallback
   use-url:
     - <suburl>
-    
 - name: Media
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/itunesstore.png
   type: select
@@ -91,7 +83,6 @@ proxy-groups:
     - Fallback
   use-url:
     - *suburl
-    
 - name: Apple
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/apple.png
   type: select
@@ -105,7 +96,6 @@ proxy-groups:
     - Fallback
   use-url:
     - *suburl
-    
 - name: Game
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/arcade.png
   type: select
@@ -119,7 +109,6 @@ proxy-groups:
     - Fallback
   use-url:
     - *suburl
-    
 - name: Telegram
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/telegram.png
   type: select
@@ -133,27 +122,40 @@ proxy-groups:
     - Fallback
   use-url:
     - *suburl
-    
+- name: IP Displayed
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/safari.png
+  type: select
+  url: *pingurl
+  interval: 600
+  proxies:
+    - $tash
+    - Select
+    - Auto
+    - Load Balance
+    - Fallback
+  use-url:
+    - *suburl
 
 rule-providers:
   Apple:
     behavior: classical
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/apple.yaml
     interval: 86400
-    
   Game:
     behavior: classical
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/game.yaml
     interval: 86400
-    
   Telegram:
     behavior: classical
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/telegram.yaml
     interval: 86400
-    
   Advertisments:
     behavior: domain-text
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/advertisements.text
+    interval: 86400
+  IP Displayed:
+    behavior: classical
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/ipdisplayed.yaml
     interval: 86400
  
  
@@ -162,5 +164,6 @@ rules:
 - RULE-SET,Apple,Apple
 - RULE-SET,Game,Game
 - RULE-SET,Telegram,Telegram
+- RULE-SET,IP Displayed,IP Displayed
 - GEOIP,CN,DIRECT
 - MATCH,$tash
