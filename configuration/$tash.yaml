@@ -1,25 +1,29 @@
-mixed-port: 7890
-allow-lan: true
-bind-address: '*'
 log-level: info
 mode: rule
 ipv6: true
+allow-lan: true
+mixed-port: 7890
+bind-address: '*'
+
+
 profile:
   store-selected: false
   store-fake-ip: true
 
+
 subscribe-url: &suburl <suburl> # https://s.godyax.work/#/register?code=apc0YX7Y, a network service provider recommended.
+
 
 proxy-groups:
 - name: $tash
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/network.png
   type: select
   url: &pingurl http://www.gstatic.com/generate_204
-  # Apple: http://captive.apple.com
-  # Google: http://www.gstatic.com/generate_204
-  # Microsoft: http://www.msftconnecttest.com/connecttest.txt
-  # Cloudflare:http://cp.cloudflare.com
-  # V2EX:http://www.v2ex.com/generate_204
+  # Apple:      http://captive.apple.com
+  # Google:     http://www.gstatic.com/generate_204
+  # Microsoft:  http://www.msftconnecttest.com/connecttest.txt
+  # Cloudflare: http://cp.cloudflare.com
+  # V2EX:       http://www.v2ex.com/generate_204
   interval: 600
   proxies:
     - Select
@@ -88,8 +92,22 @@ proxy-groups:
   use-url:
     - *suburl
     
+- name: Apple
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/apple.png
+  type: select
+  url: *pingurl
+  interval: 600
+  proxies:
+    - $tash
+    - Select
+    - Auto
+    - Load Balance
+    - Fallback
+  use-url:
+    - *suburl
+    
 - name: Gaming
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/game.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/arcade.png
   type: select
   url: *pingurl
   interval: 600
@@ -102,8 +120,8 @@ proxy-groups:
   use-url:
     - *suburl
     
-- name: Shopping
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/shopping.png
+- name: Telegram
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/telegram.png
   type: select
   url: *pingurl
   interval: 600
@@ -116,28 +134,27 @@ proxy-groups:
   use-url:
     - *suburl
     
-- name: Shield
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/shield.png
-  type: select
-  url: *pingurl
-  interval: 600
-  proxies:
-    - REJECT
+
+rule-providers:
+  Apple:
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml
+    interval: 86400
     
-- name: Match
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/global.png
-  type: select
-  url: *pingurl
-  interval: 600
-  proxies:
-    - $tash
-    - Select
-    - Auto
-    - Load Balance
-    - Fallback
-  use-url:
-    - *suburl
-  
+  Telegram:
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
+    interval: 86400
+    
+  Advertisments:
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising.yaml
+    interval: 86400
+ 
+ 
 rules:
+- RULE-SET,Advertisments,REJECT
+- RULE-SET,Apple,Apple
+- RULE-SET,Telegram,Telegram
 - GEOIP,CN,DIRECT
 - MATCH,$tash
