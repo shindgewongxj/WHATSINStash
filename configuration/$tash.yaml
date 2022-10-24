@@ -65,7 +65,7 @@ proxy-groups:
     - *suburl
     
 - name: Social Media
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/socialmedia.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/gamecenter.png
   type: select
   url: *pingurl
   interval: 600
@@ -78,8 +78,8 @@ proxy-groups:
   use-url:
     - <suburl>
     
-- name: Streaming
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/streaming.png
+- name: Media
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/itunesstore.png
   type: select
   url: *pingurl
   interval: 600
