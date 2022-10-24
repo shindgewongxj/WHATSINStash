@@ -1,8 +1,11 @@
 name: Anti IP
 desc: Mock IP location in social medias of China Mainland.
 
+rule-providers:
+  Anti IP:
+    behavior: classical
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/antiip.yaml
+    interval: 86400
+    
 rules:
-- DOMAIN,api.weibo.cn,$tash
-- DOMAIN-SUFFIX,biliapi.net,$tash
-- DOMAIN-SUFFIX,biliapi.com,$tash
-- DOMAIN-SUFFIX,bilibili.com,$tash
+- RULE-SET,Anti IP,$tash
