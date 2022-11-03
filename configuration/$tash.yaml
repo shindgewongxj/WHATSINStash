@@ -169,6 +169,6 @@ rules:
 - RULE-SET,Game,Game
 - RULE-SET,Telegram,Telegram
 - RULE-SET,IP Displayed,IP Displayed
-- RULE-SET,ASN China Mainland,DIRECT,non-resolve
+- RULE-SET,ASN China Mainland,DIRECT,no-resolve
 #- GEOIP,CN,DIRECT
 - MATCH,$tash
