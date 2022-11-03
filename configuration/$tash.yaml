@@ -137,6 +137,10 @@ proxy-groups:
     - *suburl
 
 rule-providers:
+  ASN China Mainland:
+    behavior: classical
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/asncn.yaml
+    interval: 86400
   Apple:
     behavior: classical
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/apple.yaml
@@ -165,5 +169,6 @@ rules:
 - RULE-SET,Game,Game
 - RULE-SET,Telegram,Telegram
 - RULE-SET,IP Displayed,IP Displayed
-- GEOIP,CN,DIRECT
+- RULE-SET,ASN China Mainland,DIRECT,non-resolve
+#- GEOIP,CN,DIRECT
 - MATCH,$tash
