@@ -167,7 +167,7 @@ rule-providers:
     interval: 86400
   IP Displayed:
     behavior: domain-text
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/ipdisplayed.yaml
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/ipdisplayed.txt
     interval: 86400
  
  
