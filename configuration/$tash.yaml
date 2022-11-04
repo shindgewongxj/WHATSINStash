@@ -135,6 +135,14 @@ proxy-groups:
     - Fallback
   use-url:
     - *suburl
+- name: Region
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/safari.png
+  type: select
+  url: *pingurl
+  interval: 600
+  include-all: true
+  filter: .*(U(nited)?( )?S(tates)?A?|美(利坚合众)?(国)?|🇺🇸).*
+  
 
 rule-providers:
   ASN China Mainland:
@@ -170,5 +178,4 @@ rules:
 - RULE-SET,Telegram,Telegram
 - RULE-SET,IP Displayed,IP Displayed
 - RULE-SET,ASN China Mainland,DIRECT,no-resolve
-#- GEOIP,CN,DIRECT
 - MATCH,$tash
