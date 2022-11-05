@@ -9,6 +9,8 @@ English | [中文](https://github.com/shindgewongxj/WHATSINStash/raw/main/README
 - Configuration `$tash.yaml` is some kind a simple one for noobs or lazies like me  
 - All overrides are for `$tash.yaml`  
 - Rules in overrides only take effect while proxy group matched  
+- A powerful network tool means do not waste so much time on frequently checking  
+  Just install, setup, and let it run background  
 
 ## Thanks to  
 
@@ -19,7 +21,7 @@ English | [中文](https://github.com/shindgewongxj/WHATSINStash/raw/main/README
 
 ## Powered by  
 
-[Stash](https://stash.ws), a powerful proxy tool.  
+[Stash](https://stash.ws), a powerful powerful tool.  
 
 ### Preview  
 
