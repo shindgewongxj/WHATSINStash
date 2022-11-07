@@ -21,3 +21,8 @@ Korea of Republic:
 
 United States of America:  
 `(?i).*(🇺🇸|U(nited)?(\s)?S(tates)?(\sof\s)?(A(merica)?)?|美(利坚合众)?国?).*`  
+
+## South America  
+
+The Argentine Republic:  
+`(?i).*(🇦🇷|(The(\s)?)?AR(G(entine)?)?(\s?Republic)?).*`  
