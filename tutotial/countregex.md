@@ -36,3 +36,8 @@ The Republic of Ireland:
 
 The Commonwealth of Australia:  
 `(?i).*(🇦🇺|(The\s?Commonwealth\s?of\s?)?AU(S(tralia)?)?).*`  
+
+## Africa  
+
+The Republic of Rwanda:  
+`(?i).*((The\s?Republic\s?of\s?)?RW(A(nda)?)?).*`  
