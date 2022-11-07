@@ -26,3 +26,8 @@ United States of America:
 
 The Argentine Republic:  
 `(?i).*(🇦🇷|(The(\s)?)?AR(G(entine)?)?(\s?Republic)?).*`  
+
+## Europe  
+
+The Republic of Ireland:  
+`(?i).*(🇮🇪|(The\s?Republic\s?of\s?)?IR?E(land)?).*`  
