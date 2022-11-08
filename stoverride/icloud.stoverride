@@ -5,7 +5,10 @@ http:
   mitm:
     - "%APPEND% mask-api.icloud.com"
     - "mask-api.fe.apple-dns.net"
-    - "mask.icloud.com, mask.apple-dns.net"
+    - "mask.icloud.com"
+    - "mask.apple-dns.net"
+    - "mask-canary.icloud.com"
+    - "canary.mask.apple-dns.net"
     - "-mask-h2.icloud.com"
     - "-mask-t.apple-dns.net"
     - "p*-acsegateway.icloud.com"
@@ -26,8 +29,8 @@ http:
       
 script-providers:
   Private Relay Request:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Private_Relay.request.beta.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Private_Relay.request.js
     interval: 86400
   Private Relay Response:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Private_Relay.response.beta.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Private_Relay.response.js
     interval: 86400
