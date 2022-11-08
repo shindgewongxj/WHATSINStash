@@ -15,7 +15,7 @@ Japan:
 `(?i).*(🇯🇵|ja?p(an)?|日本?).*`  
 
 The Republic of Korea:  
-`(?i).*(🇰🇷|Ko?r(ea)?|大?韩(民国)?).*`  
+`(?i).*(🇰🇷|ko?r(ea)?|大?韩(民国)?).*`  
 
 Philippines:  
 `(?i).*(🇵🇭|ph(ilippines)?|菲(律宾)?).*`
@@ -40,6 +40,9 @@ The Republic of Ireland:
 
 Ukraine:  
 `(?i).*(🇺🇦|u(kr)?a(ine)?).*`  
+
+Turkey:  
+`(?i).*(🇹🇷|tu?r(key)?).*`
 
 ## Oceania  
 
