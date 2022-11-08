@@ -32,6 +32,9 @@ The Argentine Republic:
 The Republic of Ireland:  
 `(?i).*(🇮🇪|(The\s?Republic\s?of\s?)?IR?E(land)?).*`  
 
+Ukraine:  
+`(?i).*(🇺🇦|U(KR)?A(ine)?).*`  
+
 ## Oceania  
 
 The Commonwealth of Australia:  

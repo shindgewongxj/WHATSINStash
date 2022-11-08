@@ -1,6 +1,7 @@
 api.weibo.cn
 +.biliapi.net
 +.biliapi.com
++.bilibili.cn
 +.bilibili.com
 +.bilibili.tv
 +.biligame.com
