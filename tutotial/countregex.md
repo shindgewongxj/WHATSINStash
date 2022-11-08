@@ -17,13 +17,16 @@ Japan:
 The Republic of Korea:  
 `(?i).*(🇰🇷|Ko?r(ea)?|大?韩(民国)?).*`  
 
+Philippines:  
+`(?i).*(🇵🇭|ph(ilippines)?|菲(律宾)?).*`
+
 ## North America  
 
 United States of America:  
 `(?i).*(🇺🇸|u(nited\s?)?s(tates)?|美(利坚合众)?国?).*`  
 
 Canada:  
-`(?i).*(🇨🇦|ca(nada)?).*`
+`(?i).*(🇨🇦|ca(nada)?|加(拿大)?).*`
 
 ## South America  
 
