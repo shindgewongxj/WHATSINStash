@@ -3,44 +3,44 @@
 ## Asia  
 
 Hong Kong:  
-`(?i).*(🇭🇰|H(ong)?(\s)?K(on)?G?|香?港).*`  
+`(?i).*(🇭🇰|h(ong\s?)?k(ong)?|香?港).*`   
 
 Macao:  
-`(?i).*(🇲🇴|M(ACa?)?O?|澳门?).*`  
+`(?i).*(🇲🇴|m(aca)?o|澳门?).*`  
 
 Taiwan:  
-`(?i).*(🇹🇼|T(ai)?W(a)?N?|台湾?).*`  
+`(?i).*(🇹🇼|t(ai)?w(an)?|台湾?).*`  
 
 Japan:  
-`(?i).*(🇯🇵|Ja?Pa?N?|日本?).*`  
+`(?i).*(🇯🇵|ja?p(an)?|日本?).*`  
 
-Korea of Republic:  
-`(?i).*(🇰🇷|(S(outh\s?)?)?K(orea)?(\s?O(f\s)?)?R(epublic)?|大?韩(民国)?).*`  
+The Republic of Korea:  
+`(?i).*(🇰🇷|Ko?r(ea)?|大?韩(民国)?).*`  
 
 ## North America  
 
 United States of America:  
-`(?i).*(🇺🇸|U(nited)?(\s)?S(tates)?(\sof\s)?(A(merica)?)?|美(利坚合众)?国?).*`  
+`(?i).*(🇺🇸|u(nited\s?)?s(tates)?|美(利坚合众)?国?).*`  
 
 ## South America  
 
 The Argentine Republic:  
-`(?i).*(🇦🇷|(The(\s)?)?AR(G(entine)?)?(\s?Republic)?).*`  
+`(?i).*(🇦🇷|(ar(gentine)?).*`  
 
 ## Europe  
 
 The Republic of Ireland:  
-`(?i).*(🇮🇪|(The\s?Republic\s?of\s?)?IR?E(land)?).*`  
+`(?i).*(🇮🇪|(ir?e(land)?).*`  
 
 Ukraine:  
-`(?i).*(🇺🇦|U(KR)?A(ine)?).*`  
+`(?i).*(🇺🇦|u(kr)?a(ine)?).*`  
 
 ## Oceania  
 
 The Commonwealth of Australia:  
-`(?i).*(🇦🇺|(The\s?Commonwealth\s?of\s?)?AU(S(tralia)?)?).*`  
+`(?i).*(🇦🇺|(au(stralia)?).*`  
 
 ## Africa  
 
 The Republic of Rwanda:  
-`(?i).*((The\s?Republic\s?of\s?)?RW(A(nda)?)?).*`  
+`(?i).*(🇷🇼|rw(anda)?).*`  
