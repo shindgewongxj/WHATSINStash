@@ -3,56 +3,56 @@
 ## Asia  
 
 Hong Kong:  
-`(?i).*(🇭🇰|h(ong\s?)?k(ong)?|香?港).*`   
+`(?i).*\b(🇭🇰|h(ong\s?)?k(ong)?|香?港)\b.*`   
 
 Macao:  
-`(?i).*(🇲🇴|m(aca)?o|澳门?).*`  
+`(?i).*\b(🇲🇴|m(aca)?o|澳门?)\b.*`  
 
 Taiwan:  
-`(?i).*(🇹🇼|t(ai)?w(an)?|台湾?).*`  
+`(?i).*\b(🇹🇼|t(ai)?w(an)?|台湾?)\b.*`  
 
 Japan:  
-`(?i).*(🇯🇵|ja?p(an)?|日本?).*`  
+`(?i).*\b(🇯🇵|ja?p(an)?|日本?)\b.*`  
 
 The Republic of Korea:  
-`(?i).*(🇰🇷|ko?r(ea)?|大?韩(民国)?).*`  
+`(?i).*\b(🇰🇷|ko?r(ea)?|大?韩(民国)?)\b.*`  
 
 Philippines:  
-`(?i).*(🇵🇭|ph(ilippines)?|菲(律宾)?).*`
+`(?i).*\b(🇵🇭|ph(ilippines)?|菲(律宾)?)\b.*`
 
 ## North America  
 
 United States of America:  
-`(?i).*(🇺🇸|u(nited\s?)?s(tates)?|美(利坚合众)?国?).*`  
+`(?i).*\b(U(nited\s?)?S(tates)?(\so?f\s?)?(A(merica)?)?\b).*`  
 
 Canada:  
-`(?i).*(🇨🇦|ca(nada)?|加(拿大)?).*`
+`(?i).*\b(🇨🇦|ca(nada)?|加(拿大)?)\b.*`
 
 ## South America  
 
 The Argentine Republic:  
-`(?i).*(🇦🇷|(ar(gentine)?).*`  
+`(?i).*\b(🇦🇷|(ar(gentine)?)\b.*`  
 
 ## Europe  
 
 The Republic of Ireland:  
-`(?i).*(🇮🇪|(ir?e(land)?).*`  
+`(?i).*\b(🇮🇪|(ir?e(land)?)\b.*`  
 
 Ukraine:  
-`(?i).*(🇺🇦|u(kr)?a(ine)?).*`  
+`(?i).*\b(🇺🇦|u(kr)?a(ine)?)\b.*`  
 
 Turkey:  
-`(?i).*(🇹🇷|tu?r(key)?).*`
+`(?i).*\b(🇹🇷|tu?r(key)?)\b.*`
 
 United Kingdom:  
-`(?i).*(🇬🇧|u(nited\s?)?k(ingdom)?|g(reat\s?)?b(ritain)?).*`
+`(?i).*\b(🇬🇧|u(nited\s?)?k(ingdom)?|g(reat\s?)?b(ritain)?)\b.*`
 
 ## Oceania  
 
 The Commonwealth of Australia:  
-`(?i).*(🇦🇺|(au(stralia)?).*`  
+`(?i).*\b(🇦🇺|(au(stralia)?)\b.*`  
 
 ## Africa  
 
 The Republic of Rwanda:  
-`(?i).*(🇷🇼|rw(anda)?).*`  
+`(?i).*\b(🇷🇼|rw(anda)?)\b.*`  
