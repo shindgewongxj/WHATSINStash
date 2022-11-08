@@ -22,6 +22,9 @@ The Republic of Korea:
 United States of America:  
 `(?i).*(🇺🇸|u(nited\s?)?s(tates)?|美(利坚合众)?国?).*`  
 
+Canada:  
+`(?i).*(🇨🇦|ca(nada)?).*`
+
 ## South America  
 
 The Argentine Republic:  
