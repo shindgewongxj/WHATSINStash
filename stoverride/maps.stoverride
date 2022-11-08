@@ -13,6 +13,7 @@ http:
     - "gsp-ssl.ls.apple.com"
     - "direction2.is.autonavi.com"
     - "dispatcher.is.autonavi.com"
+    - "rap.is.autonavi.com"
 
   script:
     - match: ^https?:\/\/configuration\.ls\.apple\.com\/config\/defaults(\?.*)?$
@@ -78,8 +79,8 @@ http:
 
 script-providers:
   Maps Request:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Location.request.beta.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Location.request.js
     interval: 86400
   Maps Response:
-    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Location.response.beta.js
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Location.response.js
     interval: 86400
