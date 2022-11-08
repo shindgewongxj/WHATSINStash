@@ -44,6 +44,9 @@ Ukraine:
 Turkey:  
 `(?i).*(🇹🇷|tu?r(key)?).*`
 
+United Kingdom:  
+`(?i).*(🇬🇧|u(nited\s?)?k(ingdom)?|g(reat\s?)?b(ritain)?).*`
+
 ## Oceania  
 
 The Commonwealth of Australia:  
