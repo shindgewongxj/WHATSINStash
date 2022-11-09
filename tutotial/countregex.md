@@ -6,7 +6,7 @@ Hong Kong:
 `(?i).*\b(🇭🇰|h(ong\s?)?k((on)?g)?|香?港)\b.*`   
 
 Macao:  
-`(?i).*\b(🇲🇴|m(aca)?o|澳门?)\b.*`  
+`(?i).*\b(🇲🇴|m(aca?)?o?|澳门?)\b.*`  
 
 Taiwan:  
 `(?i).*\b(🇹🇼|t(ai)?w(a?n)?|台湾?)\b.*`  
@@ -50,7 +50,7 @@ United Kingdom:
 ## Oceania  
 
 The Commonwealth of Australia:  
-`(?i).*\b(🇦🇺|(au(stralia)?)\b.*`  
+`(?i).*\b(🇦🇺|(au(s(tralia)?)?)\b.*`  
 
 ## Africa  
 
