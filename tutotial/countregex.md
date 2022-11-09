@@ -26,7 +26,7 @@ Republic of the Philippines:
 ## North America  
 
 United States of America:  
-`(?i).*\b(U(nited\s?)?S(tates)?(\so?f\s?)?(A(merica)?)?\b).*`  
+`(?i).*\b(U(nited\s?)?S(tates)?(\so?f\s?)?(A(merica)?)?)\b.*`  
 
 Dominion of Canada:  
 `(?i).*\b(🇨🇦|ca(nada)?|加(拿大)?)\b.*`  
