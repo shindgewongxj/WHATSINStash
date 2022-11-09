@@ -2,10 +2,13 @@
 
 ## Asia  
 
-Hong Kong:  
+People’s Republic of China:  
+`(?i).*(🇨🇳|(people’s\s?republic\s?of\s?)?c(hi?)?na?).*`
+
+Hong Kong Special Administrative Region of the People's Republic of China:  
 `(?i).*\b(🇭🇰|h(ong\s?)?k((on)?g)?|香?港)\b.*`   
 
-Macao:  
+Macao Special Administrative Region of the People's Republic of China:  
 `(?i).*\b(🇲🇴|m(aca?)?o?|澳门?)\b.*`  
 
 Taiwan:  
@@ -14,10 +17,10 @@ Taiwan:
 Japan:  
 `(?i).*\b(🇯🇵|ja?p(a?n)?|日本?)\b.*`  
 
-The Republic of Korea:  
+Republic of Korea:  
 `(?i).*\b(🇰🇷|k(o?r)?(ea)?|大?韩(民国)?)\b.*`  
 
-Philippines:  
+Republic of the Philippines:  
 `(?i).*\b(🇵🇭|ph(ilippines)?|菲(律宾)?)\b.*`
 
 ## North America  
@@ -25,34 +28,34 @@ Philippines:
 United States of America:  
 `(?i).*\b(U(nited\s?)?S(tates)?(\so?f\s?)?(A(merica)?)?\b).*`  
 
-Canada:  
+Dominion of Canada:  
 `(?i).*\b(🇨🇦|ca(nada)?|加(拿大)?)\b.*`
 
 ## South America  
 
-The Argentine Republic:  
+Argentine Republic:  
 `(?i).*\b(🇦🇷|(ar(gentine)?)\b.*`  
 
 ## Europe  
 
-The Republic of Ireland:  
+Ireland:  
 `(?i).*\b(🇮🇪|(ir?e(land)?)\b.*`  
 
 Ukraine:  
 `(?i).*\b(🇺🇦|u(kr)?a(ine)?)\b.*`  
 
-Turkey:  
+Republic of Türkiye:  
 `(?i).*\b(🇹🇷|tu?r(key)?)\b.*`
 
-United Kingdom:  
+United Kingdom of Great Britain and Northern Ireland:  
 `(?i).*\b(🇬🇧|u(nited\s?)?k(ingdom)?|g(reat\s?)?b(ritain)?)\b.*`
 
 ## Oceania  
 
-The Commonwealth of Australia:  
+Commonwealth of Australia:  
 `(?i).*\b(🇦🇺|(au(s(tralia)?)?)\b.*`  
 
 ## Africa  
 
-The Republic of Rwanda:  
+Republic of Rwanda:  
 `(?i).*\b(🇷🇼|rw(anda)?)\b.*`  
