@@ -949,3 +949,4 @@ rules:
 - IP-ASN,211843,DIRECT,no-resolve
 - IP-ASN,212237,DIRECT,no-resolve
 - IP-ASN,212292,DIRECT,no-resolve
+- MATCH,$tash
