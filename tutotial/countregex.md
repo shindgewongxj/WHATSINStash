@@ -3,7 +3,7 @@
 ## Asia  
 
 People’s Republic of China:  
-`(?i).*(🇨🇳|(people’s\s?republic\s?of\s?)?c(hi?)?na?).*`
+`(?i).*\b(🇨🇳|(people’s\s?republic\s?of\s?)?c(hi?)?na?)\b.*`
 
 Hong Kong Special Administrative Region of the People's Republic of China:  
 `(?i).*\b(🇭🇰|h(ong\s?)?k((on)?g)?|香?港)\b.*`   
