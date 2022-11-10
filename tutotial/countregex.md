@@ -1,5 +1,9 @@
 # Regex of Countries  
 
+References:  
+1. [ISO-3166](https://www.iso.org/iso-3166-country-codes.html)  
+2. [ISO-3166-1](https://www.iso.org/standard/72482.html)
+
 ## Asia  
 
 China:  
