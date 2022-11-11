@@ -42,6 +42,9 @@ Singapore:
 Taiwan:  
 `(?i).*\b(🇹🇼|t(ai)?w(a?n)?|台湾?)\b.*`  
 
+Thailand:  
+`(?i).*\b(🇹🇭|th(a(iland)?)?|泰国)\b.*`  
+
 Viet Nam:  
 `(?i).*\b(🇻🇳|v(iet\s?)?n(a?m)?|越南)\b.*`  
 
