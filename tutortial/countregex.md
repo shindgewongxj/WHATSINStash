@@ -28,7 +28,7 @@ Korea:
 `(?i).*\b(🇰🇷|k(o?r)?(ea)?|大?韩(民?国)?)\b.*`  
 
 Philippines:  
-`(?i).*\b(🇵🇭|ph(i?l?(ippines)?)?|菲(律宾)?)\b.*`  
+`(?i).*\b(🇵🇭|ph(i?l(ippines)?)?|菲(律宾)?)\b.*`  
 
 Russian Federation:  
 `(?i).*\b(🇷🇺|ru(s(sian\s?federation)?)?|俄罗斯联邦)\b.*`  
