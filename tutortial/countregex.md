@@ -22,7 +22,7 @@ Japan:
 `(?i)(.*\b(🇯🇵|ja?p(a?n)?|日本?)\b.*)`  
 
 Korea:  
-`(?i)(.*\b(🇰🇷|ko?r(ea)?|大?韩(民?国)?)\b.*)`  
+`(?i)(.*\b(🇰🇷|ko?r(ea)?|韩国?)\b.*)`  
 
 Macao:  
 `(?i)(.*\b(🇲🇴|m(aca?)?o?|澳门?)\b.*)`  
@@ -32,9 +32,6 @@ Malaysia:
 
 Philippines:  
 `(?i)(.*\b(🇵🇭|ph(i?l(ippines)?)?|菲(律宾)?)\b.*)`  
-
-Russian Federation:  
-`(?i)(.*\b(🇷🇺|ru(s(sian\s?federation)?)?|俄罗斯联邦)\b.*)`  
 
 Singapore:  
 `(?i)(.*\b(🇸🇬|s(in)?g(a?p(ore)?)?|新加坡)\b.*)`  
@@ -72,6 +69,9 @@ Colombia:
 
 ## Europe  
 
+Azerbaijan:  
+`(?i)(.*\b(🇦🇿|az(e(rbaijan)?)?|阿塞拜疆)\b.*)`  
+
 Finland:  
 `(?i)(.*\b(🇫🇮|fi(n(land)?)?|芬兰)\b.*)`  
 
@@ -92,6 +92,9 @@ Italy:
 
 Norway:  
 `(?i)(.*\b(🇳🇴|no(r(way)?)?|挪威)\b.*)`  
+
+Russian Federation:  
+`(?i)(.*\b(🇷🇺|ru(s(sian\s?federation)?)?|俄罗斯联邦)\b.*)`  
 
 Spain:  
 `(?i)(.*\b(🇪🇸|e?s(p(ain)?)?|西班牙)\b.*)`  
