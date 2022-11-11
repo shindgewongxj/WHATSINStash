@@ -63,6 +63,9 @@ Argentina:
 
 ## Europe  
 
+France:  
+`(?i).*\b(🇫🇷|fr(a(nce)?)?|法国)\b.*`  
+
 Iceland:  
 `(?i).*\b(🇮🇸|i(ce)?s?(l(and)?)?|冰岛)\b.*`  
 
