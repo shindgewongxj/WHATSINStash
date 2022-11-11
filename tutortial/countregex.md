@@ -18,20 +18,17 @@ India:
 Indonesia:  
 `(?i).*\b(🇮🇩|in?d(o?n(esia)?)?|印度尼西亚)\b.*`  
 
-Macao:  
-`(?i).*\b(🇲🇴|m(aca?)?o?|澳门?)\b.*`  
-
-Taiwan:  
-`(?i).*\b(🇹🇼|t(ai)?w(a?n)?|台湾?)\b.*`  
-
 Japan:  
 `(?i).*\b(🇯🇵|ja?p(a?n)?|日本?)\b.*`  
 
-Malaysia:  
-`(?i).*\b(🇲🇾|m(ala)?y(s(ia)?)?|马来西亚)\b.*`  
-
 Korea:  
 `(?i).*\b(🇰🇷|ko?r(ea)?|大?韩(民?国)?)\b.*`  
+
+Macao:  
+`(?i).*\b(🇲🇴|m(aca?)?o?|澳门?)\b.*`  
+
+Malaysia:  
+`(?i).*\b(🇲🇾|m(ala)?y(s(ia)?)?|马来西亚)\b.*`  
 
 Philippines:  
 `(?i).*\b(🇵🇭|ph(i?l(ippines)?)?|菲(律宾)?)\b.*`  
@@ -42,19 +39,22 @@ Russian Federation:
 Singapore:  
 `(?i).*\b(🇸🇬|s(in)?g(a?p(ore)?)?|新加坡)\b.*`  
 
+Taiwan:  
+`(?i).*\b(🇹🇼|t(ai)?w(a?n)?|台湾?)\b.*`  
+
 Viet Nam:  
 `(?i).*\b(🇻🇳|v(iet\s?)?n(a?m)?|越南)\b.*`  
 
 ## North America  
 
-United States of America:  
-`(?i).*\b(u(nited\s?)?s(tates)?(\so?f\s?)?(a(merica)?)?|美((利坚合众)?国)?)\b.*`  
+Mexico:  
+`(?i).*\b(🇲🇽|me?x(ico)?|墨西哥)\b.*`  
 
 Canada:  
 `(?i).*\b(🇨🇦|ca(n(ada)?)?|加(拿大)?)\b.*`  
 
-Mexico:  
-`(?i).*\b(🇲🇽|me?x(ico)?|墨西哥)\b.*`  
+United States of America:  
+`(?i).*\b(u(nited\s?)?s(tates)?(\so?f\s?)?(a(merica)?)?|美((利坚合众)?国)?)\b.*`  
 
 ## South America  
 
@@ -66,20 +66,20 @@ Argentina:
 Iceland:  
 `(?i).*\b(🇮🇸|i(ce)?s?(l(and)?)?|冰岛)\b.*`  
 
-Italy:  
-`(?i).*\b(🇮🇹|it(a(ly)?)?|意大利)\b.*`  
-
 Ireland:  
 `(?i).*\b(🇮🇪|(ir?e(land)?|爱尔兰)\b.*`  
+
+Italy:  
+`(?i).*\b(🇮🇹|it(a(ly)?)?|意大利)\b.*`  
 
 Norway:  
 `(?i).*\b(🇳🇴|no(r(way)?)?|挪威)\b.*`  
 
-Ukraine:  
-`(?i).*\b(🇺🇦|u(kr)?(a(ine)?)?|乌克兰)\b.*`  
-
 Türkiye:  
 `(?i).*\b(🇹🇷|tu?r(key)?|土耳其)\b.*`  
+
+Ukraine:  
+`(?i).*\b(🇺🇦|u(kr)?(a(ine)?)?|乌克兰)\b.*`  
 
 United Kingdom of Great Britain and Northern Ireland:  
 `(?i).*\b(🇬🇧|(united\s?kingdom\s?of\s?)?g(reat\s?)?b(r(itain\s?and\s?northern\s?ireland)?)?|英国)\b.*`  
