@@ -78,3 +78,6 @@ Australia:
 
 Rwanda:  
 `(?i).*\b(🇷🇼|rw(a(nda)?)?|卢旺达)\b.*`  
+
+South Africa:  
+`(?i).*\b(🇿🇦|(south\s?)?z?a(f(rica)?)?)\b.*`  
