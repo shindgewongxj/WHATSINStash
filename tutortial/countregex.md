@@ -57,6 +57,9 @@ Argentina:
 
 ## Europe  
 
+Iceland:  
+`(?i).*\b(🇮🇸|i(ce)?s?(l(and)?)?|冰岛)\b.*`  
+
 Italy:  
 `(?i).*\b(🇮🇹|it(a(ly)?)?|意大利)\b.*`  
 
