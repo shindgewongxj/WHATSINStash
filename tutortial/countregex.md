@@ -38,6 +38,9 @@ United States of America:
 Canada:  
 `(?i).*\b(🇨🇦|ca(n(ada)?)?|加(拿大)?)\b.*`  
 
+Mexico:  
+`(?i).*\b(🇲🇽|me?x(ico)?|墨西哥)\b.*`  
+
 ## South America  
 
 Argentina:  
