@@ -78,6 +78,9 @@ Finland:
 France:  
 `(?i)(.*\b(🇫🇷|fr(a(nce)?)?|法国)\b.*)`  
 
+Germany:  
+`(?i).*\b(🇩🇪|(germany)?(DEU?)?|德国)\b.*`  
+
 Iceland:  
 `(?i)(.*\b(🇮🇸|i(ce)?s?(l(and)?)?|冰岛)\b.*)`  
 
