@@ -90,6 +90,9 @@ Norway:
 Spain:  
 `(?i).*\b(🇪🇸|e?s(p(ain)?)?|西班牙)\b.*`  
 
+Switzerland:  
+`(?i).*\b(🇨🇭|(switz)?(ch)?(e(rland)?)?|瑞士)\b.*`  
+
 Sweden:  
 `(?i).*\b(🇸🇪|sw?e(den)?|瑞典)\b.*`  
 
