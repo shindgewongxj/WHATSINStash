@@ -61,6 +61,9 @@ United States of America:
 Argentina:  
 `(?i).*\b(🇦🇷|(ar(g(entina)?)?|阿根廷)\b.*`  
 
+Brazil:  
+`(?i).*\b(🇧🇷|br(a(zil)?)?|巴西)\b.*`  
+
 Colombia:  
 `(?i).*\b(🇨🇴|co(l(ombia)?)?|哥伦比亚)\b.*`  
 
