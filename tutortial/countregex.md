@@ -30,6 +30,9 @@ Korea:
 Philippines:  
 `(?i).*\b(🇵🇭|ph(i?l?(ippines)?)?|菲(律宾)?)\b.*`  
 
+Russian Federation:  
+`(?i).*\b(🇷🇺|ru(s(sian\s?federation)?)?|俄罗斯联邦)\b.*`  
+
 ## North America  
 
 United States of America:  
