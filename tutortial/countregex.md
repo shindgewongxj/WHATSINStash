@@ -33,6 +33,9 @@ Philippines:
 Russian Federation:  
 `(?i).*\b(🇷🇺|ru(s(sian\s?federation)?)?|俄罗斯联邦)\b.*`  
 
+Viet Nam:  
+`(?i).*\b(🇻🇳|v(iet\s?)?n(a?m)?|越南)\b.*`  
+
 ## North America  
 
 United States of America:  
