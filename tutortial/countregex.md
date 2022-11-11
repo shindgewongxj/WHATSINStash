@@ -61,7 +61,13 @@ United States of America:
 Argentina:  
 `(?i).*\b(🇦🇷|(ar(g(entina)?)?|阿根廷)\b.*`  
 
+Colombia:  
+`(?i).*\b(🇨🇴|co(l(ombia)?)?|哥伦比亚)\b.*`  
+
 ## Europe  
+
+Finland:  
+`(?i).*\b(🇫🇮|fi(n(land)?)?|芬兰)\b.*`  
 
 France:  
 `(?i).*\b(🇫🇷|fr(a(nce)?)?|法国)\b.*`  
