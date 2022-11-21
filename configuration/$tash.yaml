@@ -90,7 +90,7 @@ proxy-groups:
     - Auto
     - Load Balance
     - Fallback
-- name: IP Displayed
+- name: IPMocking
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/safari.png
   type: select
   url: *pingurl
@@ -108,9 +108,9 @@ rule-providers:
     behavior: classical
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/asncn.yaml
     interval: 86400
-  IP Displayed:
+  IPMocking:
     behavior: domain-text
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/ipdisplayed.txt
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/ipmocking.txt
     interval: 86400
   Apple:
     behavior: domain-text
@@ -132,7 +132,7 @@ rule-providers:
  
 rules:
 - RULE-SET,Advertisments,REJECT
-- RULE-SET,IP Displayed,IP Displayed
+- RULE-SET,IPMocking,IPMocking
 - RULE-SET,Apple,Apple
 - RULE-SET,Game,Game
 - RULE-SET,Media,Media
