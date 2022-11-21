@@ -57,19 +57,6 @@ proxy-groups:
   interval: 600
   use-url:
     - *suburl
-- name: Social Media
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/gamecenter.png
-  type: select
-  url: *pingurl
-  interval: 600
-  proxies:
-    - $tash
-    - Select
-    - Auto
-    - Load Balance
-    - Fallback
-  use-url:
-    - <suburl>
 - name: Media
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/itunesstore.png
   type: select
@@ -81,8 +68,6 @@ proxy-groups:
     - Auto
     - Load Balance
     - Fallback
-  use-url:
-    - *suburl
 - name: Apple
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/apple.png
   type: select
@@ -94,8 +79,6 @@ proxy-groups:
     - Auto
     - Load Balance
     - Fallback
-  use-url:
-    - *suburl
 - name: Game
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/arcade.png
   type: select
@@ -107,9 +90,7 @@ proxy-groups:
     - Auto
     - Load Balance
     - Fallback
-  use-url:
-    - *suburl
-- name: Telegram
+- name: Media
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/telegram.png
   type: select
   url: *pingurl
@@ -120,8 +101,6 @@ proxy-groups:
     - Auto
     - Load Balance
     - Fallback
-  use-url:
-    - *suburl
 - name: IP Displayed
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/safari.png
   type: select
@@ -133,15 +112,6 @@ proxy-groups:
     - Auto
     - Load Balance
     - Fallback
-  use-url:
-    - *suburl
-- name: Region
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/safari.png
-  type: select
-  url: *pingurl
-  interval: 600
-  include-all: true
-  filter: .*(U(nited)?( )?S(tates)?A?|美(利坚合众)?(国)?|🇺🇸).*
   
 
 rule-providers:
@@ -150,16 +120,16 @@ rule-providers:
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/asncn.yaml
     interval: 86400
   Apple:
-    behavior: classical
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/apple.yaml
+    behavior: domain-text
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/apple.txt
     interval: 86400
   Game:
-    behavior: classical
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/game.yaml
+    behavior: domain-text
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/game.txt
     interval: 86400
-  Telegram:
-    behavior: classical
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/telegram.yaml
+  Media:
+    behavior: domain-text
+    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/media.txt
     interval: 86400
   Advertisments:
     behavior: domain-text
@@ -175,7 +145,7 @@ rules:
 - RULE-SET,Advertisments,REJECT
 - RULE-SET,Apple,Apple
 - RULE-SET,Game,Game
-- RULE-SET,Telegram,Telegram
+- RULE-SET,Media,Media
 - RULE-SET,IP Displayed,IP Displayed
 - RULE-SET,ASN China Mainland,DIRECT,no-resolve
 - MATCH,$tash
