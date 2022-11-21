@@ -143,9 +143,9 @@ rule-providers:
  
 rules:
 - RULE-SET,Advertisments,REJECT
+- RULE-SET,IP Displayed,IP Displayed
 - RULE-SET,Apple,Apple
 - RULE-SET,Game,Game
 - RULE-SET,Media,Media
-- RULE-SET,IP Displayed,IP Displayed
 - RULE-SET,ASN China Mainland,DIRECT,no-resolve
 - MATCH,$tash
