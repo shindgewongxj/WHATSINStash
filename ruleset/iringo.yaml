@@ -8,6 +8,11 @@ payload:
 - DOMAIN-SUFFIX,apple.comscoreresearch.com
 - DOMAIN-SUFFIX,news-edge.apple.com
 - DOMAIN-SUFFIX,news-events.apple.com
+# News Widget Topic
+- PROCESS-NAME,NewsTag
+# News Widget Today
+- PROCESS-NAME,NewsTodayIntents
+- PROCESS-NAME,NewsToday2
 # New+ Audio
 - URL-REGEX,^https?:\/\/news-assets\.apple\.com\/(audio-narrative|podcast\/audio)\/.*
 # Siri
