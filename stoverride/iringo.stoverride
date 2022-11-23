@@ -35,6 +35,8 @@ http:
     # Siri
     - "api*.smoot.apple.com"
     - "api*.smoot.apple.cn"
+    # TestFlight
+    - "testflight.apple.com"
     # TV
     - "uts-api.itunes.apple.com"
     # Weather
@@ -168,6 +170,19 @@ http:
       require-body: true
       timeout: 10
       argument:
+      # TestFlight
+    - match: ^https?:\/\/testflight\.apple\.com\/(.+)(\?.*)?$
+      name: TestFlight Request
+      type: request
+      require-body: true
+      timeout: 10
+      argument:
+    - match: ^https?:\/\/testflight\.apple\.com\/(.+)(\?.*)?$
+      name: TestFlight Response
+      type: response
+      require-body: true
+      timeout: 10
+      argument:
       # TV
     - match: https?:\/\/uts-api\.itunes\.apple\.com\/uts\/(v1|v2|v3)\/.*
       name: TV Request
@@ -228,6 +243,13 @@ script-providers:
     interval: 86400
   Siri Response:
     url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/Siri.response.js
+    interval: 86400
+  # TestFlight
+  TestFlight Request:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/TestFlight.request.js
+    interval: 86400
+  TestFlight Response:
+    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/main/js/TestFlight.response.js
     interval: 86400
   # TV
   TV Request:
