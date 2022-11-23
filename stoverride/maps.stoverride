@@ -14,7 +14,6 @@ http:
     - "direction2.is.autonavi.com"
     - "dispatcher.is.autonavi.com"
     - "rap.is.autonavi.com"
-
   script:
     - match: ^https?:\/\/configuration\.ls\.apple\.com\/config\/defaults(\?.*)?$
       name: Maps Request
