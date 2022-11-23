@@ -1,5 +1,5 @@
 name: iRingo
-desc: Unlock some regional features of iOS.
+desc: Unlock some regional features of Apple services.
 
 http:
   mitm:
