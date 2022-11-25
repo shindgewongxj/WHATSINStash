@@ -4,6 +4,8 @@ payload:
 # iCloud Private Relay
 - DOMAIN,mask-api.fe.apple-dns.net
 - DOMAIN,mask-api.icloud.com
+# iMessage
+- PROCESS-NAME, IMTransferAgent
 # News
 - DOMAIN-SUFFIX,apple.comscoreresearch.com
 - DOMAIN-SUFFIX,news-edge.apple.com
