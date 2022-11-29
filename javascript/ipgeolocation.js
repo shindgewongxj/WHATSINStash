@@ -8,8 +8,8 @@ $httpClient.get("http://ip-api.com/json", function (error, response, data) {
   body = {
     backgroundColor: "#737373",
     icon: "location",
-    title: `${country}`,
-    content: `${state}\n${city}\n${isp}`,
+    title: `${isp}`,
+    content: `${city}\n${state}\n${country}`,
   }
   $done(body);
 });
