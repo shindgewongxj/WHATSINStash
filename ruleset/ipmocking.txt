@@ -5,7 +5,5 @@ api.weibo.cn
 +.bilibili.com
 +.bilibili.tv
 +.biligame.com
-szextshort.weixin.qq.com
-szminorshort.weixin.qq.com
-szshort.weixin.qq.com
+channels.weixin.qq.com
 mp.weixin.qq.com
