@@ -1,5 +1,5 @@
 name: WarpGuard
-desc: 1.1.1.1 by Cloudflare APP with WARP Client Config Management
+desc: Manage WARP client configuration.
 
 tiles:
   - name: WarpGuard Tile
