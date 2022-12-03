@@ -1,0 +1,47 @@
+name: WarpGuard
+desc: 1.1.1.1 by Cloudflare APP with WARP Client Config Management
+
+tiles:
+  - name: WarpGuard Tile
+    interval: 600
+    title: 'Warp Info'
+    icon: 'lock.icloud.fill'
+    backgroundColor: '#f6821f'
+
+http:
+  mitm:
+    - "api.cloudflareclient.com"
+    - "zero-trust-client.cloudflareclient.com"
+
+  script:
+    - match: ^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$
+      name: WarpGuard Request
+      type: request
+      require-body: true
+      timeout: 10
+    - match: ^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$
+      name: WarpGuard Response
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/t\.[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$
+      name: WarpGuard Response
+      type: request
+      require-body: true
+      timeout: 10
+    - match: ^https?:\/\/(api|zero-trust-client)\.cloudflareclient\.com\/(.*)\/reg\/t\.[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$
+      name: WarpGuard Request
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers:
+  WarpGuard Tile:
+    url: https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/Cloudflare.1.1.1.1.panel.js
+    interval: 86400
+  WarpGuard Request:
+    url: https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/Cloudflare.1.1.1.1.request.js
+    interval: 86400
+  WarpGuard Response:
+    url: https://raw.githubusercontent.com/VirgilClyne/Cloudflare/main/js/Cloudflare.1.1.1.1.response.js
+    interval: 86400
