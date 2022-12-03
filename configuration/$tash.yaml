@@ -10,7 +10,7 @@ profile:
   store-selected: false
   store-fake-ip: true
 
-subscribe-url: &suburl <suburl> # https://s.godyax.work/#/register?code=apc0YX7Y, a network service provider recommended.
+subscribe-url: &suburl <suburl> # https://degyax.com/user/index.html#/register?code=apc0YX7Y, a great network service provider recommended.
 
 proxy-groups:
 - name: $tash
