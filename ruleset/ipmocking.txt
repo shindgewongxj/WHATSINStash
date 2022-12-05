@@ -1,9 +1,7 @@
 +.weibo.cn
 +.weibo.com
-api.bilibili.tv
-api.bilibili.com
-app.bilibili.com
-passport.bilibili.com
-+.biliapi.net
++.bilibili.com
++.bilibili.tv
 +.biliapi.com
++.biliapi.net
 mp.weixin.qq.com
