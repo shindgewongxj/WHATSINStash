@@ -1,5 +1,5 @@
-+.api.weibo.cn
-+.api.weibo.com
++.weibo.cn
++.weibo.com
 api.bilibili.tv
 api.bilibili.com
 app.bilibili.com
