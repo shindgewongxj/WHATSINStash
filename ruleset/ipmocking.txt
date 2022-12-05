@@ -6,5 +6,4 @@ app.bilibili.com
 passport.bilibili.com
 +.biliapi.net
 +.biliapi.com
-channels.weixin.qq.com
 mp.weixin.qq.com
