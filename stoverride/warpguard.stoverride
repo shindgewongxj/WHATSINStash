@@ -1,4 +1,4 @@
-name: WarpGuard
+name: WARPGuard
 desc: Manage WARP client configuration.
 
 tiles:
