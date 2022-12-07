@@ -5,7 +5,7 @@ tiles:
   - name: WARPGuard Tile
     interval: 600
     title: 'WARP Info'
-    icon: 'lock.icloud.fill'
+    icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/cloudflare.png
     backgroundColor: '#f6821f'
 
 http:
