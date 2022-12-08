@@ -1,0 +1,14 @@
+{
+    "name":"WHATSINStash Iconset",
+    "description":"WHATSINStash Iconset.",
+    "icons":[
+        {"name":"Arcade.png","url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/arcade.png"},
+        {"name":"GameCenter.png","url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/gamecenter.png"},
+        {"name":"Texon.png","url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/texon.png"},
+        {"name":"V2Tun.png","url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/v2tun.png"},
+        {"name":"Cloudflare.png","url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/cloudflare.png"},
+        {"name":"WARP.png","url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/warp.png"},
+        {"name":"WireGuard.png","url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/wireguard.png"},
+        {"name":"iQZone.png","url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/iqzone.png"}
+    ]
+}
