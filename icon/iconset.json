@@ -115,16 +115,28 @@
             "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/apple.png"
         },
         {
-            "name":"Arcade",
+            "name":"Apple Arcade",
             "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/arcade.png"
+        },
+        {
+            "name":"Apple Books",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/applebooks.png"
+        },
+        {
+            "name":"Apple Music",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/applemusic.png"
+        },
+        {
+            "name":"Apple News",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/applenews.png"
         },
         {
             "name":"Game Center",
             "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/gamecenter.png"
         },
         {
-            "name":"iTunes Store",
-            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/itunesstore.png"
+            "name":"iCloud",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/icloud.png"
         },
         {
             "name":"Messages",
@@ -135,12 +147,28 @@
             "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/safari.png"
         },
         {
+            "name":"iTunes Store",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/itunesstore.png"
+        },
+        {
+            "name":"App Store",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/appstore.png"
+        },
+        {
             "name":"Telegram",
             "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/telegram.png"
         },
         {
             "name":"YouTube",
             "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/youtube.png"
+        },
+        {
+            "name":"AWS",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/aws.png"
+        },
+        {
+            "name":"Azure",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/azure.png"
         },
         {
             "name":"Blinkload",
@@ -153,6 +181,14 @@
         {
             "name":"DegYax",
             "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/degyax/1024x.png"
+        },
+        {
+            "name":"GLaDos",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/glados.png"
+        },
+        {
+            "name":"GCP",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/gcp.png"
         },
         {
             "name":"iQZone",
@@ -175,8 +211,16 @@
             "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/wireguard.png"
         },
         {
+            "name":"Riot Games",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/riotgames.png"
+        },
+        {
             "name":"iRingo",
             "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/iringo.png"
+        },
+        {
+            "name":"Sub-Store",
+            "url":"https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/substore.png"
         }
     ]
 }
