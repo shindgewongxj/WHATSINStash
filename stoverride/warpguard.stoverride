@@ -4,8 +4,9 @@ desc: Manage WARP client configuration.
 tiles:
   - name: WARPGuard Tile
     interval: 600
-    title: 'WARP Info'
-    icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/cloudflare.png
+    title: 'Info'
+    icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/warp.png
+    content: 'Warp it following the Wiki steps.'
     backgroundColor: '#f6821f'
 
 http:
