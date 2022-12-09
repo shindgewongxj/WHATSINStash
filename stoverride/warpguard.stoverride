@@ -6,8 +6,8 @@ tiles:
     interval: 600
     title: 'Info'
     icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/warp.png
-    content: 'Warp it following the Wiki steps.'
     backgroundColor: '#ffffff'
+    content: 'Warp it following the Wiki steps.'
 
 http:
   mitm:
