@@ -29,28 +29,28 @@ proxy-groups:
     - Load Balance
     - Fallback
 - name: Select
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/select.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/%24tash.png
   type: select
   url: *pingurl
   interval: 600
   use-url:
     - *suburl
 - name: Auto
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/urltest.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/productivity.png
   type: url-test
   url: *pingurl
   interval: 600
   use-url:
     - *suburl
 - name: Fallback
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/fallback.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/medical.png
   type: fallback
   url: *pingurl
   interval: 600
   use-url:
     - *suburl
 - name: Load Balance
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/loadbalance.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/news.png
   type: load-balance
   strategy: consistent-hashing  # round-robin
   url: *pingurl
@@ -69,7 +69,7 @@ proxy-groups:
     - Load Balance
     - Fallback
 - name: Game
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/arcade.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/games.png
   type: select
   url: *pingurl
   interval: 600
@@ -80,7 +80,7 @@ proxy-groups:
     - Load Balance
     - Fallback
 - name: Media
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/itunesstore.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/entertainment.png
   type: select
   url: *pingurl
   interval: 600
@@ -91,7 +91,7 @@ proxy-groups:
     - Load Balance
     - Fallback
 - name: IPMocking
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/safari.png
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/education.png
   type: select
   url: *pingurl
   interval: 600
