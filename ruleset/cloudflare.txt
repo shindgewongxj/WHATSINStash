@@ -1,2 +1,2 @@
-cloudflareclient.com
-cloudflare.com
++.cloudflareclient.com
++.cloudflare.com
