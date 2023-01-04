@@ -1,5 +1,6 @@
 +.weibo.cn
 +.weibo.com
++.bilibili.cn
 +.bilibili.com
 +.bilibili.tv
 +.biliapi.com
