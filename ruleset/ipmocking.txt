@@ -1,8 +1,15 @@
 api.weibo.cn
 +.weibo.com
+api.live.bilibili.com
+api.vc.bilibili.com
+api.bilibili.com
+app.bilibili.com
+cm.bilibili.com
+live-trace.bilibili.com
+message.bilibili.com
+passport.bilibili.com
+api.bilibili.tv
 +.bilibili.cn
-+.bilibili.com
-+.bilibili.tv
 +.biliapi.com
 +.biliapi.net
 mp.weixin.qq.com
