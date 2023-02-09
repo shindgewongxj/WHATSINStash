@@ -511,3 +511,5 @@ store-images.s-microsoft.com
 +.xboxservices.com
 +.xboxstudios.com
 +.xbx.lv
++.igamecj.com
++.pubgmobile.com
