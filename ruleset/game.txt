@@ -513,3 +513,6 @@ store-images.s-microsoft.com
 +.xbx.lv
 +.igamecj.com
 +.pubgmobile.com
++.amsoveasea.com
++.gcloudcs.com
++.anticheatexpert.com
