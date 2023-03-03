@@ -27,7 +27,8 @@ proxy-providers:
       lazy: true
 
 proxy-groups:
-- name: $tash
+- &selectgroup
+  name: $tash
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/network.png
   type: select
   <<: *healthcheck
@@ -36,10 +37,10 @@ proxy-groups:
     - Auto
     - Load Balance
     - Fallback
-- name: Select
+- <<: *selectgroup
+  name: Select
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/%24tash.png
-  type: select
-  <<: *healthcheck
+  proxies:
   use-url:
     - *suburl
 - name: Auto
@@ -61,47 +62,18 @@ proxy-groups:
   <<: *healthcheck
   use-url:
     - *suburl
-- name: Apple
+- <<: *selectgroup
+  name: Apple
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/apple.png
-  type: select
-  <<: *healthcheck
-  proxies:
-    - $tash
-    - Select
-    - Auto
-    - Load Balance
-    - Fallback
-- name: Game
+- <<: *selectgroup
+  name: Game
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/games.png
-  type: select
-  <<: *healthcheck
-  proxies:
-    - $tash
-    - Select
-    - Auto
-    - Load Balance
-    - Fallback
-- name: Media
+- <<: *selectgroup
+  name: Media
   icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/entertainment.png
-  type: select
-  <<: *healthcheck
-  proxies:
-    - $tash
-    - Select
-    - Auto
-    - Load Balance
-    - Fallback
-- name: IPMocking
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/education.png
-  type: select
-  <<: *healthcheck
-  proxies:
-    - $tash
-    - Select
-    - Auto
-    - Load Balance
-    - Fallback
-  
+- <<: *selectgroup
+  name: IPMocking
+  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/education.png  
 
 rule-providers:
   IPMocking: &ruleprovider
@@ -109,19 +81,19 @@ rule-providers:
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/ipmocking.txt
     interval: *updateinterval
   Apple:
-    << *ruleprovider
+    <<: *ruleprovider
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/apple.txt
   Game:
-    << *ruleprovider
+    <<: *ruleprovider
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/game.txt
   Media:
-    << *ruleprovider
+    <<: *ruleprovider
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/media.txt
   Advertisments:
-    << *ruleprovider
+    <<: *ruleprovider
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/advertisements.txt
   ASN China Mainland:
-    << *ruleprovider
+    <<: *ruleprovider
     behavior: classical
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/asncn.yaml
  
