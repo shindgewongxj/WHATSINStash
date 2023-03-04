@@ -10,7 +10,10 @@ profile:
   store-selected: false
   store-fake-ip: true
 
-subscribe-url: &suburl <suburl> # https://degyax.com/user/index.html#/register?code=apc0YX7Y, a great network service provider recommended.
+subscribe-url: &suburl <suburl>
+# great network service providers recommended (with invitation)
+# https://degyax.com/user/index.html#/register?code=apc0YX7Y
+# https://front.fishport.cloud/#/register?code=QhAuIGfU
 
 proxy-providers:
   DegYax: &proxyprovider
