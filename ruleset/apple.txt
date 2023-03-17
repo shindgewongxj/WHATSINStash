@@ -1549,6 +1549,6 @@ p-events-delivery.akamaized.net
 +.apple-livephotoskit.com
 +.apzones.com
 +.cdn-apple.com
-# iRingo
-api.smoot.apple.cn
 +.akamaiedge.net
++.e16991.b.akamaiedge.net
++.lookup-api.apple.com.edgekey.net
