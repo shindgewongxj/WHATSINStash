@@ -6,5 +6,6 @@ api.weibo.cn
 +.biliapi.com
 +.biliapi.net
 +.biligame.com
++.bing.com
 +.linkedin.com
 mp.weixin.qq.com
