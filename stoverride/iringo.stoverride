@@ -278,3 +278,12 @@ script-providers:
 #  Weather Map Request:
 #    url: https://raw.githubusercontent.com/VirgilClyne/iRingo/beta/js/Weather.Map.request.beta.js
 #    interval: 86400
+    
+rules:
+  - RULE-SET,iRingo,Match
+
+rule-providers:
+  iRingo:
+    behavior: classical
+    url: https://github.com/shindgewongxj/WHATSINStash/blob/main/ruleset/iRingo.txt?raw=true
+    interval: 6666
