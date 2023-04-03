@@ -285,5 +285,5 @@ rules:
 rule-providers:
   iRingo:
     behavior: classical
-    url: https://github.com/shindgewongxj/WHATSINStash/blob/main/ruleset/iRingo.txt?raw=true
+    url: https://github.com/shindgewongxj/WHATSINStash/blob/main/ruleset/iringo.yaml?raw=true
     interval: 6666
