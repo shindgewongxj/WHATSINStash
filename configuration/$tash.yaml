@@ -83,9 +83,6 @@ rule-providers:
     behavior: domain-text
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/ipmocking.txt
     interval: *updateinterval
-  Apple:
-    <<: *ruleprovider
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/apple.txt
   Game:
     <<: *ruleprovider
     url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/game.txt
@@ -104,7 +101,7 @@ rule-providers:
 rules:
 - RULE-SET,Advertisments,REJECT
 - RULE-SET,IPMocking,IPMocking
-- RULE-SET,Apple,Apple
+- IP-CIDR,17.0.0.0/8,Apple
 - RULE-SET,Game,Game
 - RULE-SET,Media,Media
 - RULE-SET,ASN China Mainland,DIRECT,no-resolve
