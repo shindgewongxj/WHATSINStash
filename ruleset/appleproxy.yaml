@@ -1,4 +1,10 @@
 payload:
+- +.apple-dns.net
+- +.apps.apple.com
+- +.appsto.re
+- +.blobstore.apple.com
+- +.digicert.com
+- +.testflight.apple.com
 - api-glb-sea.smoot.apple.com
 - books.itunes.apple.com
 - cvws.icloud-content.com
@@ -7,9 +13,4 @@ payload:
 - itunes.apple.com
 - lookup-api.apple.com
 - sandbox.itunes.apple.com
-- +.testflight.apple.com
-- +.apple-dns.net
-- +.apps.apple.com
-- +.appsto.re
-- +.blobstore.apple.com
-- +.digicert.com
+- tv.applemusic.com
