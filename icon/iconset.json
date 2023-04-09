@@ -19,6 +19,10 @@
             "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/business.png?raw=true"
         },
         {
+            "name":"Catalog",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/catalog.png?raw=true"
+        },
+        {
             "name":"Developer Tools",
             "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/developertools.png?raw=true"
         },
@@ -77,6 +81,10 @@
         {
             "name":"Photo & Video",
             "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/photoandvideo.png?raw=true"
+        },
+        {
+            "name":"Polygon",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/polygon.png?raw=true"
         },
         {
             "name":"Productivity",
