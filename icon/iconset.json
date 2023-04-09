@@ -11,132 +11,12 @@
             "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/friestash.png?raw=true"
         },
         {
-            "name":"Books",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/books.png?raw=true"
-        },
-        {
-            "name":"Business",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/business.png?raw=true"
-        },
-        {
-            "name":"Catalog",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/catalog.png?raw=true"
-        },
-        {
-            "name":"Developer Tools",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/developertools.png?raw=true"
-        },
-        {
-            "name":"Education",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/education.png?raw=true"
-        },
-        {
-            "name":"Entertainment",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/entertainment.png?raw=true"
-        },
-        {
-            "name":"Fitness",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/fitness.png?raw=true"
-        },
-        {
-            "name":"Food & Drink",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/foodanddrink.png?raw=true"
-        },
-        {
-            "name":"Games",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/games.png?raw=true"
-        },
-        {
-            "name":"Graphics & Design",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/graphicsanddesign.png?raw=true"
-        },
-        {
-            "name":"Home",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/home.png?raw=true"
-        },
-        {
-            "name":"Kids",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/kids.png?raw=true"
-        },
-        {
-            "name":"Lifestyle",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/lifestyle.png?raw=true"
-        },
-        {
-            "name":"Magazines & Newspapers",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/magazinesandnewspapers.png?raw=true"
-        },
-        {
-            "name":"Medical",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/medical.png?raw=true"
-        },
-        {
-            "name":"Music",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/music.png?raw=true"
-        },
-        {
-            "name":"Navigation",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/navigation.png?raw=true"
-        },
-        {
-            "name":"News",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/news.png?raw=true"
-        },
-        {
-            "name":"Photo & Video",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/photoandvideo.png?raw=true"
-        },
-        {
-            "name":"Polygon",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/polygon.png?raw=true"
-        },
-        {
-            "name":"Productivity",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/productivity.png?raw=true"
-        },
-        {
-            "name":"Reference",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/reference.png?raw=true"
-        },
-        {
-            "name":"Safari Extensions",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/safari-extensions.png?raw=true"
-        },
-        {
-            "name":"Shopping",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/shopping.png?raw=true"
-        },
-        {
-            "name":"Social Networking",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/socialnetworking.png?raw=true"
-        },
-        {
-            "name":"Sports",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/sports.png?raw=true"
-        },
-        {
-            "name":"Travel",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/travel.png?raw=true"
-        },
-        {
-            "name":"Utilities",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/utilities.png?raw=true"
-        },
-        {
-            "name":"Weather",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/weather.png?raw=true"
-        },
-        {
             "name":"Apple",
             "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/apple.png?raw=true"
         },
         {
             "name":"Apple Spring Loaded",
             "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/applespringloaded.png?raw=true"
-        },
-        {
-            "name":"Apple Arcade",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/arcade.png?raw=true"
         },
         {
             "name":"Apple Books",
@@ -151,32 +31,44 @@
             "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/applenews.png?raw=true"
         },
         {
-            "name":"Game Center",
+            "name":"Apple Arcade",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/applearcade.png?raw=true"
+        },
+        {
+            "name":"Apple Game Center",
             "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/gamecenter.png?raw=true"
         },
         {
-            "name":"iCloud",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/icloud.png?raw=true"
+            "name":"Apple iCloud",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/appleicloud.png?raw=true"
         },
         {
-            "name":"Messages",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/messages.png?raw=true"
+            "name":"Apple Messages",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/applemessages.png?raw=true"
         },
         {
-            "name":"FaceTime",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/facetime.png?raw=true"
+            "name":"Apple FaceTime",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/applefacetime.png?raw=true"
         },
         {
-            "name":"Safari",
+            "name":"Apple Safari",
             "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/safari.png?raw=true"
         },
         {
-            "name":"iTunes Store",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/itunesstore.png?raw=true"
+            "name":"Apple App Store",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/appstore.png?raw=true"
         },
         {
-            "name":"App Store",
-            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/appstore.png?raw=true"
+            "name":"Apple iTunes Store",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/appleitunesstore.png?raw=true"
+        },
+        {
+            "name":"Apple Home",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/applehome.png?raw=true"
+        },
+        {
+            "name":"Apple Wallet",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/blob/main/icon/applewallet.png?raw=true"
         },
         {
             "name":"Adguard",
