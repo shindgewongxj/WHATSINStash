@@ -1,5 +1,4 @@
 payload:
-  - +.apple.com
   - +.icloud.com
   - +.icloud-content.com
   - +.me.com
@@ -31,32 +30,32 @@ payload:
 # Apple 其他直连
 #
 # Store
-  - +.store.apple.com,DIRECT
+  - +.store.apple.com
 # Spotlight
-  - api.smoot.apple.com,DIRECT
-  - api.smoot.apple.cn,DIRECT
+  - api.smoot.apple.com
+  - api.smoot.apple.cn
 # Hotspot captive
-  - captive.apple.com,DIRECT
+  - captive.apple.com
 # Apple Pay
-  - smp-device-content.apple.com,DIRECT
-#DOMAIN-KEYWORD,smp-device,DIRECT
+  - smp-device-content.apple.com
+#DOMAIN-KEYWORD,smp-device
 # locationd
-  - gs-loc.apple.com,{{ location_rule }}
-  - +.ls.apple.com.akadns.net,{{ location_rule }}
-  - +.ls.apple.com.edgesuite.net,{{ location_rule }}
+  - gs-loc.apple.com
+  - +.ls.apple.com.akadns.net
+  - +.ls.apple.com.edgesuite.net
 # Reserve
-  - reserve-prime.apple.com,DIRECT
+  - reserve-prime.apple.com
 # Push
-#DOMAIN-KEYWORD,push-apple.com.akadns.net,DIRECT
-  - +.push.apple.com.akadns.net,DIRECT
-  - +.push.apple.com,DIRECT
+#DOMAIN-KEYWORD,push-apple.com.akadns.net
+  - +.push.apple.com.akadns.net
+  - +.push.apple.com
 # GeoServices.framework
-  - +.ls.apple.com,{{ location_rule }}
+  - +.ls.apple.com
 # Asset Cache Locator Service
-  - +.lcdn-locator.apple.com,DIRECT
+  - +.lcdn-locator.apple.com
 # Caching Server Registration
-  - +.lcdn-registration.apple.com,DIRECT
+  - +.lcdn-registration.apple.com
 # Translation
 # See https://github.com/ripperhe/Bob/issues/405
-  - sequoia.apple.com,DIRECT
-  - seed-sequoia.siri.apple.com,DIRECT
+  - sequoia.apple.com
+  - seed-sequoia.siri.apple.com
