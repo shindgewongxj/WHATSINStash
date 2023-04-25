@@ -1,5 +1,17 @@
 payload:
-- p49-buy.itunes.apple.com
-- tv.applemusic.com
-- +.tv.apple.com
-- gsp64-ssl.ls.apple.com
+  - api-glb-sea.smoot.apple.com
+  - sandbox.itunes.apple.com
+  - books.itunes.apple.com
+  - hls.itunes.apple.com
+  - itunes.apple.com
+  - testflight.apple.com
+  - developer.apple.com
+  - tv.applemusic.com
+  - +.tv.apple.com
+  - gsp64-ssl.ls.apple.com
+  - cvws.icloud-content.com
+  - +.apple-dns.net
+  - +.apps.apple.com
+  - +.appsto.re
+  - +.blobstore.apple.com
+  - +.digicert.com
