@@ -2,12 +2,9 @@ payload:
   - api-glb-sea.smoot.apple.com
   - sandbox.itunes.apple.com
   - books.itunes.apple.com
-  - hls.itunes.apple.com
   - itunes.apple.com
   - testflight.apple.com
   - developer.apple.com
-  - tv.applemusic.com
-  - +.tv.apple.com
   - gsp64-ssl.ls.apple.com
   - cvws.icloud-content.com
   - +.apple-dns.net
@@ -15,3 +12,11 @@ payload:
   - +.appsto.re
   - +.blobstore.apple.com
   - +.digicert.com
+# Apple TV
+  - hls-amt.itunes.apple.com
+  - hls.itunes.apple.com
+  - np-edge.itunes.apple.com
+  - play-edge.itunes.apple.com
+  - tv.applemusic.com
+  - uts-api.itunes.apple.com
+  - +.tv.apple.com
