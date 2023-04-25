@@ -1,22 +1,35 @@
 payload:
-  - api-glb-sea.smoot.apple.com
-  - sandbox.itunes.apple.com
-  - books.itunes.apple.com
-  - itunes.apple.com
-  - testflight.apple.com
-  - developer.apple.com
-  - gsp64-ssl.ls.apple.com
-  - cvws.icloud-content.com
+  - guzzoni.apple.com
+  - apps.apple.com
+  - xp.apple.com
+  - bag.itunes.apple.com
+  - api-edge.apps.apple.com
+  - api.apps.apple.com
+  - play.itunes.apple.com
+  - se.itunes.apple.com
+  - se-edge.itunes.apple.com
+  - su.itunes.apple.com
+  - upp.itunes.apple.com
+  - beta.music.apple.com
+# DOMAIN-KEYWORD,buy.itunes.apple.com
+  - +.itunes-apple.com.akadns.net
+#
+# Apple Non-China CDN
+#
+# Trailer
+  - +.hls.itunes.apple.com
+# Movie Stream
+  - +.hls-amt.itunes.apple.com
+# iTunes Music Stream
+  - +.audio-ssl.itunes.apple.com
+  - +.cdn-apple.com
+  - cdn.apple-cloudkit.com
+# Developer
+  - devimages-cdn.apple.com
+  - devstreaming-cdn.apple.com
+  - js-cdn.music.apple.com
+  - docs-assets.developer.apple.com
+# Other
   - +.apple-dns.net
-  - +.apps.apple.com
-  - +.appsto.re
-  - +.blobstore.apple.com
-  - +.digicert.com
-# Apple TV
-  - hls-amt.itunes.apple.com
-  - hls.itunes.apple.com
-  - np-edge.itunes.apple.com
-  - play-edge.itunes.apple.com
-  - tv.applemusic.com
-  - uts-api.itunes.apple.com
-  - +.tv.apple.com
+# OCSP
+  - +.ocsp.apple.com

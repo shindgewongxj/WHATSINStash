@@ -1,6 +1,62 @@
 payload:
-- +.apple.com
-- +.icloud.com
-- +.icloud-content.com
-- +.me.com
-- +.mzstatic.com
+  - +.apple.com
+  - +.icloud.com
+  - +.icloud-content.com
+  - +.me.com
+# iOS App Store
+  - iosapps.itunes.apple.com
+# Mac App Store
+  - osxapps.itunes.apple.com
+  - oscdn.apple.com
+# Update
+  - supportdownload.apple.com
+# Update
+  - appldnld.apple.com
+# Update
+  - swcdn.apple.com
+  - apptrailers.itunes.apple.com
+  - updates-http.cdn-apple.com
+  - updates.cdn-apple.com
+# App Store & iTunes Images
+  - +.mzstatic.com
+# Apple Music Streaming
+  - aod.itunes.apple.com
+  - mvod.itunes.apple.com
+  - streamingaudio.itunes.apple.com
+# Other
+  - download.developer.apple.com
+  - downloaddispatch.itunes.apple.com
+  - app-site-association.cdn-apple.com
+#
+# Apple 其他直连
+#
+# Store
+  - +.store.apple.com,DIRECT
+# Spotlight
+  - api.smoot.apple.com,DIRECT
+  - api.smoot.apple.cn,DIRECT
+# Hotspot captive
+  - captive.apple.com,DIRECT
+# Apple Pay
+  - smp-device-content.apple.com,DIRECT
+#DOMAIN-KEYWORD,smp-device,DIRECT
+# locationd
+  - gs-loc.apple.com,{{ location_rule }}
+  - +.ls.apple.com.akadns.net,{{ location_rule }}
+  - +.ls.apple.com.edgesuite.net,{{ location_rule }}
+# Reserve
+  - reserve-prime.apple.com,DIRECT
+# Push
+#DOMAIN-KEYWORD,push-apple.com.akadns.net,DIRECT
+  - +.push.apple.com.akadns.net,DIRECT
+  - +.push.apple.com,DIRECT
+# GeoServices.framework
+  - +.ls.apple.com,{{ location_rule }}
+# Asset Cache Locator Service
+  - +.lcdn-locator.apple.com,DIRECT
+# Caching Server Registration
+  - +.lcdn-registration.apple.com,DIRECT
+# Translation
+# See https://github.com/ripperhe/Bob/issues/405
+  - sequoia.apple.com,DIRECT
+  - seed-sequoia.siri.apple.com,DIRECT
