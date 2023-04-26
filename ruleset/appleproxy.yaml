@@ -1,5 +1,5 @@
 payload:
-- +.apple.com
+- +.itunes.apple.com
 #
 # Apple Non-China CDN
 #
@@ -12,11 +12,11 @@ payload:
   - +.cdn-apple.com
   - cdn.apple-cloudkit.com
 # Developer
-#  - devimages-cdn.apple.com
-#  - devstreaming-cdn.apple.com
-#  - js-cdn.music.apple.com
-#  - docs-assets.developer.apple.com
+  - devimages-cdn.apple.com
+  - devstreaming-cdn.apple.com
+  - js-cdn.music.apple.com
+  - docs-assets.developer.apple.com
 # Other
   - +.apple-dns.net
 # OCSP
-#  - +.ocsp.apple.com
+  - +.ocsp.apple.com
