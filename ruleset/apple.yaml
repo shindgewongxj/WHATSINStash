@@ -1,7 +1,7 @@
 payload:
-  - +.icloud.com
-  - +.icloud-content.com
-  - +.me.com
+#
+# Apple Global CDN
+#
 # iOS App Store
   - iosapps.itunes.apple.com
 # Mac App Store
@@ -26,36 +26,3 @@ payload:
   - download.developer.apple.com
   - downloaddispatch.itunes.apple.com
   - app-site-association.cdn-apple.com
-#
-# Apple 其他直连
-#
-# Store
-  - +.store.apple.com
-# Spotlight
-  - api.smoot.apple.com
-  - api.smoot.apple.cn
-# Hotspot captive
-  - captive.apple.com
-# Apple Pay
-  - smp-device-content.apple.com
-#DOMAIN-KEYWORD,smp-device
-# locationd
-  - gs-loc.apple.com
-  - +.ls.apple.com.akadns.net
-  - +.ls.apple.com.edgesuite.net
-# Reserve
-  - reserve-prime.apple.com
-# Push
-#DOMAIN-KEYWORD,push-apple.com.akadns.net
-  - +.push.apple.com.akadns.net
-  - +.push.apple.com
-# GeoServices.framework
-  - +.ls.apple.com
-# Asset Cache Locator Service
-  - +.lcdn-locator.apple.com
-# Caching Server Registration
-  - +.lcdn-registration.apple.com
-# Translation
-# See https://github.com/ripperhe/Bob/issues/405
-  - sequoia.apple.com
-  - seed-sequoia.siri.apple.com

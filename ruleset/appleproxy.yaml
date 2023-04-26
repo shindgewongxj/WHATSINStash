@@ -1,18 +1,4 @@
 payload:
-  - guzzoni.apple.com
-  - apps.apple.com
-  - xp.apple.com
-  - bag.itunes.apple.com
-  - api-edge.apps.apple.com
-  - api.apps.apple.com
-  - play.itunes.apple.com
-  - se.itunes.apple.com
-  - se-edge.itunes.apple.com
-  - su.itunes.apple.com
-  - upp.itunes.apple.com
-  - beta.music.apple.com
-# DOMAIN-KEYWORD,buy.itunes.apple.com
-  - +.itunes-apple.com.akadns.net
 #
 # Apple Non-China CDN
 #
