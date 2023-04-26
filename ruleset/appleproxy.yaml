@@ -1,21 +1,22 @@
 payload:
+- +.apple.com
 #
 # Apple Non-China CDN
 #
 # Trailer
-  - +.hls.itunes.apple.com
+#  - +.hls.itunes.apple.com
 # Movie Stream
-  - +.hls-amt.itunes.apple.com
+#  - +.hls-amt.itunes.apple.com
 # iTunes Music Stream
-  - +.audio-ssl.itunes.apple.com
+#  - +.audio-ssl.itunes.apple.com
   - +.cdn-apple.com
   - cdn.apple-cloudkit.com
 # Developer
-  - devimages-cdn.apple.com
-  - devstreaming-cdn.apple.com
-  - js-cdn.music.apple.com
-  - docs-assets.developer.apple.com
+#  - devimages-cdn.apple.com
+#  - devstreaming-cdn.apple.com
+#  - js-cdn.music.apple.com
+#  - docs-assets.developer.apple.com
 # Other
   - +.apple-dns.net
 # OCSP
-  - +.ocsp.apple.com
+#  - +.ocsp.apple.com
