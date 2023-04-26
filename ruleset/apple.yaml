@@ -1,4 +1,7 @@
 payload:
+- +.icloud.com
+- +.icloud-content.com
+- +.me.com
 #
 # Apple Global CDN
 #
