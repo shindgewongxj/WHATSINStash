@@ -1,5 +1,11 @@
 payload:
+- +.books.apple.com
+- +.music.apple.com
+- +.news.apple.com
+- +.tv.apple.com
+- +.xp.apple.com
 - +.itunes.apple.com
+- +.setup.icloud.com
 #
 # Apple Non-China CDN
 #
