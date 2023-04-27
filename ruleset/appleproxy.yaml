@@ -1,10 +1,10 @@
 payload:
-- +.books.apple.com
-- +.music.apple.com
-- +.news.apple.com
-- +.tv.apple.com
-- +.videos.apple.com
-- +.itunes.apple.com
+  - +.books.apple.com
+  - +.music.apple.com
+  - +.news.apple.com
+  - +.tv.apple.com
+  - +.videos.apple.com
+  - +.itunes.apple.com
 #
 # Apple Non-China CDN
 #
