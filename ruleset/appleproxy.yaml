@@ -5,8 +5,6 @@ payload:
   - +.tv.apple.com
   - +.videos.apple.com
   - +.itunes.apple.com
-  - +.push.apple.com
-  - +.gsa.apple.com
 #
 # Apple Non-China CDN
 #
