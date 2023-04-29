@@ -3,3 +3,7 @@ payload:
   - +.icloud.com
   - +.icloud-content.com
   - +.me.com
+  - +.cdn-apple.com
+  - +.apple-dns.net
+  - +.apple.com.edgekey.net
+  - +.apple.comscoreresearch.com
