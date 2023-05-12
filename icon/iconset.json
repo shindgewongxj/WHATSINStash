@@ -15,6 +15,26 @@
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/friestash.png"
         },
         {
+            "name":"Select",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/select.png"
+        },
+        {
+            "name":"Fallback",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallabck.png"
+        },
+        {
+            "name":"Load Balance",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/loadbalance.png"
+        },
+        {
+            "name":"URL Test",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/urltest.png"
+        },
+        {
+            "name":"Relay",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/relay.png"
+        },
+        {
             "name":"Statue of Liberty",
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/statueofliberty.png"
         },
