@@ -10,99 +10,201 @@ profile:
   store-selected: false
   store-fake-ip: true
 
-subscribe-url: &suburl <suburl>
+subscribe-url: <suburl>
 # great network service providers recommended (with invitation)
-# https://degyax.com/user/index.html#/register?code=apc0YX7Y
-# https://front.fishport.cloud/#/register?code=QhAuIGfU
+# https://degyax.com/user/#/register?code=7Up3353X
+# https://fishchips.io/#/register?code=QhAuIGfU
 
-proxy-providers:
-  DegYax: &proxyprovider
-    url: *suburl
-    interval: &updateinterval 66666
-    health-check: &healthcheck
-      url: &pingurl http://1.1.1.1/generate_204
-# Apple:            http://captive.apple.com
-# Google:           http://www.gstatic.com/generate_204
-# Cloudflare:       http://cp.cloudflare.com/generate_204
-# V2EX:             http://www.v2ex.com/generate_204
-      interval: &pinginterval 66
-      tolerance: &pingtolerance 6
-      lazy: true
+# MARK: Proxy Groups
+
+benchmark: &benchmark
+  url: http://1.1.1.1/generate_204
+# Cloudflare    http://1.1.1.1/generate_204
+# Apple:        http://captive.apple.com
+# Google:       http://www.gstatic.com/generate_204
+# V2EX:         http://www.v2ex.com/generate_204
+  interval: 66
+  tolerance: 6
+  lazy: false
+
+countryFallback: &countryFallback
+  name: Fallback
+  type: fallback
+  <<: *benchmark
+  include-all: true
+  hidden: true
+
+proxyGroups: &proxyGroups
+  proxies:
+    - $tash
+    - DegYax
+    - FishPort
+    - Argentina
+    - Australia
+    - China Mainland
+    - Hong Kong
+    - Japan
+    - Korea
+    - Macau
+    - Singapore
+    - Taiwan
+    - Turkey
+    - United States
 
 proxy-groups:
-- &selectgroup
-  name: $tash
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/network.png
-  type: select
-  <<: *healthcheck
-  proxies:
-    - Select
-    - Auto
-    - Load Balance
-    - Fallback
-- <<: *selectgroup
-  name: Select
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/%24tash.png
-  proxies:
-  use-url:
-    - *suburl
-- name: Auto
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/productivity.png
-  type: url-test
-  <<: *healthcheck
-  use-url:
-    - *suburl
-- name: Fallback
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/medical.png
-  type: fallback
-  <<: *healthcheck
-  use-url:
-    - *suburl
-- name: Load Balance
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/news.png
-  type: load-balance
-  strategy: consistent-hashing  # round-robin
-  <<: *healthcheck
-  use-url:
-    - *suburl
-- <<: *selectgroup
-  name: Apple
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/apple.png
-- <<: *selectgroup
-  name: Game
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/games.png
-- <<: *selectgroup
-  name: Media
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/entertainment.png
-- <<: *selectgroup
-  name: IPMocking
-  icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/education.png  
+  - &selectgroup
+    name: $tash
+    icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/network.png
+    type: select
+    <<: *benchmark
+    proxies:
+      - DegYax
+      - FishPort
+      - Argentina
+      - Australia
+      - China Mainland
+      - Hong Kong
+      - Japan
+      - Korea
+      - Macau
+      - Singapore
+      - Taiwan
+      - Turkey
+      - United States
+      
+  - name: DegYax
+    icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/degyax3.png
+    type: select
+    use:
+      - DegYax
+      
+  - name: FishPort
+    icon: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/icon/fishport.png
+    type: select
+    use:
+      - FishPort
+
+  - name: Apple
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/applespringloaded.png
+    type: select
+    <<: *proxyGroups
+
+  - name: Open AI
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/openai.png
+    type: select
+    <<: *proxyGroups
+
+  - name: Tencent International
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/tencent.png
+    type: select
+    <<: *proxyGroups
+
+  - <<: *countryFallback
+    name: Argentina
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/obeliscodebuenosaires.png
+    filter: .*Argentina.*
+
+  - <<: *countryFallback
+    name: Australia
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/sydneyoperahouse.png
+    filter: .*Australia.*
+
+  - <<: *countryFallback
+    name: China Mainland
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/thegreatwall.png
+    filter: .*China\ Mainland.*
+
+  - <<: *countryFallback
+    name: Hong Kong
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/skylines.png
+    filter: .*Hong\ Kong.*
+
+  - <<: *countryFallback
+    name: Japan
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/torii.png
+    filter: .*Japan.*
+
+  - <<: *countryFallback
+    name: Korea
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/gyeongbokgungpalace.png
+    filter: .*Korea.*
+
+  - <<: *countryFallback
+    name: Macau
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/ruinsofsaintpauls.png
+    filter: .*Macau.*
+
+  - <<: *countryFallback
+    name: Singapore
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/merlion.png
+    filter: .*Singapore.*
+
+  - <<: *countryFallback
+    name: Taiwan
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/taipei101.png
+    filter: .*Taiwan.*
+
+  - <<: *countryFallback
+    name: Turkey
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/sultanahmedmosque.png
+    filter: .*Turkey.*
+
+  - <<: *countryFallback
+    name: United States
+    icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/statueofliberty.png
+    filter: .*United\ States.*
+
+# MARK: Rules
+rules:
+  - SCRIPT,QUIC,REJECT,no-track
+  - RULE-SET,HTTP DNS,REJECT,no-track
+  - RULE-SET,IP Mocking,$tash
+  - RULE-SET,Apple China Mainland,China Mainland
+  - RULE-SET,Apple,Apple
+  - DOMAIN-SUFFIX,openai.com,Open AI
+  - IP-ASN,132203,Tencent International,no-resolve
+  - RULE-SET,ASN China Mainland,China Mainland,no-resolve
+  - MATCH,$tash
+
+# MARK: Scripts
+script:
+  shortcuts:
+    QUIC: network == 'udp' and dst_port == 443
+
+proxy-providers:
+  DegYax:
+    url: <suburl>
+    interval: 66666
+
+  FishPort:
+    url: <suburl>
+    interval: 66666
+
+# MARK: Rule Providers
+ruleProvider: &ruleProvider
+  behavior: domain
+  url: https://github.com/shindgewongxj/WHATSINStash/raw/main/ruleset/apple.yaml
+  interval: 66666
 
 rule-providers:
-  IPMocking: &ruleprovider
-    behavior: domain-text
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/ipmocking.txt
-    interval: *updateinterval
-  Game:
-    <<: *ruleprovider
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/game.txt
-  Media:
-    <<: *ruleprovider
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/media.txt
-  Advertisments:
-    <<: *ruleprovider
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/advertisements.txt
+  Apple:
+    <<: *ruleProvider
+    url: https://gist.githubusercontent.com/shindgewongxj/86d5330f12bd24598701f51365f602e1/raw/apple.yaml
+
+  Apple China Mainland:
+    <<: *ruleProvider
+    url: https://gist.githubusercontent.com/shindgewongxj/86d5330f12bd24598701f51365f602e1/raw/applecdn.yaml
+
   ASN China Mainland:
-    <<: *ruleprovider
+    <<: *ruleProvider
     behavior: classical
-    url: https://raw.githubusercontent.com/shindgewongxj/WHATSINStash/main/ruleset/asncn.yaml
- 
- 
-rules:
-- RULE-SET,Advertisments,REJECT
-- RULE-SET,IPMocking,IPMocking
-- IP-CIDR,17.0.0.0/8,Apple
-- RULE-SET,Game,Game
-- RULE-SET,Media,Media
-- RULE-SET,ASN China Mainland,DIRECT,no-resolve
-- MATCH,$tash
+    url: https://github.com/shindgewongxj/WHATSINStash/raw/main/ruleset/asncn.yaml
+
+  IP Mocking:
+    <<: *ruleProvider
+    url: https://github.com/shindgewongxj/WHATSINStash/raw/main/ruleset/ipmocking.yaml
+
+  HTTP DNS:
+    <<: *ruleProvider
+    behavior: classical
+    url: https://github.com/shindgewongxj/WHATSINStash/raw/main/ruleset/httpdns.yaml
