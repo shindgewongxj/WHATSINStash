@@ -4,3 +4,19 @@ payload:
   - +.bing.com
   - +.linkedin.com
   - +.mp.weixin.qq.com
+  # +.api.bilibili.com
+  # +.api.bilibili.tv
+  # +.app.bilibili.com
+  # +.api.live.bilibili.com
+  # +.api.vc.bilibili.com
+  # +.cm.bilibili.com
+  # +.live-trace.bilibili.com
+  # +.message.bilibili.com
+  # +.passport.bilibili.com
+  - +.bilibili.com
+  - +.bilibili.tv
+  - +.biliapi.com
+  - +.biliapi.net
+  - +.biligame.com
+  - +.acg.tv
+  - +.im9.com
