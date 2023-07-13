@@ -1,0 +1,17 @@
+name: Emby Premiere
+desc: Unlock premiere features of Emby.
+
+http:
+  mitm:
+    - mb3admin.com
+  script:
+    - match: ^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice
+      name: Emby Premiere
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers:
+  Emby Premiere:
+    url: https://github.com/shindgewongxj/WHATSINStash/blob/main/javascript/embypremiere.js
+    interval: 86400
