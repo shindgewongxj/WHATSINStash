@@ -215,6 +215,10 @@
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/adguard.png"
         },
         {
+            "name":"Anthropic",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/anthropic.png"
+        },
+        {
             "name":"Baidu",
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/baidu.png"
         },
@@ -287,6 +291,10 @@
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/tencent.png"
         },
         {
+            "name":"Threads",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/threads.png"
+        },
+        {
             "name":"Tinder",
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/tinder.png"
         },
@@ -311,6 +319,10 @@
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/weibo.png"
         },
         {
+            "name":"X",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/x.png"
+        },
+        {
             "name":"XBOX",
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/xbox.png"
         },
@@ -322,7 +334,6 @@
             "name":"Zhihu",
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/zhihu.png"
         },
-
         {
             "name":"AWS",
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/aws.png"
@@ -438,6 +449,10 @@
         {
             "name":"Sub-Store",
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/substore.png"
+        },
+        {
+            "name":"Hogwarts",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/hogwarts.png"
         }
     ]
 }
