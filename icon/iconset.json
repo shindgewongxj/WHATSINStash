@@ -3,6 +3,10 @@
     "description":"WHATSINStash Iconset.",
     "icons":[
         {
+            "name":"StashFlight",
+            "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/stashflight.png"
+        },
+        {
             "name":"$tash",
             "url":"https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/%24tash.png"
         },
