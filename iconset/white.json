@@ -1,0 +1,22 @@
+{
+    "name": "WHATSINStach White",
+    "description": "White iconset",
+    "icons": [
+        {
+            "name": "tencent",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/tencent.png"
+        },
+        {
+            "name": "telegram",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/telegram.png"
+        },
+        {
+            "name": "bilibili",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/bilibili.png"
+        },
+        {
+            "name": "emby",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/emby.png"
+        }
+    ]
+}
