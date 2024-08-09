@@ -29,7 +29,7 @@ jobs:
 
     - name: Generate JSON files
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
       run: |
         import os
         import json
@@ -54,7 +54,7 @@ jobs:
             }
 
         # Get repository information
-        g = Github(os.environ['GITHUB_TOKEN'])
+        g = Github(os.environ['ACTION_TOKEN'])
         repo = g.get_repo(os.environ['GITHUB_REPOSITORY'])
         branch = repo.get_branch(os.environ['GITHUB_REF'].split('/')[-1])
 
