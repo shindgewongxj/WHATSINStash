@@ -1,0 +1,79 @@
+name: Generate Icon JSON Files
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'iconset/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'iconset/**'
+  workflow_dispatch:
+
+jobs:
+  generate-json:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install PyGithub
+
+    - name: Generate JSON files
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        import os
+        import json
+        from github import Github
+
+        def generate_json(folder_path, repo_name, branch_name):
+            icons = []
+            for filename in os.listdir(folder_path):
+                if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                    icon_url = f"https://github.com/{repo_name}/raw/{branch_name}/{folder_path}/{filename}"
+                    icons.append({
+                        "name": os.path.splitext(filename)[0],
+                        "url": icon_url
+                    })
+            
+            return {
+                "name": f"{os.path.basename(folder_path)} Iconset",
+                "description": f"{os.path.basename(folder_path)} Iconset.",
+                "icons": icons
+            }
+
+        # Get repository information
+        g = Github(os.environ['GITHUB_TOKEN'])
+        repo = g.get_repo(os.environ['GITHUB_REPOSITORY'])
+        branch = repo.get_branch(os.environ['GITHUB_REF'].split('/')[-1])
+
+        # Specify the main folder to scan
+        main_folder = 'iconset'
+
+        # Generate JSON for each subfolder
+        for subfolder in os.listdir(main_folder):
+            subfolder_path = os.path.join(main_folder, subfolder)
+            if os.path.isdir(subfolder_path):
+                json_data = generate_json(subfolder_path, repo.full_name, branch.name)
+                
+                # Write JSON file
+                with open(f"{main_folder}/{subfolder}.json", 'w') as f:
+                    json.dump(json_data, f, indent=4)
+
+        print("JSON files generated successfully.")
+
+    - name: Commit and push if changes
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'
+        git add .
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Automatically generated JSON files" && git push)
