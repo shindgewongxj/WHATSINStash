@@ -37,6 +37,8 @@ jobs:
 
         def generate_json(folder_path, repo_name, branch_name):
             icons = []
+            folder_name = os.path.basename(folder_path)
+            
             for filename in os.listdir(folder_path):
                 if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
                     icon_url = f"https://github.com/{repo_name}/raw/{branch_name}/{folder_path}/{filename}"
@@ -46,8 +48,8 @@ jobs:
                     })
             
             return {
-                "name": f"{os.path.basename(folder_path)} Iconset",
-                "description": f"{os.path.basename(folder_path)} Iconset.",
+                "name": f"WHATSINStach {folder_name.capitalize()}",
+                "description": f"{folder_name.capitalize()} iconset",
                 "icons": icons
             }
 
@@ -65,8 +67,9 @@ jobs:
             if os.path.isdir(subfolder_path):
                 json_data = generate_json(subfolder_path, repo.full_name, branch.name)
                 
-                # Write JSON file
-                with open(f"{main_folder}/{subfolder}.json", 'w') as f:
+                # Write JSON file with subfolder name
+                json_filename = f"{subfolder}.json"
+                with open(os.path.join(main_folder, json_filename), 'w') as f:
                     json.dump(json_data, f, indent=4)
 
         print("JSON files generated successfully.")
@@ -76,4 +79,4 @@ jobs:
         git config --global user.name 'GitHub Action'
         git config --global user.email 'action@github.com'
         git add .
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Automatically generated JSON files" && git push)
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Generate iconset JSON files" && git push)
