@@ -21,7 +21,7 @@ def generate_json(folder_path, repo_name, branch_name):
     }
 
 # Get repository information
-g = Github(os.environ['ACTION_TOKEN'])
+g = Github(os.environ['GITHUB_TOKEN'])
 repo = g.get_repo(os.environ['GITHUB_REPOSITORY'])
 branch = repo.get_branch(os.environ['GITHUB_REF'].split('/')[-1])
 
