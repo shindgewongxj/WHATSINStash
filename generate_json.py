@@ -13,7 +13,10 @@ def generate_json(folder_path, repo_name, branch_name):
                 "name": os.path.splitext(filename)[0],
                 "url": icon_url
             })
-    
+
+    # Sort the icons list by the 'name' key
+    icons.sort(key=lambda x: x['name'].lower())
+
     return {
         "name": f"WHATSINStach {folder_name.capitalize()}",
         "description": f"{folder_name.capitalize()} iconset",
