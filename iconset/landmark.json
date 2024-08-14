@@ -3,52 +3,36 @@
     "description": "Landmark iconset",
     "icons": [
         {
-            "name": "brandenburggate",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/brandenburggate.png"
+            "name": "bigben",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/bigben.png"
         },
         {
-            "name": "saintbasilscathedral",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/saintbasilscathedral.png"
+            "name": "brandenburggate",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/brandenburggate.png"
         },
         {
             "name": "chiangkaishekmemorialhouse",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/chiangkaishekmemorialhouse.png"
         },
         {
-            "name": "petronastowers",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/petronastowers.png"
-        },
-        {
-            "name": "thewhitehouse",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/thewhitehouse.png"
-        },
-        {
             "name": "christtheredeemer",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/christtheredeemer.png"
         },
         {
-            "name": "statueofliberty",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/statueofliberty.png"
+            "name": "cntower",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/cntower.png"
         },
         {
-            "name": "sultanahmedmosque",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/sultanahmedmosque.png"
+            "name": "colosseum",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/colosseum.png"
         },
         {
-            "name": "thefederalassembly",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/thefederalassembly.png"
+            "name": "gyeongbokgungpalace",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/gyeongbokgungpalace.png"
         },
         {
-            "name": "taipei101",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/taipei101.png"
-        },
-        {
-            "name": "bigben",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/bigben.png"
-        },
-        {
-            "name": "ruinsofsaintpauls",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/ruinsofsaintpauls.png"
+            "name": "londoneye",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/londoneye.png"
         },
         {
             "name": "merlion",
@@ -59,48 +43,64 @@
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/nationalmonument.png"
         },
         {
-            "name": "tajmahal",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/tajmahal.png"
+            "name": "obeliscodebuenosaires",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/obeliscodebuenosaires.png"
         },
         {
-            "name": "stonehenge",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/stonehenge.png"
+            "name": "petronastowers",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/petronastowers.png"
         },
         {
-            "name": "torii",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/torii.png"
+            "name": "ruinsofsaintpauls",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/ruinsofsaintpauls.png"
         },
         {
-            "name": "sydneyoperahouse",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/sydneyoperahouse.png"
-        },
-        {
-            "name": "colosseum",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/colosseum.png"
+            "name": "saintbasilscathedral",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/saintbasilscathedral.png"
         },
         {
             "name": "skylines",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/skylines.png"
         },
         {
-            "name": "londoneye",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/londoneye.png"
+            "name": "statueofliberty",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/statueofliberty.png"
+        },
+        {
+            "name": "stonehenge",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/stonehenge.png"
+        },
+        {
+            "name": "sultanahmedmosque",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/sultanahmedmosque.png"
+        },
+        {
+            "name": "sydneyoperahouse",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/sydneyoperahouse.png"
+        },
+        {
+            "name": "taipei101",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/taipei101.png"
+        },
+        {
+            "name": "tajmahal",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/tajmahal.png"
+        },
+        {
+            "name": "thefederalassembly",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/thefederalassembly.png"
         },
         {
             "name": "thegreatwall",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/thegreatwall.png"
         },
         {
-            "name": "obeliscodebuenosaires",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/obeliscodebuenosaires.png"
+            "name": "thewhitehouse",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/thewhitehouse.png"
         },
         {
-            "name": "gyeongbokgungpalace",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/gyeongbokgungpalace.png"
-        },
-        {
-            "name": "cntower",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/cntower.png"
+            "name": "torii",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/landmark/torii.png"
         }
     ]
 }

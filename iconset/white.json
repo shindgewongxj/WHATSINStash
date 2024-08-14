@@ -3,64 +3,64 @@
     "description": "White iconset",
     "icons": [
         {
+            "name": "appleintelligence",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/appleintelligence.png"
+        },
+        {
             "name": "applespringloaded",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/applespringloaded.png"
-        },
-        {
-            "name": "degyaxpro",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/degyaxpro.png"
-        },
-        {
-            "name": "cloudflarewarp",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/cloudflarewarp.png"
-        },
-        {
-            "name": "cloudflare",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/cloudflare.png"
-        },
-        {
-            "name": "dlercloud",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/dlercloud.png"
-        },
-        {
-            "name": "surge",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/surge.png"
-        },
-        {
-            "name": "degyax",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/degyax.png"
-        },
-        {
-            "name": "infiniport",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/infiniport.png"
-        },
-        {
-            "name": "stash",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/stash.png"
-        },
-        {
-            "name": "tencent",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/tencent.png"
-        },
-        {
-            "name": "telegram",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/telegram.png"
         },
         {
             "name": "bilibili",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/bilibili.png"
         },
         {
+            "name": "cloudflare",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/cloudflare.png"
+        },
+        {
+            "name": "cloudflarewarp",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/cloudflarewarp.png"
+        },
+        {
+            "name": "degyax",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/degyax.png"
+        },
+        {
+            "name": "degyaxpro",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/degyaxpro.png"
+        },
+        {
+            "name": "dlercloud",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/dlercloud.png"
+        },
+        {
             "name": "emby",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/emby.png"
+        },
+        {
+            "name": "infiniport",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/infiniport.png"
         },
         {
             "name": "loon",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/loon.png"
         },
         {
-            "name": "appleintelligence",
-            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/appleintelligence.png"
+            "name": "stash",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/stash.png"
+        },
+        {
+            "name": "surge",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/surge.png"
+        },
+        {
+            "name": "telegram",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/telegram.png"
+        },
+        {
+            "name": "tencent",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/tencent.png"
         }
     ]
 }
