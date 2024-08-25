@@ -39,12 +39,32 @@
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/emby.png"
         },
         {
+            "name": "fishchips",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/fishchips.png"
+        },
+        {
             "name": "infiniport",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/infiniport.png"
         },
         {
             "name": "loon",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/loon.png"
+        },
+        {
+            "name": "meta",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/meta.png"
+        },
+        {
+            "name": "microsoft",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/microsoft.png"
+        },
+        {
+            "name": "openai",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/openai.png"
+        },
+        {
+            "name": "riotgames",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/riotgames.png"
         },
         {
             "name": "sinaweibo",
@@ -69,6 +89,18 @@
         {
             "name": "tencent",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/tencent.png"
+        },
+        {
+            "name": "tiktok",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/tiktok.png"
+        },
+        {
+            "name": "v2tun",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/v2tun.png"
+        },
+        {
+            "name": "wechat",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/wechat.png"
         },
         {
             "name": "x",
