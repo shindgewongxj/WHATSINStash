@@ -47,6 +47,14 @@
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/loon.png"
         },
         {
+            "name": "sinaweibo",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/sinaweibo.png"
+        },
+        {
+            "name": "slack",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/slack.png"
+        },
+        {
             "name": "stash",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/stash.png"
         },
@@ -61,6 +69,10 @@
         {
             "name": "tencent",
             "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/tencent.png"
+        },
+        {
+            "name": "x",
+            "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/white/x.png"
         }
     ]
 }
