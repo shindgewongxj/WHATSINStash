@@ -1,0 +1,10 @@
+{
+    "name": "WHATSINStash Monochrome(Light)",
+    "description": "Monochrome(Light) iconset",
+    "icons": [
+      {
+          "name": "Perfect Link",
+          "url": "https://github.com/shindgewongxj/WHATSINStash/raw/main/iconset/monochrome/light/perfectlink.png"
+      }
+    ]
+}
